@@ -146,6 +146,7 @@
     <ClCompile Include="TetrisData.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rlutil.h" />
     <ClInclude Include="TetrisGlobal.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

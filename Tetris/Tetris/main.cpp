@@ -2,12 +2,18 @@
 #include <thread>
 #include <atomic>
 #include <chrono>
-#include <conio.h> // windows-only
+#include <array>
 #include "TetrisGlobal.h"
+#include "rlutil.h" // cross-platform getch(), gotoxy(), setColor(), etc.
 
 
+std::atomic<int> tetGrid[10][22]; // use bitmask to separate data values
+
+void tPlayerAIMain();
 void tPlayerMain();
 void tPlayerActionWatch(const bool &, std::atomic<bool> &, std::atomic<int> &);
+// void clearScreen();
+// void drawScreen();
 
 int main(void)
 {
@@ -21,6 +27,10 @@ int main(void)
 	tP1_PM.join();
 
 	return 0;
+}
+
+void tPlayerAIMain()
+{
 }
 
 void tPlayerMain() // busy-waiting for block drop / action update from tPlayerActionWatch()
@@ -126,6 +136,19 @@ void tPlayerActionWatch(const bool &killsw, std::atomic<bool> &actionflag, std::
 
 	return;
 }
+
+/*
+void clearScreen()
+{
+	rlutil::cls();
+}
+
+void drawScreen() // needs to be completely mutually exclusive(mutex) - input ignorance/queueing, atomic<bool> for function run check (redundant?)
+{
+	
+}
+*/
+
 
 /*
 Controls: 
