@@ -39,20 +39,27 @@ struct st_gbdat
 
 /*
 Coefficients for value function
-1. sum of total maximum height (smaxh)
-2. maximum height (maxh)
-3. completed lines (compl)
-4. holes (hole)
-5. sum of height differences between adjacent columns (bumpy)
-6. adjacent sides (L/R) (adjLR)
-7. adjacent sides (D) (adjD)
-8. previous combo counts (prevcombo)
-9. previous b2b counts (prevb2b)
-10. score change (dscore)
+1. sum of total maximum height (smaxh, 0)
+2. maximum height (maxh, 1)
+3. completed lines (compl, 2)
+4. holes (hole, 3)
+5. sum of height differences between adjacent columns (bumpy, 4)
+6. adjacent sides (L/R) (adjLR, 5)
+7. adjacent sides (D) (adjD, 6)
+8. previous combo counts (prevcombo, 7)
+9. previous b2b counts (prevb2b, 8)
+10. score change (dscore, 9)
 */
 struct st_func
 {
-	double smaxh, maxh, compl, hole, bumpy, adjLR, adjD, prevcombo, prevb2b, dscore;
+	double cff[10];
+	long long fitness;
+	// double smaxh, maxh, compl, hole, bumpy, adjLR, adjD, prevcombo, prevb2b, dscore;
+
+	bool operator<(const st_func &cmp) const
+	{
+		return fitness < cmp.fitness;
+	}
 };
 
 extern const st_crd offset[3][4][5];

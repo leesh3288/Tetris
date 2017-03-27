@@ -1,22 +1,30 @@
 #include <cstdio>
+#include <algorithm>
 #include <thread>
 #include <atomic>
+#include <random>
 #include <chrono>
-#include <array>
 #include "TetrisGlobal.h"
 #include "rlutil.h" // cross-platform getch(), gotoxy(), setColor(), etc.
 
 
-std::atomic<int> tetGrid[10][22]; // use bitmask to separate data values
 
+st_func gaSolver(int, int, int, int, double, double, double);
+void gaInitPool(st_func *, int, double, std::mt19937 &);
+void gaFitnessCalc(st_func *, int, int, int, std::mt19937 &);
+void gaEvolve(st_func *&, int, int, int, double, double, std::mt19937 &);
+double gaSimulate(st_func *, int, int, std::mt19937 &);
+/*
 void tPlayerAIMain();
 void tPlayerMain();
 void tPlayerActionWatch(const bool &, std::atomic<bool> &, std::atomic<int> &);
-// void clearScreen();
-// void drawScreen();
+void clearScreen();
+void drawScreen();
+*/
 
 int main(void)
 {
+	/*
 	printf("t to trigger automatic timer\n");
 	printf("r to reset timer\n");
 	printf("c to reset timer counts\n");
@@ -25,10 +33,119 @@ int main(void)
 	std::thread tP1_PM(tPlayerMain); // thread parent->child relationship: tP1_PM -> tP1_PAW
 	
 	tP1_PM.join();
+	*/
+
+	st_func optimal = gaSolver(1000, 1000, 500, 5000, 10.0, 50.0, 50.0);
 
 	return 0;
 }
 
+// population | evolve # | simulation # | max mvmt in simulation | mutation chance (%) | max mutation deviation (%) | max abs init val
+st_func gaSolver(int genpop, int evolvect, int simct, int simmove, double mutch, double mutdev, double absiv)	
+{
+	st_func *entity = new st_func[genpop], opt;
+
+	std::random_device rd;
+	std::mt19937 mt(rd());
+
+	gaInitPool(entity, genpop, absiv, mt);
+
+	for (int i = 0; i < evolvect; i++)
+	{
+		gaFitnessCalc(entity, genpop, simct, simmove, mt);
+		gaEvolve(entity, genpop, simct, simmove, mutch, mutdev, mt);
+	}
+	gaFitnessCalc(entity, genpop, simct, simmove, mt);
+
+	long long mfit = entity[0].fitness;
+	int midx = 0;
+
+	for (int i = 1; i < genpop; i++)
+	{
+		if (entity[i].fitness > mfit)
+		{
+			mfit = entity[i].fitness;
+			midx = i;
+		}
+	}
+	opt = entity[midx];
+
+	delete[] entity;
+
+	return opt;
+}
+
+void gaInitPool(st_func *entity, int genpop, double absiv, std::mt19937 &mt)
+{
+	std::uniform_real_distribution<double> rnd(-absiv, absiv);
+
+	for (int i = 0; i < genpop; i++)
+		for (int j = 0; j < 10; j++)
+			entity[i].cff[j] = rnd(mt);
+
+	return;
+}
+
+void gaFitnessCalc(st_func *entity, int genpop, int simct, int simmove, std::mt19937 &mt)
+{
+	for (int i = 0; i < genpop; i++)
+	{
+		if (entity[i].fitness != 0.0) // fitness already calculated
+			continue;
+
+		for (int j = 0; j < simct; j++)
+			entity[i].fitness += gaSimulate(entity, j, simmove, mt);
+		entity[i].fitness /= simct;
+	}
+
+	return;
+}
+
+void gaEvolve(st_func *&entity, int genpop, int simct, int simmove, double mutch, double mutdev, std::mt19937 &mt)
+{
+	/*
+	1. randomly shuffle
+	2. take two, choose the fitter, add to next gen (total 50% entity filled)
+	3. from the parents, randomly choose 2, produce offspring (fill leftover 50% with offsprings)
+	*/
+	std::shuffle(entity, entity + genpop, mt);
+
+	st_func *nextgen = new st_func[genpop];
+
+	int par = 0;
+	for (int i = 1; i < genpop; i += 2)
+	{
+		if (entity[i - 1].fitness > entity[i].fitness)
+			nextgen[par++] = entity[i - 1];
+		else
+			nextgen[par++] = entity[i];
+	}
+
+	delete[] entity;
+
+	// nextgen[0 ~ par-1]: parents
+	for (int i = par; i < genpop; i++)
+	{
+		/*
+		select 2 unique random numbers from [0, par - 1]
+		1. randomly select 1 number from [0, par - 2]
+		2. randomly select 1 number from [0, par - 1]. if overlaps, set it to par - 1.
+		*/
+	}
+
+	entity = nextgen;
+
+	return;
+}
+
+double gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
+{
+	// single simulation (with evaluation function entity[cursim] & maximum move # simmove)
+}
+
+
+
+/*
 void tPlayerAIMain()
 {
 }
@@ -136,7 +253,7 @@ void tPlayerActionWatch(const bool &killsw, std::atomic<bool> &actionflag, std::
 
 	return;
 }
-
+*/
 /*
 void clearScreen()
 {
