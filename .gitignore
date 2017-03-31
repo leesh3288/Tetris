@@ -250,3 +250,7 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
+Tetris/Tetris/log.txt
+Tetris/Tetris/optimal.txt
+Tetris/Tetris/Solutions

@@ -1,19 +1,32 @@
+// #define DBG /// debug switch
+// #define DBG_MBM /// debug move-by-move
+// #define SCORELINE /// score = lines*10 (+placed block) switch
+// #define OPTBEST /// output best entity of each generation to optimal.txt
+
 #include <cstdio>
+#include <cmath>
 #include <algorithm>
 #include <thread>
 #include <atomic>
 #include <random>
 #include <chrono>
+#include <omp.h>
 #include "TetrisGlobal.h"
 #include "rlutil.h" // cross-platform getch(), gotoxy(), setColor(), etc.
 
 
+std::atomic<int> fct;
 
-st_func gaSolver(int, int, int, int, double, double, double);
-void gaInitPool(st_func *, int, double, std::mt19937 &);
+st_func gaSolver(int, int, int, int, double, double);
+void gaInitPool(st_func *, int, std::mt19937 &);
 void gaFitnessCalc(st_func *, int, int, int, std::mt19937 &);
 void gaEvolve(st_func *&, int, int, int, double, double, std::mt19937 &);
-double gaSimulate(st_func *, int, int, std::mt19937 &);
+long long gaSimulate(st_func *, int, int, std::mt19937 &);
+void gaCrossover(st_func *, int, int, int, int, double, double, std::mt19937 &);
+void gaNormalize(st_func *, int);
+bool isPossible(bool[27][10], st_tetro);
+double calcMoveVal(bool[27][10], int, int, int, st_tetro, st_func &);
+long long procMove(bool[27][10], int &, int &, int &, st_tetro);
 /*
 void tPlayerAIMain();
 void tPlayerMain();
@@ -35,25 +48,91 @@ int main(void)
 	tP1_PM.join();
 	*/
 
-	st_func optimal = gaSolver(1000, 1000, 500, 5000, 10.0, 50.0, 50.0);
+#ifndef DBG
+	st_func optimal = gaSolver(100, 100, 100, 1200, 0.1, 1.5);
+#endif
+
+#ifdef DBG
+	/// DEBUG
+	st_func *t = new st_func[1];
+	double dat[10] = { -44.88, -13.74, -0.66, -42.75, -9.42, 34.64, 45.41, 50.72, -3.26, 5.94 };
+	for (int i = 0; i < 10; i++)
+		t[0].cff[i] = dat[i];
+	gaNormalize(t, 0);
+	std::random_device rd;
+	std::mt19937 mt(rd());
+	gaSimulate(t, 0, 100'000'000, mt);
+	delete[] t;
+	///
+#endif
 
 	return 0;
 }
 
-// population | evolve # | simulation # | max mvmt in simulation | mutation chance (%) | max mutation deviation (%) | max abs init val
-st_func gaSolver(int genpop, int evolvect, int simct, int simmove, double mutch, double mutdev, double absiv)	
+// population | evolve # | simulation # | max mvmt in simulation | mutation chance | max mutation deviation
+st_func gaSolver(int genpop, int evolvect, int simct, int simmove, double mutch, double mutdev)
 {
 	st_func *entity = new st_func[genpop], opt;
 
 	std::random_device rd;
 	std::mt19937 mt(rd());
 
-	gaInitPool(entity, genpop, absiv, mt);
+	gaInitPool(entity, genpop, mt);
 
 	for (int i = 0; i < evolvect; i++)
 	{
+		auto timebase = std::chrono::high_resolution_clock::now();
+		
+		printf("==============================================================================\n");
+		printf("Generation #%d fitness calculation started\n", i);
+		printf("==============================================================================\n");
+		
 		gaFitnessCalc(entity, genpop, simct, simmove, mt);
+		
+		long long Midx = 0, avg = 0;
+		for (int j = 1; j < genpop; j++)
+		{
+			// printf("Entity #%d: fitness = %lld\n", i, entity[i].fitness); /// DEBUG
+			if (entity[j].fitness > entity[Midx].fitness)
+				Midx = j;
+			avg += entity[j].fitness;
+		}
+
+		FILE *fp = fopen("log.txt", "at");
+		fprintf(fp, "%d,%lld,%lld\n", i, entity[Midx].fitness, avg / genpop);
+		fclose(fp);
+
+		printf("==============================================================================\n");
+		printf("Generation #%d fitness calculation finished with: \n", i);
+		printf(" >> optimal fitness = %lld, average fitness = %lld\n", entity[Midx].fitness, avg / genpop);
+		printf(" >> optimal: %.2lf", entity[Midx].cff[0]);
+		for (int j = 1; j < 10; j++)
+			printf(", %.2lf", entity[Midx].cff[j]);
+		printf("\n");
+		printf("==============================================================================\n");
+
+#ifdef OPTBEST
+		fp = fopen("optimal.txt", "at");
+		fprintf(fp, "(opt) %lld: ", entity[Midx].fitness);
+		fprintf(fp, "%.2lf", entity[Midx].cff[0]);
+		for (int j = 1; j < 10; j++)
+			fprintf(fp, ", %.2lf", entity[Midx].cff[j]);
+		fprintf(fp, "\n");
+		fclose(fp);
+#endif
+		
+		printf("==============================================================================\n");
+		printf("Generation #%d -> #%d evolution started\n", i, i + 1);
+		printf("==============================================================================\n");
+
 		gaEvolve(entity, genpop, simct, simmove, mutch, mutdev, mt);
+		
+		auto timelen = std::chrono::high_resolution_clock::now() - timebase;
+		printf("==============================================================================\n");
+		printf("Generation #%d -> #%d completed (Total %lld.%09llds)\n", i, i + 1, timelen.count() / 1'000'000'000LL, timelen.count() % 1'000'000'000LL); /// DEBUG
+		printf("==============================================================================\n");
+
+		// rlutil::getkey(); /// DEBUG
 	}
 	gaFitnessCalc(entity, genpop, simct, simmove, mt);
 
@@ -75,13 +154,16 @@ st_func gaSolver(int genpop, int evolvect, int simct, int simmove, double mutch,
 	return opt;
 }
 
-void gaInitPool(st_func *entity, int genpop, double absiv, std::mt19937 &mt)
+void gaInitPool(st_func *entity, int genpop, std::mt19937 &mt)
 {
-	std::uniform_real_distribution<double> rnd(-absiv, absiv);
+	std::uniform_real_distribution<double> rnd(-50.0, 50.0);
 
 	for (int i = 0; i < genpop; i++)
+	{
 		for (int j = 0; j < 10; j++)
 			entity[i].cff[j] = rnd(mt);
+		gaNormalize(entity, i);
+	}
 
 	return;
 }
@@ -90,12 +172,28 @@ void gaFitnessCalc(st_func *entity, int genpop, int simct, int simmove, std::mt1
 {
 	for (int i = 0; i < genpop; i++)
 	{
-		if (entity[i].fitness != 0.0) // fitness already calculated
+		if (entity[i].fitness != 0) // fitness already calculated
 			continue;
 
+		fct = 0;
+		long long fit = 0;
+		#pragma omp parallel for schedule(dynamic) reduction(+:fit)
 		for (int j = 0; j < simct; j++)
-			entity[i].fitness += gaSimulate(entity, j, simmove, mt);
-		entity[i].fitness /= simct;
+			fit += gaSimulate(entity, i, simmove, mt); // random engine "seems" to work fine multithreaded
+		entity[i].fitness = fit / simct;
+
+		if (fct >= simct * 4 / 5)
+		{
+			FILE *fp = fopen("optimal.txt", "at");
+			fprintf(fp, "%d / %d (%lld): %.2lf", fct, simct, entity[i].fitness, entity[i].cff[0]);
+			for (int k = 1; k < 10; k++)
+				fprintf(fp, ", %.2lf", entity[i].cff[k]);
+			fprintf(fp, "\n");
+			fclose(fp);
+			printf("Entity succeeded %d times, wrote results to optimal.txt\n", fct);
+		}
+
+		printf("Entity #%d simulation complete: fitness = %lld\n", i, entity[i].fitness); /// DEBUG
 	}
 
 	return;
@@ -105,8 +203,8 @@ void gaEvolve(st_func *&entity, int genpop, int simct, int simmove, double mutch
 {
 	/*
 	1. randomly shuffle
-	2. take two, choose the fitter, add to next gen (total 50% entity filled)
-	3. from the parents, randomly choose 2, produce offspring (fill leftover 50% with offsprings)
+	2. take two, choose the fitter, add to next gen (total ~50% entity filled)
+	3. from the parents, randomly choose 2, produce offspring (fill leftover 50%~ with offsprings)
 	*/
 	std::shuffle(entity, entity + genpop, mt);
 
@@ -120,17 +218,24 @@ void gaEvolve(st_func *&entity, int genpop, int simct, int simmove, double mutch
 		else
 			nextgen[par++] = entity[i];
 	}
-
 	delete[] entity;
 
 	// nextgen[0 ~ par-1]: parents
+	std::uniform_int_distribution<int> r1(0, par - 2), r2(0, par - 1);
+	int p1, p2;
 	for (int i = par; i < genpop; i++)
 	{
 		/*
-		select 2 unique random numbers from [0, par - 1]
+		select 2 unique random numbers from [0, par - 1] in uniform distribution
 		1. randomly select 1 number from [0, par - 2]
 		2. randomly select 1 number from [0, par - 1]. if overlaps, set it to par - 1.
 		*/
+		p1 = r1(mt);
+		p2 = r2(mt);
+		if (p1 == p2)
+			p2 = par - 1;
+
+		gaCrossover(nextgen, i, p1, p2, 4, mutch, mutdev, mt);
 	}
 
 	entity = nextgen;
@@ -138,11 +243,427 @@ void gaEvolve(st_func *&entity, int genpop, int simct, int simmove, double mutch
 	return;
 }
 
-double gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
+long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 {
 	// single simulation (with evaluation function entity[cursim] & maximum move # simmove)
+
+	bool board[27][10] = { 0 }; // board set to h=27, [0~21]: playfield, [22~26]: end zone
+#ifdef DBG
+	bool backboard[27][10] = { 0 }; /// DEBUG
+#endif
+	st_tetro tester;
+	long long score = 0, dsc;
+	int b2bct = 0, b2btp = -1, comboct = 0;
+	int tetromix[7] = { 0, 1, 2, 3, 4, 5, 6 };
+
+	for (int i = 0; i < simmove; i++)
+	{
+#ifdef DBG
+#ifndef DBG_MBM
+		if (i % 100'000 == 0)
+			printf("Checkpoint: %d\n", i);
+#endif
+#endif
+		double optval = -987654321.0, mvval;
+		st_tetro optmv;
+
+		if (i % 7 == 0)
+			std::shuffle(tetromix, tetromix + 7, mt);
+
+		tester.type = type_tetro(tetromix[i % 7]); // randomly generate tetromino
+
+		for (int k = 0; k <= 3; k++) // rotation state
+		{
+			tester.rot = k;
+			for (int l = 0; l < 10; l++)
+			{
+				tester.crd.x = l;
+				tester.crd.y = 24;
+
+				if (!isPossible(board, tester)) // default fails (block goes over x-limit)
+					continue;
+
+				int lsc;
+				for (lsc = 23; lsc >= 0; lsc--)
+				{
+					tester.crd.y = lsc;
+					if (!isPossible(board, tester))
+						break;
+				}
+
+				tester.crd.y = lsc + 1; // y = lsc fails (or is -1), then y = lsc + 1 must be a vaild move
+				mvval = calcMoveVal(board, b2bct, b2btp, comboct, tester, entity[cursim]);
+				if (mvval > optval)
+				{
+					optval = mvval;
+					optmv = tester;
+				}
+			}
+		}
+
+		// place down block, update score (terminate if game end)
+		if ((dsc = procMove(board, b2bct, b2btp, comboct, optmv)) == points[(int)type_score::gameover])
+		{
+#ifdef DBG
+			printf("Total Score: %lld\n", score);
+			printf("Total Moves: %d\n", i);
+#endif
+			return score + dsc;
+		}
+		score += dsc;
+
+#ifdef DBG_MBM
+		/// DEBUG
+		rlutil::cls();
+
+		for (int i = 21; i >= 0; i--)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				if (backboard[i][j])
+					printf("бс");
+				else
+					printf("бр");
+			}
+			printf("\n");
+		}
+		printf("\n");
+
+		for (int i = 21; i >= 0; i--)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				if (board[i][j])
+					printf("бс");
+				else
+					printf("бр");
+
+				backboard[i][j] = board[i][j];
+			}
+			printf("\n");
+		}
+		printf("Score: %lld\n", score);
+		printf("Moves: %d\n", i + 1);
+
+		// std::this_thread::sleep_for(std::chrono::milliseconds(50));
+		rlutil::getkey();
+		///
+#endif
+	}
+
+	// printf("Entity #%d successfully finishes all %d moves\n", cursim, simmove); /// DEBUG
+	fct++;
+
+#ifdef DBG
+	printf("Total Score: %lld\n", score);
+	printf("Total Moves: %d\n", simmove);
+#endif
+
+	return score /*+ points[(int)type_score::finish]*/;
 }
 
+void gaCrossover(st_func *entity, int child, int parent1, int parent2, int cotype, double mutch, double mutdev, std::mt19937 &mt)
+{
+	switch (cotype)
+	{
+		case 1: // Average Crossover
+		{
+			for (int i = 0; i < 10; i++)
+				entity[child].cff[i] = entity[parent1].cff[i] + entity[parent2].cff[i];
+		}
+			break;
+		case 2: // Weighted Average Crossover
+		{
+			for (int i = 0; i < 10; i++)
+				entity[child].cff[i] = entity[parent1].cff[i] * entity[parent1].fitness + entity[parent2].cff[i] * entity[parent2].fitness;
+		}
+			break;
+		case 3: // Equal Probability Random Crossover
+		{
+			std::bernoulli_distribution bd(0.5);
+			for (int i = 0; i < 10; i++)
+			{
+				if (bd(mt))
+					entity[child].cff[i] = entity[parent1].cff[i];
+				else
+					entity[child].cff[i] = entity[parent2].cff[i];
+			}
+		}
+			break;
+		case 4: // Weighted Probability Random Crossover
+		{
+			std::bernoulli_distribution bd((double)entity[parent1].fitness / (entity[parent1].fitness + entity[parent2].fitness));
+			for (int i = 0; i < 10; i++)
+			{
+				if (bd(mt))
+					entity[child].cff[i] = entity[parent1].cff[i];
+				else
+					entity[child].cff[i] = entity[parent2].cff[i];
+			}
+		}
+			break;
+		default:
+			break;
+	}
+
+	std::bernoulli_distribution mutate(mutch);
+	std::uniform_real_distribution<double> delta(-1.0, 1.0);
+	for (int i = 0; i < 10; i++)
+		if (mutate(mt))
+			entity[child].cff[i] *= (1 + delta(mt)*mutdev);
+	
+	gaNormalize(entity, child);
+
+	return;
+}
+
+void gaNormalize(st_func *entity, int target)
+{
+	double rlen = 0;
+
+	for (int i = 0; i < 10; i++)
+		rlen += entity[target].cff[i] * entity[target].cff[i];
+
+	rlen = sqrt(rlen / SQRAD);
+	for (int i = 0; i < 10; i++)
+		entity[target].cff[i] /= rlen;
+
+	return;
+}
+
+bool isPossible(bool board[27][10], st_tetro move)
+{
+	int tx, ty;
+	for (int i = 0; i < 4; i++)
+	{
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
+
+		if (tx < 0 || tx >= 10 || ty < 0 || ty >= 27) // block goes over limit
+			return false;
+
+		if (board[ty][tx]) // block overlaps w/ onboard blocks
+			return false;
+	}
+
+	return true;
+}
+
+double calcMoveVal(bool board[27][10], int b2bct, int b2btp, int comboct, st_tetro move, st_func &valfunc)
+{
+	// only valid moves are given for input
+
+	double ret = 0;
+	int listMaxH[10] = { 0 }, lcct = 0, pothole[10] = { 0 }, holect = 0, tmp, tx, ty;
+
+	// place block
+	for (int i = 0; i < 4; i++)
+	{
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
+		board[ty][tx] = 1;
+	}
+
+	for (int i = 21; i >= 0; i--)
+	{
+		bool lineIsFull = true;
+
+		for (int j = 0; j < 10; j++)
+		{
+			if (board[i][j])
+			{
+				if (listMaxH[j])
+				{
+					holect += pothole[j];
+					pothole[j] = 0;
+				}
+				else
+				{
+					listMaxH[j] = i + 1;
+					pothole[j] = 0;
+				}
+			}
+			else
+			{
+				lineIsFull = false;
+				pothole[j]++;
+			}
+		}
+
+		if (lineIsFull)
+			lcct++;
+	}
+	for (int i = 0; i < 10; i++)
+		if (listMaxH[i])
+			holect += pothole[i];
+
+	tmp = 0;
+	for (int i = 0; i < 10; i++)
+	{
+		ret += valfunc.cff[0] * listMaxH[i]; // smaxh, 0
+		if (listMaxH[i] > tmp)
+			tmp = listMaxH[i];
+	}
+	ret += valfunc.cff[1] * tmp; // maxh, 1
+
+	ret += valfunc.cff[2] * lcct; // compl, 2
+
+	ret += valfunc.cff[3] * holect; // hole, 3
+
+	for (int i = 1; i < 10; i++)
+		ret += valfunc.cff[4] * abs(listMaxH[i - 1] - listMaxH[i]); // bumpy, 4
+
+	// remove block
+	for (int i = 0; i < 4; i++)
+	{
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
+		board[ty][tx] = 0;
+	}
+
+	for (int i = 0; i < 4; i++)
+	{
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
+
+		if (tx - 1 < 0 || board[ty][tx - 1])
+			ret += valfunc.cff[5]; // adjLR, 5
+		if (tx + 1 >= 10 || board[ty][tx + 1])
+			ret += valfunc.cff[5]; // adjLR, 5
+		if (ty - 1 < 0 || board[ty - 1][tx])
+			ret += valfunc.cff[6]; // adjD, 6
+	}
+
+	tmp = points[(int)type_score::place];
+	if (lcct > 0)
+	{
+		tmp += points[(int)type_score(lcct - 1)];
+
+		ret += valfunc.cff[7] * comboct; // rescombo, 7
+		tmp += points[(int)type_score::combo] * comboct;
+		if (b2btp == lcct)
+		{
+			ret += valfunc.cff[8] * b2bct * b2btp; // resb2b, 8 (takes b2b type into account)
+			tmp += points[(int)type_score(b2btp - 1)] * b2bct / 2;
+		}
+	}
+
+	bool breaker = false;
+	for (int i = 22; i < 27; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (board[i][j])
+			{
+				tmp = points[(int)type_score::gameover_penalty];
+				breaker = true;
+				break;
+			}
+		}
+
+		if (breaker)
+			break;
+	}
+
+	ret += valfunc.cff[9] * tmp; // dscore, 9
+
+	ret += valfunc.cff[10]; // bias, 10
+
+	return ret;
+}
+
+long long procMove(bool board[27][10], int &b2bct, int &b2btp, int &comboct, st_tetro move)
+{
+	int tx, ty, score = 0, lclist[4], lcct = 0;
+
+	// place block
+	for (int i = 0; i < 4; i++)
+	{
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
+		board[ty][tx] = 1;
+	}
+
+	for (int i = 0; i < 22; i++)
+	{
+		bool lineIsFull = true;
+
+		for (int j = 0; j < 10; j++)
+		{
+			if (!board[i][j])
+			{
+				lineIsFull = false;
+				break;
+			}
+		}
+
+		if (lineIsFull)
+			lclist[lcct++] = i;
+	}
+
+	// score retrieving phase
+	score = points[(int)type_score::place];
+	if (lcct > 0)
+	{
+		score += points[(int)type_score(lcct - 1)];
+
+		score += points[(int)type_score::combo] * comboct++;
+
+		if (b2btp == lcct)
+			score += points[(int)type_score(b2btp - 1)] * b2bct++ / 2;
+		else
+		{
+			b2btp = lcct;
+			b2bct = 1;
+		}
+	}
+	else
+		comboct = b2bct = b2btp = 0;
+
+#ifdef SCORELINE
+	score = points[(int)type_score::place] + lcct*points[(int)type_score::one];
+#endif
+
+	// gameover checker
+	bool breaker = false;
+	for (int i = 22; i < 27; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			if (board[i][j])
+			{
+				score = points[(int)type_score::gameover];
+				breaker = true;
+				break;
+			}
+		}
+
+		if (breaker)
+			break;
+	}
+
+	// update board
+	int curl = 0, curlc = 0;
+	for (int i = 0; i < 22; i++)
+	{
+		if (curlc < lcct && i == lclist[curlc])
+		{
+			curlc++;
+			continue;
+		}
+		else
+		{
+			for (int j = 0; j < 10; j++)
+				board[curl][j] = board[i][j];
+			curl++;
+		}
+	}
+	for (int i = curl; i < 22; i++)
+		for (int j = 0; j < 10; j++)
+			board[i][j] = 0;
+
+	return score;
+}
 
 
 /*
