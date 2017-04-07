@@ -1,5 +1,5 @@
 #define CFFCT 12
-#define SQRAD 10000.0 // squared radius of (CFFCT)-dimensional sphere in solution space
+#define SPHRAD 100.0 // radius of (CFFCT)-dimensional sphere in solution space
 
 enum class type_tetro
 {

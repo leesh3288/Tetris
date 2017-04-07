@@ -1,6 +1,8 @@
-// #define DBG /// debug switch
-// #define DBG_MBM /// debug move-by-move
+#define DBG /// debug switch
+#define DBG_MBM /// debug move-by-move
 // #define SCORELINE /// score = lines*10 (+placed block) switch
+#define TSLINE /// True Score Line: score = lines switch
+#define SCORECFF /// uses score coefficients
 // #define OPTBEST /// output best entity of each generation to optimal.txt
 
 #include <cstdio>
@@ -49,19 +51,34 @@ int main(void)
 	*/
 
 #ifndef DBG
-	st_func optimal = gaSolver(100, 100, 100, 1200, 0.1, 1.5);
+	st_func optimal = gaSolver(50, 50, 20, 1'000'000'000, 0.1, 1.5);
 #endif
 
 #ifdef DBG
 	/// DEBUG
 	st_func *t = new st_func[1];
-	double dat[10] = { -44.88, -13.74, -0.66, -42.75, -9.42, 34.64, 45.41, 50.72, -3.26, 5.94 };
-	for (int i = 0; i < 10; i++)
+	double dat[CFFCT] = { -40.64, -24.96, 37.15, -45.96, -2.24, 44.61, 25.35, 34.15, -20.70, -1.02 };
+	for (int i = 0; i < CFFCT; i++)
 		t[0].cff[i] = dat[i];
 	gaNormalize(t, 0);
 	std::random_device rd;
 	std::mt19937 mt(rd());
-	gaSimulate(t, 0, 100'000'000, mt);
+	
+	/*
+	/// TESTING
+	long long int totline = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		totline += gaSimulate(t, 0, 1'000'000'000, mt);
+		printf("Test %d / %d: Average Score %lld\n", i + 1, 100, totline / (i + 1));
+		FILE *fp = fopen("testing.txt", "at");
+		fprintf(fp, "Test %d / %d: Average Score %lld\n", i + 1, 100, totline / (i + 1));
+		fclose(fp);
+	}
+	///
+	*/
+	gaSimulate(t, 0, 1'000'000'000, mt);
+	
 	delete[] t;
 	///
 #endif
@@ -106,7 +123,7 @@ st_func gaSolver(int genpop, int evolvect, int simct, int simmove, double mutch,
 		printf("Generation #%d fitness calculation finished with: \n", i);
 		printf(" >> optimal fitness = %lld, average fitness = %lld\n", entity[Midx].fitness, avg / genpop);
 		printf(" >> optimal: %.2lf", entity[Midx].cff[0]);
-		for (int j = 1; j < 10; j++)
+		for (int j = 1; j < CFFCT; j++)
 			printf(", %.2lf", entity[Midx].cff[j]);
 		printf("\n");
 		printf("==============================================================================\n");
@@ -115,7 +132,7 @@ st_func gaSolver(int genpop, int evolvect, int simct, int simmove, double mutch,
 		fp = fopen("optimal.txt", "at");
 		fprintf(fp, "(opt) %lld: ", entity[Midx].fitness);
 		fprintf(fp, "%.2lf", entity[Midx].cff[0]);
-		for (int j = 1; j < 10; j++)
+		for (int j = 1; j < CFFCT; j++)
 			fprintf(fp, ", %.2lf", entity[Midx].cff[j]);
 		fprintf(fp, "\n");
 		fclose(fp);
@@ -160,8 +177,14 @@ void gaInitPool(st_func *entity, int genpop, std::mt19937 &mt)
 
 	for (int i = 0; i < genpop; i++)
 	{
-		for (int j = 0; j < 10; j++)
+		for (int j = 0; j < CFFCT; j++)
+		{
 			entity[i].cff[j] = rnd(mt);
+#ifndef SCORECFF
+			if (j == 7 || j == 8 || j == 9)
+				entity[i].cff[j] = 0.0;
+#endif
+		}
 		gaNormalize(entity, i);
 	}
 
@@ -186,7 +209,7 @@ void gaFitnessCalc(st_func *entity, int genpop, int simct, int simmove, std::mt1
 		{
 			FILE *fp = fopen("optimal.txt", "at");
 			fprintf(fp, "%d / %d (%lld): %.2lf", fct, simct, entity[i].fitness, entity[i].cff[0]);
-			for (int k = 1; k < 10; k++)
+			for (int k = 1; k < CFFCT; k++)
 				fprintf(fp, ", %.2lf", entity[i].cff[k]);
 			fprintf(fp, "\n");
 			fclose(fp);
@@ -261,7 +284,7 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 #ifdef DBG
 #ifndef DBG_MBM
 		if (i % 100'000 == 0)
-			printf("Checkpoint: %d\n", i);
+			printf("Checkpoint: %d, Current Score: %lld\n", i, score);
 #endif
 #endif
 		double optval = -987654321.0, mvval;
@@ -307,6 +330,13 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 #ifdef DBG
 			printf("Total Score: %lld\n", score);
 			printf("Total Moves: %d\n", i);
+
+			/// TESTING
+			FILE *fp = fopen("testing.txt", "at");
+			fprintf(fp, "Total Score: %lld\n", score);
+			fprintf(fp, "Total Moves: %d\n", i);
+			fclose(fp);
+			///
 #endif
 			return score + dsc;
 		}
@@ -357,6 +387,13 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 #ifdef DBG
 	printf("Total Score: %lld\n", score);
 	printf("Total Moves: %d\n", simmove);
+
+	/// TESTING
+	FILE *fp = fopen("testing.txt", "at");
+	fprintf(fp, "Total Score: %lld\n", score);
+	fprintf(fp, "Total Moves: %d\n", simmove);
+	fclose(fp);
+	///
 #endif
 
 	return score /*+ points[(int)type_score::finish]*/;
@@ -368,20 +405,20 @@ void gaCrossover(st_func *entity, int child, int parent1, int parent2, int cotyp
 	{
 		case 1: // Average Crossover
 		{
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < CFFCT; i++)
 				entity[child].cff[i] = entity[parent1].cff[i] + entity[parent2].cff[i];
 		}
 			break;
 		case 2: // Weighted Average Crossover
 		{
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < CFFCT; i++)
 				entity[child].cff[i] = entity[parent1].cff[i] * entity[parent1].fitness + entity[parent2].cff[i] * entity[parent2].fitness;
 		}
 			break;
 		case 3: // Equal Probability Random Crossover
 		{
 			std::bernoulli_distribution bd(0.5);
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < CFFCT; i++)
 			{
 				if (bd(mt))
 					entity[child].cff[i] = entity[parent1].cff[i];
@@ -393,7 +430,7 @@ void gaCrossover(st_func *entity, int child, int parent1, int parent2, int cotyp
 		case 4: // Weighted Probability Random Crossover
 		{
 			std::bernoulli_distribution bd((double)entity[parent1].fitness / (entity[parent1].fitness + entity[parent2].fitness));
-			for (int i = 0; i < 10; i++)
+			for (int i = 0; i < CFFCT; i++)
 			{
 				if (bd(mt))
 					entity[child].cff[i] = entity[parent1].cff[i];
@@ -408,7 +445,7 @@ void gaCrossover(st_func *entity, int child, int parent1, int parent2, int cotyp
 
 	std::bernoulli_distribution mutate(mutch);
 	std::uniform_real_distribution<double> delta(-1.0, 1.0);
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < CFFCT; i++)
 		if (mutate(mt))
 			entity[child].cff[i] *= (1 + delta(mt)*mutdev);
 	
@@ -421,11 +458,11 @@ void gaNormalize(st_func *entity, int target)
 {
 	double rlen = 0;
 
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < CFFCT; i++)
 		rlen += entity[target].cff[i] * entity[target].cff[i];
 
 	rlen = sqrt(rlen / SQRAD);
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < CFFCT; i++)
 		entity[target].cff[i] /= rlen;
 
 	return;
@@ -454,7 +491,7 @@ double calcMoveVal(bool board[27][10], int b2bct, int b2btp, int comboct, st_tet
 	// only valid moves are given for input
 
 	double ret = 0;
-	int listMaxH[10] = { 0 }, lcct = 0, pothole[10] = { 0 }, holect = 0, tmp, tx, ty;
+	int listMaxH[10] = { 0 }, lcct = 0, pothole[10] = { 0 }, holect = 0, tmp, tx, ty, rt = 0, ct = 0;
 
 	// place block
 	for (int i = 0; i < 4; i++)
@@ -487,6 +524,15 @@ double calcMoveVal(bool board[27][10], int b2bct, int b2btp, int comboct, st_tet
 			{
 				lineIsFull = false;
 				pothole[j]++;
+
+				if (j - 1 < 0 || board[i][j - 1])
+					rt++;
+				if (j + 1 >= 10 || board[i][j + 1])
+					rt++;
+				if (i - 1 < 0 || board[i - 1][j])
+					ct++;
+				if (i + 1 <= 21 && board[i + 1][j]) // ignoring topmost board limit
+					ct++;
 			}
 		}
 
@@ -567,7 +613,9 @@ double calcMoveVal(bool board[27][10], int b2bct, int b2btp, int comboct, st_tet
 
 	ret += valfunc.cff[9] * tmp; // dscore, 9
 
-	ret += valfunc.cff[10]; // bias, 10
+	ret += valfunc.cff[10] * rt; // rtans, 10
+
+	ret += valfunc.cff[11] * ct; // ctrans, 11
 
 	return ret;
 }
@@ -622,6 +670,9 @@ long long procMove(bool board[27][10], int &b2bct, int &b2btp, int &comboct, st_
 
 #ifdef SCORELINE
 	score = points[(int)type_score::place] + lcct*points[(int)type_score::one];
+#endif
+#ifdef TSLINE
+	score = lcct;
 #endif
 
 	// gameover checker
