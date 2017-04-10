@@ -1,0 +1,1 @@
+g++ -fopenmp -std=gnu++11 -I/path/to/eigen3 -I/path/to/libcmaes/headers -L/path/to/libcmaes/libraries -O3 -s -o cmaes_tetris cmaes_tetris.cpp TetrisData.cpp -lcmaes

@@ -2,6 +2,9 @@
 // #define TSLINE /// True Score Line: score = lines switch
 // #define SCORECFF /// uses score coefficients
 
+#define idx(x, y) ((y)*(1<<22)+(x)) // reversed for easier indexing
+#define NOMINMAX
+
 #define genpop 50
 #define iterct 100
 #define simct 16
@@ -23,11 +26,14 @@ using namespace libcmaes;
 
 
 std::mt19937 mt(0);
+char* hashdat;
 
 long long gaSimulate(const double *x);
-bool isPossible(bool[27][10], st_tetro);
-double calcMoveVal(bool[27][10], int, int, int, st_tetro, const double *x);
-long long procMove(bool[27][10], int &, int &, int &, st_tetro);
+inline bool isPossible(int[10], int[27], st_tetro move);
+double calcMoveVal(int[10], int[27], int, int, int, st_tetro, const double *x);
+long long procMove(int[10], int[27], int &, int &, int &, st_tetro);
+char* initHash();
+inline int hashLineRemove(int, int, int);
 FitFunc objFunc = [](const double *x, const int N)
 {
 	long long fit = 0;
@@ -77,6 +83,10 @@ ProgressFunc<CMAParameters<GenoPheno<pwqBoundStrategy>>,CMASolutions> progFunc =
 
 int main(void)
 {
+	printf("initHash() started.\n");
+	hashdat = initHash();
+	printf("initHash() completed. char* = %d\n", (int)hashdat);
+
 	mt.seed(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int dim = CFFCT;
@@ -116,7 +126,7 @@ int main(void)
 
 long long gaSimulate(const double *x)
 {
-	bool board[27][10] = { 0 }; // board set to h=27, [0~21]: playfield, [22~26]: end zone
+	int cboard[10] = { 0 }, rboard[27] = { 0 };
 	st_tetro tester;
 	long long score = 0, dsc;
 	int b2bct = 0, b2btp = -1, comboct = 0;
@@ -140,19 +150,14 @@ long long gaSimulate(const double *x)
 				tester.crd.x = l;
 				tester.crd.y = 24;
 
-				if (!isPossible(board, tester)) // default fails (block goes over x-limit)
+				if (!isPossible(cboard, rboard, tester)) // default fails (block goes over x-limit)
 					continue;
 
-				int lsc;
-				for (lsc = 23; lsc >= 0; lsc--)
-				{
-					tester.crd.y = lsc;
-					if (!isPossible(board, tester))
-						break;
-				}
+				tester.crd.y = 0;
+				for (int m = 0; m < 4; m++)
+					tester.crd.y = std::max(tester.crd.y, hashdat[idx(cboard[tester.crd.x + tetsl[(int)tester.type][tester.rot][m].x - 2], 0)] + tetsl[(int)tester.type][tester.rot][m].y - 2);
 
-				tester.crd.y = lsc + 1; // y = lsc fails (or is -1), then y = lsc + 1 must be a vaild move
-				mvval = calcMoveVal(board, b2bct, b2btp, comboct, tester, x);
+				mvval = calcMoveVal(cboard, rboard, b2bct, b2btp, comboct, tester, x);
 				if (mvval > optval)
 				{
 					optval = mvval;
@@ -162,7 +167,7 @@ long long gaSimulate(const double *x)
 		}
 
 		// place down block, update score (terminate if game end)
-		if ((dsc = procMove(board, b2bct, b2btp, comboct, optmv)) == points[(int)type_score::gameover])
+		if ((dsc = procMove(cboard, rboard, b2bct, b2btp, comboct, optmv)) == points[(int)type_score::gameover])
 			return score + dsc;
 		score += dsc;
 	}
@@ -170,7 +175,7 @@ long long gaSimulate(const double *x)
 	return score /*+ points[(int)type_score::finish]*/;
 }
 
-bool isPossible(bool board[27][10], st_tetro move)
+inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
 {
 	int tx, ty;
 	for (int i = 0; i < 4; i++)
@@ -181,106 +186,71 @@ bool isPossible(bool board[27][10], st_tetro move)
 		if (tx < 0 || tx >= 10 || ty < 0 || ty >= 27) // block goes over limit
 			return false;
 
-		if (board[ty][tx]) // block overlaps w/ onboard blocks
+		if ((cboard[tx] & (1 << ty)) || (rboard[ty] & (1 << tx))) // block overlaps w/ onboard blocks
 			return false;
 	}
 
 	return true;
 }
 
-double calcMoveVal(bool board[27][10], int b2bct, int b2btp, int comboct, st_tetro move, const double *x)
+double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int comboct, st_tetro move, const double *x)
 {
 	// only valid moves are given for input
 
 	double ret = 0;
-	int listMaxH[10] = { 0 }, lcct = 0, pothole[10] = { 0 }, holect = 0, tmp, tx, ty, rt = 0, ct = 0;
+	int lcct = 0, holect = 0, tmp, tx, ty;
 
 	// place block
 	for (int i = 0; i < 4; i++)
 	{
 		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
 		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
-		board[ty][tx] = 1;
-	}
+		cboard[tx] ^= (1 << ty);
+		rboard[ty] ^= (1 << tx);
 
-	for (int i = 21; i >= 0; i--)
-	{
-		bool lineIsFull = true;
-
-		for (int j = 0; j < 10; j++)
-		{
-			if (board[i][j])
-			{
-				if (listMaxH[j])
-				{
-					holect += pothole[j];
-					pothole[j] = 0;
-				}
-				else
-				{
-					listMaxH[j] = i + 1;
-					pothole[j] = 0;
-				}
-			}
-			else
-			{
-				lineIsFull = false;
-				pothole[j]++;
-
-				if (j - 1 < 0 || board[i][j - 1])
-					rt++;
-				if (j + 1 >= 10 || board[i][j + 1])
-					rt++;
-				if (i - 1 < 0 || board[i - 1][j])
-					ct++;
-				if (i + 1 <= 21 && board[i + 1][j]) // ignoring topmost board limit
-					ct++;
-			}
-		}
-
-		if (lineIsFull)
+		if (rboard[ty] == (1 << 10) - 1)
 			lcct++;
 	}
-	for (int i = 0; i < 10; i++)
-		if (listMaxH[i])
-			holect += pothole[i];
+
+	for (int i = 22; i < 27; i++)
+	{
+		if (rboard[i] != 0)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				tx = move.crd.x + tetsl[(int)move.type][move.rot][j].x - 2;
+				ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][j].y;
+				cboard[tx] ^= (1 << ty);
+				rboard[ty] ^= (1 << tx);
+			}
+
+			return points[(int)type_score::gameover_penalty];
+		}
+	}
 
 	tmp = 0;
 	for (int i = 0; i < 10; i++)
 	{
-		ret += x[0] * listMaxH[i]; // smaxh, 0
-		if (listMaxH[i] > tmp)
-			tmp = listMaxH[i];
+		ret += x[0] * hashdat[idx(cboard[i], 0)]; // smaxh, 0
+		
+		ret += x[3] * hashdat[idx(cboard[i], 1)]; // hole, 3
+		
+		ret += x[11] * hashdat[idx(cboard[i], 2)]; // ctrans, 11
+
+		if (hashdat[idx(cboard[i], 0)] > tmp) // finding maximum height
+			tmp = hashdat[idx(cboard[i], 0)];
+
+		if (i > 0)
+			ret += x[4] * abs(hashdat[idx(cboard[i - 1], 0)] - hashdat[idx(cboard[i], 0)]); // bumpy, 4
 	}
+
 	ret += x[1] * tmp; // maxh, 1
 
 	ret += x[2] * lcct; // compl, 2
 
-	ret += x[3] * holect; // hole, 3
-
-	for (int i = 1; i < 10; i++)
-		ret += x[4] * abs(listMaxH[i - 1] - listMaxH[i]); // bumpy, 4
-
-	// remove block
-	for (int i = 0; i < 4; i++)
-	{
-		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
-		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
-		board[ty][tx] = 0;
-	}
-
-	for (int i = 0; i < 4; i++)
-	{
-		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
-		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
-
-		if (tx - 1 < 0 || board[ty][tx - 1])
-			ret += x[5]; // adjLR, 5
-		if (tx + 1 >= 10 || board[ty][tx + 1])
-			ret += x[5]; // adjLR, 5
-		if (ty - 1 < 0 || board[ty - 1][tx])
-			ret += x[6]; // adjD, 6
-	}
+	for (int i = 0; i < tmp; i++)
+		ret += x[10] * hashdat[idx(rboard[i] + (1 << 10), 2)]; // rtrans, 10
+	ret += x[10] * (22 - tmp) * 2; // rtrans compensation for uncounted rows
 
 	tmp = points[(int)type_score::place];
 	if (lcct > 0)
@@ -296,60 +266,53 @@ double calcMoveVal(bool board[27][10], int b2bct, int b2btp, int comboct, st_tet
 		}
 	}
 
-	bool breaker = false;
-	for (int i = 22; i < 27; i++)
+	// remove block
+	for (int i = 0; i < 4; i++)
 	{
-		for (int j = 0; j < 10; j++)
-		{
-			if (board[i][j])
-			{
-				tmp = points[(int)type_score::gameover_penalty];
-				breaker = true;
-				break;
-			}
-		}
-
-		if (breaker)
-			break;
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
+		cboard[tx] ^= (1 << ty);
+		rboard[ty] ^= (1 << tx);
 	}
 
 	ret += x[9] * tmp; // dscore, 9
 
-	ret += x[10] * rt; // rtans, 10
+	for (int i = 0; i < 4; i++)
+	{
+		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
+		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
 
-	ret += x[11] * ct; // ctrans, 11
+		if (tx - 1 < 0 || (rboard[ty] & (1 << (tx - 1))))
+			ret += x[5]; // adjLR, 5
+		if (tx + 1 >= 10 || (rboard[ty] & (1 << (tx + 1))))
+			ret += x[5]; // adjLR, 5
+		if (ty - 1 < 0 || (cboard[tx] & (1 << (ty - 1))))
+			ret += x[6]; // adjD, 6
+	}
 
 	return ret;
 }
 
-long long procMove(bool board[27][10], int &b2bct, int &b2btp, int &comboct, st_tetro move)
+long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &comboct, st_tetro move)
 {
-	int tx, ty, score = 0, lclist[4], lcct = 0;
+	int tx, ty, score = 0, lclist[4], lcct = 0, maxh = 0;
 
 	// place block
 	for (int i = 0; i < 4; i++)
 	{
 		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
 		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
-		board[ty][tx] = 1;
+		cboard[tx] ^= (1 << ty);
+		rboard[ty] ^= (1 << tx);
+
+		if (rboard[ty] == (1 << 10) - 1)
+			lclist[lcct++] = ty;
 	}
 
-	for (int i = 0; i < 22; i++)
-	{
-		bool lineIsFull = true;
-
-		for (int j = 0; j < 10; j++)
-		{
-			if (!board[i][j])
-			{
-				lineIsFull = false;
-				break;
-			}
-		}
-
-		if (lineIsFull)
-			lclist[lcct++] = i;
-	}
+	// gameover checker
+	for (int i = 22; i < 27; i++)
+		if (rboard[i] != 0)
+			return points[(int)type_score::gameover];
 
 	// score retrieving phase
 	score = points[(int)type_score::place];
@@ -372,48 +335,101 @@ long long procMove(bool board[27][10], int &b2bct, int &b2btp, int &comboct, st_
 
 #ifdef SCORELINE
 	score = points[(int)type_score::place] + lcct*points[(int)type_score::one];
-#endif
-#ifdef TSLINE
+#elif defined(TSLINE)
 	score = lcct;
 #endif
 
-	// gameover checker
-	bool breaker = false;
-	for (int i = 22; i < 27; i++)
+	// update board
+	if (lcct > 0)
 	{
-		for (int j = 0; j < 10; j++)
+		int curl = 0, curlc = 0, rc = 0, maxh = 0;
+		bool tmp[4] = { 0 };
+
+		std::sort(lclist, lclist + lcct);
+		curl = lclist[0];
+
+		for (int i = 0; i < lcct; i++)
+			tmp[lclist[i] - lclist[0]] = 1;
+
+		for (int i = 0; i < 4; i++)
+			rc += (1 << i)*tmp[i];
+		rc = (rc - 1) / 2;
+
+		for (int i = 0; i < 10; i++)
 		{
-			if (board[i][j])
+			maxh = std::max(maxh, (int)hashdat[idx(cboard[i], 0)]);
+			cboard[i] = hashLineRemove(cboard[i], lclist[0] + 1, rc);
+		}
+
+		for (int i = lclist[0]; i < maxh; i++)
+		{
+			if (curlc < lcct && i == lclist[curlc])
 			{
-				score = points[(int)type_score::gameover];
-				breaker = true;
-				break;
+				curlc++;
+				continue;
+			}
+			else
+				rboard[curl++] = rboard[i];
+		}
+		for (int i = curl; i < maxh; i++)
+			rboard[i] = 0;
+	}
+
+	return score;
+}
+
+char* initHash()
+{
+	char *dat = new char[(1 << 22) * 3];
+
+	int log2_cmp = 1, log2_val = 0;
+	dat[idx(0, 0)] = 0, dat[idx(0, 1)] = 0, dat[idx(0, 2)] = 1;
+	for (int i = 1; i < (1 << 22); i++)
+	{
+		// height, 0
+		dat[idx(i, 0)] = (log2_cmp == i ? (log2_cmp <<= 1, ++log2_val) : log2_val);
+
+		int hct = 0, ctr = 0;
+		for (int j = 0; j < dat[idx(i, 0)]; j++)
+		{
+			if (!(i&(1 << j))) // if empty
+			{
+				hct++;
+				ctr += ((int)(j - 1 < 0 || (i&(1 << (j - 1)))) + (int)(j + 1 <= 21 && (i&(1 << (j + 1)))));
 			}
 		}
 
-		if (breaker)
-			break;
+		// hole, 1
+		dat[idx(i, 1)] = hct;
+
+		// ctrans, 2 (use this for rtrans as rtrans[n] = ctrans[n+(1<<10)] for row hash n)
+		dat[idx(i, 2)] = ctr;
 	}
 
-	// update board
-	int curl = 0, curlc = 0;
-	for (int i = 0; i < 22; i++)
+	return dat;
+}
+
+inline int hashLineRemove(int hv, int lo, int rc) // lo = n when lowest is n-th digit
+{
+	switch (rc) // bit-twiddling
 	{
-		if (curlc < lcct && i == lclist[curlc])
-		{
-			curlc++;
-			continue;
-		}
-		else
-		{
-			for (int j = 0; j < 10; j++)
-				board[curl][j] = board[i][j];
-			curl++;
-		}
+		case 0:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << lo))) >> 1);
+		case 1:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 1)))) >> 2);
+		case 2:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << 22) - (1 << (lo + 2)))) >> 2);
+		case 3:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 2)))) >> 3);
+		case 4:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << lo) + (1 << (lo + 1)))) >> 1) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 2);
+		case 5:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << (lo + 1))) >> 2) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 3);
+		case 6:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 3);
+		case 7:
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 4);
+		default:
+			return -1; // error case
 	}
-	for (int i = curl; i < 22; i++)
-		for (int j = 0; j < 10; j++)
-			board[i][j] = 0;
-
-	return score;
 }
