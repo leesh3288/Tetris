@@ -1,2 +1,2 @@
-g++ -fopenmp -std=gnu++11 -I/include/eigen3/ -I/home/leesh/include/libcmaes -L/home/leesh/lib -O3 -s -o cmaes_tetris cmaes_tetris.cpp TetrisData.cpp -lcmaes
+g++ -fopenmp -std=gnu++11 -I/include/eigen3/ -I/home/leesh/include/libcmaes -L/home/leesh/lib -o cmaes_tetris cmaes_tetris.cpp TetrisData.cpp -lcmaes -s -Ofast -march=native -flto -funroll-loops
 read -n1 -r -p "Press any key to continue..." key

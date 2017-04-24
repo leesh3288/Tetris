@@ -2,23 +2,30 @@
 // #define TSLINE /// True Score Line: score = lines switch
 // #define SCORECFF /// uses score coefficients
 
-#define idx(x, y) ((y)*(1<<22)+(x)) // reversed for easier indexing
+#define BOARDX 10
+#define BOARDY 15
+
+#define idx(x, y) ((y)*(1<<BOARDY)+(x)) // reversed for easier indexing
 #define NOMINMAX
 
-#define genpop 50
-#define iterct 100
-#define simct 16
-#define simmove 1000000000
+#define genpop 100
+#define iterct 1000
+#define simct 100
+#define simmove LLONG_MAX
+// #define restartct 100
+#define SIGMA 1.5
+#define algotype aCMAES
+// #define ELITIST /// uses elitism
 
 #include <cstdio>
 #include <cmath>
 #include <algorithm>
-#include <thread>
-#include <random>
 #include <chrono>
-#include <omp.h>
-#include <vector>
 #include <iostream>
+#include <random>
+#include <thread>
+#include <vector>
+#include <omp.h>
 #include "TetrisGlobal.h"
 #include "cmaes.h"
 
@@ -29,9 +36,9 @@ std::mt19937 mt(0);
 char* hashdat;
 
 long long gaSimulate(const double *x);
-inline bool isPossible(int[10], int[27], st_tetro move);
-double calcMoveVal(int[10], int[27], int, int, int, st_tetro, const double *x);
-long long procMove(int[10], int[27], int &, int &, int &, st_tetro);
+inline bool isPossible(int[BOARDX], int[BOARDY + 5], st_tetro move);
+double calcMoveVal(int[BOARDX], int[BOARDY + 5], int, int, int, st_tetro, const double *x);
+long long procMove(int[BOARDX], int[BOARDY + 5], int &, int &, int &, st_tetro);
 char* initHash();
 inline int hashLineRemove(int, int, int);
 FitFunc objFunc = [](const double *x, const int N)
@@ -51,7 +58,9 @@ ProgressFunc<CMAParameters<GenoPheno<pwqBoundStrategy>>,CMASolutions> progFunc =
 	if(cmasols.niter()==0)
 		return 0;
 	
-	Candidate bcand = cmasols.best_candidate();
+	CMASolutions tsols = cmasols; // temporary solution set to find best candidate
+	tsols.sort_candidates();
+	Candidate bcand = tsols.best_candidate();
 	const double *x = cmaparams.get_gp().pheno(bcand.get_x_dvec()).data();
 
 	printf("================================================================================\n");
@@ -64,12 +73,12 @@ ProgressFunc<CMAParameters<GenoPheno<pwqBoundStrategy>>,CMASolutions> progFunc =
 	fprintf(fp, "    Run Status: %d, Elapsed Time: %.2lf, ObjFunc Evals: %d\n", cmasols.run_status(), cmasols.elapsed_last_iter() / 1000.0, cmasols.fevals());
 	printf("    Run Status: %d, Elapsed Time: %.2lf, ObjFunc Evals: %d\n", cmasols.run_status(), cmasols.elapsed_last_iter() / 1000.0, cmasols.fevals());
 	
-	fprintf(fp, "    Best Candidate: %.3lf", x[0]);
-	printf("    Best Candidate: %.3lf", x[0]);
+	fprintf(fp, "    Best Candidate: %.15lf", x[0]);
+	printf("    Best Candidate: %.15lf", x[0]);
 	for (int i = 1; i < CFFCT; i++)
 	{
-		fprintf(fp, ", %.3lf", x[i]);
-		printf(", %.3lf", x[i]);
+		fprintf(fp, ", %.15lf", x[i]);
+		printf(", %.15lf", x[i]);
 	}
 	fprintf(fp, " (%.2lf)\n", -bcand.get_fvalue());
 	printf(" (%.2lf)\n", -bcand.get_fvalue());
@@ -90,7 +99,7 @@ int main(void)
 	mt.seed(std::chrono::high_resolution_clock::now().time_since_epoch().count());
 
 	int dim = CFFCT;
-	double sigma = 1.0;
+	double sigma = SIGMA;
 	double lbounds[CFFCT], ubounds[CFFCT];
 
 	for(int i = 0; i < dim; i++)
@@ -104,18 +113,28 @@ int main(void)
 	CMAParameters<GenoPheno<pwqBoundStrategy>> cmaparams(x0, sigma, genpop, std::chrono::high_resolution_clock::now().time_since_epoch().count(), gp);
 	cmaparams.set_fplot("log.dat"); // log data for visualization (uses Python & Matplotlib)
 	cmaparams.set_max_iter(iterct);
+#ifdef ELITIST
 	cmaparams.set_elitism(1); // re-injects the best-ever seen solution
+#endif
 #ifndef SCORECFF
 	cmaparams.set_fixed_p(7, 0.0);
 	cmaparams.set_fixed_p(8, 0.0);
 	cmaparams.set_fixed_p(9, 0.0);
 #endif
-	cmaparams.set_algo(aCMAES);
-	cmaparams.set_mt_feval(false); // multithreading already implemented inside fitness function, turning this multithread off
-
+	cmaparams.set_algo(algotype);
+#ifdef restartct
+	cmaparams.set_restarts(restartct);
+#endif
+	cmaparams.set_mt_feval(false);
+	
 	CMASolutions cmasols = cmaes<GenoPheno<pwqBoundStrategy>>(objFunc, cmaparams, progFunc);
 
-	printf("Expected Distance to Minimum: %.2lf\n", cmasols.edm());
+	FILE *fp = fopen("progress.txt", "at");
+	fprintf(fp, "\n");
+	fprintf(fp, "Total Time Consumption: %lf seconds\n", cmasols.elapsed_time() / 1000.0);
+	fprintf(fp, "Return Code: %d\n", cmasols.run_status());
+	fclose(fp);
+	
 	printf("Total Time Consumption: %lf seconds\n", cmasols.elapsed_time() / 1000.0);
 	printf("Return Code: %d\n", cmasols.run_status());
 	
@@ -126,13 +145,13 @@ int main(void)
 
 long long gaSimulate(const double *x)
 {
-	int cboard[10] = { 0 }, rboard[27] = { 0 };
+	int cboard[BOARDX] = { 0 }, rboard[BOARDY + 5] = { 0 };
 	st_tetro tester;
 	long long score = 0, dsc;
 	int b2bct = 0, b2btp = -1, comboct = 0;
 	int tetromix[7] = { 0, 1, 2, 3, 4, 5, 6 };
 
-	for (int i = 0; i < simmove; i++)
+	for (long long i = 0; i < simmove; i++)
 	{
 		double optval = -987654321.0, mvval;
 		st_tetro optmv;
@@ -145,10 +164,10 @@ long long gaSimulate(const double *x)
 		for (int k = 0; k <= 3; k++) // rotation state
 		{
 			tester.rot = k;
-			for (int l = 0; l < 10; l++)
+			for (int l = 0; l < BOARDX; l++)
 			{
 				tester.crd.x = l;
-				tester.crd.y = 24;
+				tester.crd.y = BOARDY + 2;
 
 				if (!isPossible(cboard, rboard, tester)) // default fails (block goes over x-limit)
 					continue;
@@ -175,7 +194,7 @@ long long gaSimulate(const double *x)
 	return score /*+ points[(int)type_score::finish]*/;
 }
 
-inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
+inline bool isPossible(int cboard[BOARDX], int rboard[BOARDY + 5], st_tetro move)
 {
 	int tx, ty;
 	for (int i = 0; i < 4; i++)
@@ -183,7 +202,7 @@ inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
 		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
 		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
 
-		if (tx < 0 || tx >= 10 || ty < 0 || ty >= 27) // block goes over limit
+		if (tx < 0 || tx >= BOARDX || ty < 0 || ty >= BOARDY + 5) // block goes over limit
 			return false;
 
 		if ((cboard[tx] & (1 << ty)) || (rboard[ty] & (1 << tx))) // block overlaps w/ onboard blocks
@@ -193,7 +212,7 @@ inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
 	return true;
 }
 
-double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int comboct, st_tetro move, const double *x)
+double calcMoveVal(int cboard[BOARDX], int rboard[BOARDY + 5], int b2bct, int b2btp, int comboct, st_tetro move, const double *x)
 {
 	// only valid moves are given for input
 
@@ -208,11 +227,11 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 		cboard[tx] ^= (1 << ty);
 		rboard[ty] ^= (1 << tx);
 
-		if (rboard[ty] == (1 << 10) - 1)
+		if (rboard[ty] == (1 << BOARDX) - 1)
 			lcct++;
 	}
 
-	for (int i = 22; i < 27; i++)
+	for (int i = BOARDY; i < BOARDY + 5; i++)
 	{
 		if (rboard[i] != 0)
 		{
@@ -229,7 +248,7 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 	}
 
 	tmp = 0;
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < BOARDX; i++)
 	{
 		ret += x[0] * hashdat[idx(cboard[i], 0)]; // smaxh, 0
 		
@@ -249,8 +268,8 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 	ret += x[2] * lcct; // compl, 2
 
 	for (int i = 0; i < tmp; i++)
-		ret += x[10] * hashdat[idx(rboard[i] + (1 << 10), 2)]; // rtrans, 10
-	ret += x[10] * (22 - tmp) * 2; // rtrans compensation for uncounted rows
+		ret += x[10] * hashdat[idx(rboard[i] + (1 << BOARDX), 2)]; // rtrans, 10
+	ret += x[10] * (BOARDY - tmp) * 2; // rtrans compensation for uncounted rows, for compatibility w/ previous definition of rtrans
 
 	tmp = points[(int)type_score::place];
 	if (lcct > 0)
@@ -284,7 +303,7 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 
 		if (tx - 1 < 0 || (rboard[ty] & (1 << (tx - 1))))
 			ret += x[5]; // adjLR, 5
-		if (tx + 1 >= 10 || (rboard[ty] & (1 << (tx + 1))))
+		if (tx + 1 >= BOARDX || (rboard[ty] & (1 << (tx + 1))))
 			ret += x[5]; // adjLR, 5
 		if (ty - 1 < 0 || (cboard[tx] & (1 << (ty - 1))))
 			ret += x[6]; // adjD, 6
@@ -293,7 +312,7 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 	return ret;
 }
 
-long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &comboct, st_tetro move)
+long long procMove(int cboard[BOARDX], int rboard[BOARDY + 5], int &b2bct, int &b2btp, int &comboct, st_tetro move)
 {
 	int tx, ty, score = 0, lclist[4], lcct = 0, maxh = 0;
 
@@ -305,12 +324,12 @@ long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &
 		cboard[tx] ^= (1 << ty);
 		rboard[ty] ^= (1 << tx);
 
-		if (rboard[ty] == (1 << 10) - 1)
+		if (rboard[ty] == (1 << BOARDX) - 1)
 			lclist[lcct++] = ty;
 	}
 
 	// gameover checker
-	for (int i = 22; i < 27; i++)
+	for (int i = BOARDY; i < BOARDY + 5; i++)
 		if (rboard[i] != 0)
 			return points[(int)type_score::gameover];
 
@@ -355,7 +374,7 @@ long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &
 			rc += (1 << i)*tmp[i];
 		rc = (rc - 1) / 2;
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < BOARDX; i++)
 		{
 			maxh = std::max(maxh, (int)hashdat[idx(cboard[i], 0)]);
 			cboard[i] = hashLineRemove(cboard[i], lclist[0] + 1, rc);
@@ -380,11 +399,11 @@ long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &
 
 char* initHash()
 {
-	char *dat = new char[(1 << 22) * 3];
+	char *dat = new char[(1 << BOARDY) * 3];
 
 	int log2_cmp = 1, log2_val = 0;
 	dat[idx(0, 0)] = 0, dat[idx(0, 1)] = 0, dat[idx(0, 2)] = 1;
-	for (int i = 1; i < (1 << 22); i++)
+	for (int i = 1; i < (1 << BOARDY); i++)
 	{
 		// height, 0
 		dat[idx(i, 0)] = (log2_cmp == i ? (log2_cmp <<= 1, ++log2_val) : log2_val);
@@ -395,14 +414,14 @@ char* initHash()
 			if (!(i&(1 << j))) // if empty
 			{
 				hct++;
-				ctr += ((int)(j - 1 < 0 || (i&(1 << (j - 1)))) + (int)(j + 1 <= 21 && (i&(1 << (j + 1)))));
+				ctr += ((int)(j - 1 < 0 || (i&(1 << (j - 1)))) + (int)(j + 1 <= BOARDY - 1 && (i&(1 << (j + 1)))));
 			}
 		}
 
 		// hole, 1
 		dat[idx(i, 1)] = hct;
 
-		// ctrans, 2 (use this for rtrans as rtrans[n] = ctrans[n+(1<<10)] for row hash n)
+		// ctrans, 2 (use this for rtrans as rtrans[n] = ctrans[n+(1<<BOARDX)] for row hash n)
 		dat[idx(i, 2)] = ctr;
 	}
 
@@ -414,21 +433,21 @@ inline int hashLineRemove(int hv, int lo, int rc) // lo = n when lowest is n-th 
 	switch (rc) // bit-twiddling
 	{
 		case 0:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << lo))) >> 1);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << lo))) >> 1);
 		case 1:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 1)))) >> 2);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << (lo + 1)))) >> 2);
 		case 2:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << 22) - (1 << (lo + 2)))) >> 2);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << BOARDY) - (1 << (lo + 2)))) >> 2);
 		case 3:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 2)))) >> 3);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << (lo + 2)))) >> 3);
 		case 4:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << lo) + (1 << (lo + 1)))) >> 1) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 2);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << lo) + (1 << (lo + 1)))) >> 1) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 2);
 		case 5:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << (lo + 1))) >> 2) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 3);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << (lo + 1))) >> 2) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 3);
 		case 6:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 3);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 3);
 		case 7:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 4);
+			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 4);
 		default:
 			return -1; // error case
 	}

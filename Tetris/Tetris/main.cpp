@@ -6,11 +6,15 @@
 // #define OPTBEST /// output best entity of each generation to optimal.txt
 #define CHECKPT /// checkpoint switch
 
-#define idx(x, y) ((y)*(1<<22)+(x)) // reversed for easier indexing
+#define BOARDX 10
+#define BOARDY 20
+
+#define idx(x, y) ((y)*(1<<BOARDY)+(x)) // reversed for easier indexing
 #define NOMINMAX
 
 #include <cstdio>
 #include <cmath>
+#include <climits>
 #include <thread>
 #include <atomic>
 #include <random>
@@ -28,12 +32,12 @@ st_func gaSolver(int, int, int, int, double, double);
 void gaInitPool(st_func *, int, std::mt19937 &);
 void gaFitnessCalc(st_func *, int, int, int, std::mt19937 &);
 void gaEvolve(st_func *&, int, int, int, double, double, std::mt19937 &);
-long long gaSimulate(st_func *, int, int, std::mt19937 &);
+long long gaSimulate(st_func *, int, long long, std::mt19937 &);
 void gaCrossover(st_func *, int, int, int, int, double, double, std::mt19937 &);
 void gaNormalize(st_func *, int);
-inline bool isPossible(int[10], int[27], st_tetro move);
-double calcMoveVal(int[10], int[27], int, int, int, st_tetro, st_func &);
-long long procMove(int[10], int[27], int &, int &, int &, st_tetro);
+inline bool isPossible(int[BOARDX], int[BOARDY + 5], st_tetro move);
+double calcMoveVal(int[BOARDX], int[BOARDY + 5], int, int, int, st_tetro, st_func &);
+long long procMove(int[BOARDX], int[BOARDY + 5], int &, int &, int &, st_tetro);
 char* initHash();
 inline int hashLineRemove(int, int, int);
 /*
@@ -66,9 +70,13 @@ int main(void)
 #endif
 
 #ifdef DBG
+#ifdef DBG_MBM
+	rlutil::saveDefaultColor();
+#endif
 	/// DEBUG
 	st_func *t = new st_func[1];
-	double dat[CFFCT] = { -4.572, -3.168, 3.169, -4.301, -1.604, 4.389, 4.687, 0.000, 0.000, 0.000, -1.062, -4.980 };
+	// double dat[CFFCT] = { -4.782176804055032, -1.551392399433952, 2.632340992666880, -3.851991421090977, -0.642271680470106, 0.006517314809009, -0.277559278159567, 0.000000000000000, 0.000000000000000, 0.000000000000000, -3.359153266105504, -4.946575489267508 };
+	double dat[CFFCT] = { -1.227216147591351, -0.181782005756474, 3.243910450182081, -3.744504339902469, -0.879149441484679, -0.519702872040023, 0.090352749470464, 0.000000000000000, 0.000000000000000, 0.000000000000000, -2.238796977210718, -4.666693888260132 };
 	for (int i = 0; i < CFFCT; i++)
 		t[0].cff[i] = dat[i];
 	gaNormalize(t, 0);
@@ -82,7 +90,7 @@ int main(void)
 	for (int i = 0; i < 100; i++)
 	{
 		long long int curline;
-		curline = gaSimulate(t, 0, 1'000'000'000, mt);
+		curline = gaSimulate(t, 0, LLONG_MAX, mt);
 
 		#pragma omp critical
 		{
@@ -95,6 +103,7 @@ int main(void)
 		}
 	}
 	///
+
 	// gaSimulate(t, 0, 1'000'000'000, mt);
 	
 	delete[] t;
@@ -226,12 +235,12 @@ void gaFitnessCalc(st_func *entity, int genpop, int simct, int simmove, std::mt1
 		if (fct >= simct * 4 / 5)
 		{
 			FILE *fp = fopen("optimal.txt", "at");
-			fprintf(fp, "%d / %d (%lld): %.2lf", fct, simct, entity[i].fitness, entity[i].cff[0]);
+			fprintf(fp, "%d / %d (%lld): %.2lf", fct.load(), simct, entity[i].fitness, entity[i].cff[0]);
 			for (int k = 1; k < CFFCT; k++)
 				fprintf(fp, ", %.2lf", entity[i].cff[k]);
 			fprintf(fp, "\n");
 			fclose(fp);
-			printf("Entity succeeded %d times, wrote results to optimal.txt\n", fct);
+			printf("Entity succeeded %d times, wrote results to optimal.txt\n", fct.load());
 		}
 
 		printf("Entity #%d simulation complete: fitness = %lld\n", i, entity[i].fitness); /// DEBUG
@@ -284,24 +293,24 @@ void gaEvolve(st_func *&entity, int genpop, int simct, int simmove, double mutch
 	return;
 }
 
-long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
+long long gaSimulate(st_func *entity, int cursim, long long simmove, std::mt19937 &mt)
 {
 	// single simulation (with evaluation function entity[cursim] & maximum move # simmove)
 
-	int cboard[10] = { 0 }, rboard[27] = { 0 };
+	int cboard[BOARDX] = { 0 }, rboard[BOARDY + 5] = { 0 };
 #ifdef DBG
-	int bcboard[10] = { 0 }, brboard[27] = { 0 }; /// DEBUG
+	int bcboard[BOARDX] = { 0 }, brboard[BOARDY + 5] = { 0 }; /// DEBUG
 #endif
 	st_tetro tester;
 	long long score = 0, dsc;
 	int b2bct = 0, b2btp = -1, comboct = 0;
 	int tetromix[7] = { 0, 1, 2, 3, 4, 5, 6 };
 
-	for (int i = 0; i < simmove; i++)
+	for (long long i = 0; i < simmove; i++)
 	{
 #ifdef CHECKPT
 		if (i % 100'000 == 0)
-			printf("Checkpoint: %d, Current Score: %lld\n", i, score);
+			printf("Checkpoint: %lld, Current Score: %lld\n", i, score);
 #endif
 		double optval = -987654321.0, mvval;
 		st_tetro optmv;
@@ -314,10 +323,10 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 		for (int k = 0; k <= 3; k++) // rotation state
 		{
 			tester.rot = k;
-			for (int l = 0; l < 10; l++)
+			for (int l = 0; l < BOARDX; l++)
 			{
 				tester.crd.x = l;
-				tester.crd.y = 24;
+				tester.crd.y = BOARDY + 2;
 
 				if (!isPossible(cboard, rboard, tester)) // default fails (block goes over x-limit)
 					continue;
@@ -340,12 +349,12 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 		{
 #ifdef DBG
 			printf("Total Score: %lld\n", score);
-			printf("Total Moves: %d\n", i);
+			printf("Total Moves: %lld\n", i);
 
 			/// TESTING
 			FILE *fp = fopen("testing.txt", "at");
 			fprintf(fp, "Total Score: %lld\n", score);
-			fprintf(fp, "Total Moves: %d\n", i);
+			fprintf(fp, "Total Moves: %lld\n", i);
 			fclose(fp);
 			///
 #endif
@@ -357,22 +366,35 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 		/// DEBUG
 		rlutil::cls();
 
-		for (int i = 21; i >= 0; i--)
+		for (int i = BOARDY - 1; i >= 0; i--)
 		{
-			for (int j = 0; j < 10; j++)
+			for (int j = 0; j < BOARDX; j++)
 			{
 				if (brboard[i] & (1 << j))
 					printf("бс");
 				else
-					printf("бр");
+				{
+					bool bP = false;
+					for (int k = 0; k < 4; k++)
+						if (j == optmv.crd.x + tetsl[(int)optmv.type][optmv.rot][k].x - 2 && i == optmv.crd.y + 2 - tetsl[(int)optmv.type][optmv.rot][k].y)
+							bP = true;
+					if (bP)
+					{
+						rlutil::setColor(12);
+						printf("бс");
+						rlutil::resetColor();
+					}
+					else
+						printf("бр");
+				}
 			}
 			printf("\n");
 		}
 		printf("\n");
 
-		for (int i = 21; i >= 0; i--)
+		for (int i = BOARDY - 1; i >= 0; i--)
 		{
-			for (int j = 0; j < 10; j++)
+			for (int j = 0; j < BOARDX; j++)
 			{
 				if (rboard[i] & (1 << j))
 					printf("бс");
@@ -383,7 +405,7 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 			printf("\n");
 		}
 		printf("Score: %lld\n", score);
-		printf("Moves: %d\n", i + 1);
+		printf("Moves: %lld\n", i + 1);
 
 		// std::this_thread::sleep_for(std::chrono::milliseconds(50));
 		rlutil::getkey();
@@ -396,12 +418,12 @@ long long gaSimulate(st_func *entity, int cursim, int simmove, std::mt19937 &mt)
 
 #ifdef DBG
 	printf("Total Score: %lld\n", score);
-	printf("Total Moves: %d\n", simmove);
+	printf("Total Moves: %lld\n", simmove);
 
 	/// TESTING
 	FILE *fp = fopen("testing.txt", "at");
 	fprintf(fp, "Total Score: %lld\n", score);
-	fprintf(fp, "Total Moves: %d\n", simmove);
+	fprintf(fp, "Total Moves: %lld\n", simmove);
 	fclose(fp);
 	///
 #endif
@@ -478,7 +500,7 @@ void gaNormalize(st_func *entity, int target)
 	return;
 }
 
-inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
+inline bool isPossible(int cboard[BOARDX], int rboard[BOARDY + 5], st_tetro move)
 {
 	int tx, ty;
 	for (int i = 0; i < 4; i++)
@@ -486,7 +508,7 @@ inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
 		tx = move.crd.x + tetsl[(int)move.type][move.rot][i].x - 2;
 		ty = move.crd.y + 2 - tetsl[(int)move.type][move.rot][i].y;
 
-		if (tx < 0 || tx >= 10 || ty < 0 || ty >= 27) // block goes over limit
+		if (tx < 0 || tx >= BOARDX || ty < 0 || ty >= BOARDY + 5) // block goes over limit
 			return false;
 
 		if ((cboard[tx] & (1 << ty)) || (rboard[ty] & (1 << tx))) // block overlaps w/ onboard blocks
@@ -496,7 +518,7 @@ inline bool isPossible(int cboard[10], int rboard[27], st_tetro move)
 	return true;
 }
 
-double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int comboct, st_tetro move, st_func &valfunc)
+double calcMoveVal(int cboard[BOARDX], int rboard[BOARDY + 5], int b2bct, int b2btp, int comboct, st_tetro move, st_func &valfunc)
 {
 	// only valid moves are given for input
 
@@ -510,11 +532,11 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 		cboard[tx] ^= (1 << ty);
 		rboard[ty] ^= (1 << tx);
 
-		if (rboard[ty] == (1 << 10) - 1)
+		if (rboard[ty] == (1 << BOARDX) - 1)
 			lcct++;
 	}
 
-	for (int i = 22; i < 27; i++)
+	for (int i = BOARDY; i < BOARDY + 5; i++)
 	{
 		if (rboard[i] != 0)
 		{
@@ -551,8 +573,8 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 	ret += valfunc.cff[2] * lcct; // compl, 2
 
 	for (int i = 0; i < tmp; i++)
-		ret += valfunc.cff[10] * hashdat[idx(rboard[i] + (1 << 10), 2)]; // rtrans, 10
-	ret += valfunc.cff[10] * (22 - tmp) * 2; // rtrans compensation for uncounted rows
+		ret += valfunc.cff[10] * hashdat[idx(rboard[i] + (1 << BOARDX), 2)]; // rtrans, 10
+	ret += valfunc.cff[10] * (BOARDY - tmp) * 2; // rtrans compensation for uncounted rows
 
 	tmp = points[(int)type_score::place];
 	if (lcct > 0)
@@ -586,7 +608,7 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 
 		if (tx - 1 < 0 || (rboard[ty] & (1 << (tx - 1))))
 			ret += valfunc.cff[5]; // adjLR, 5
-		if (tx + 1 >= 10 || (rboard[ty] & (1 << (tx + 1))))
+		if (tx + 1 >= BOARDX || (rboard[ty] & (1 << (tx + 1))))
 			ret += valfunc.cff[5]; // adjLR, 5
 		if (ty - 1 < 0 || (cboard[tx] & (1 << (ty - 1))))
 			ret += valfunc.cff[6]; // adjD, 6
@@ -595,7 +617,7 @@ double calcMoveVal(int cboard[10], int rboard[27], int b2bct, int b2btp, int com
 	return ret;
 }
 
-long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &comboct, st_tetro move)
+long long procMove(int cboard[BOARDX], int rboard[BOARDY + 5], int &b2bct, int &b2btp, int &comboct, st_tetro move)
 {
 	int tx, ty, score = 0, lclist[4], lcct = 0, maxh = 0;
 
@@ -607,12 +629,12 @@ long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &
 		cboard[tx] ^= (1 << ty);
 		rboard[ty] ^= (1 << tx);
 
-		if (rboard[ty] == (1 << 10) - 1)
+		if (rboard[ty] == (1 << BOARDX) - 1)
 			lclist[lcct++] = ty;
 	}
 
 	// gameover checker
-	for (int i = 22; i < 27; i++)
+	for (int i = BOARDY; i < BOARDY + 5; i++)
 		if (rboard[i] != 0)
 			return points[(int)type_score::gameover];
 
@@ -657,7 +679,7 @@ long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &
 			rc += (1 << i)*tmp[i];
 		rc = (rc - 1) / 2;
 
-		for (int i = 0; i < 10; i++)
+		for (int i = 0; i < BOARDX; i++)
 		{
 			maxh = std::max(maxh, (int)hashdat[idx(cboard[i], 0)]);
 			cboard[i] = hashLineRemove(cboard[i], lclist[0] + 1, rc);
@@ -682,11 +704,11 @@ long long procMove(int cboard[10], int rboard[27], int &b2bct, int &b2btp, int &
 
 char* initHash()
 {
-	char *dat = new char[(1 << 22) * 3];
+	char *dat = new char[(1 << BOARDY) * 3];
 
 	int log2_cmp = 1, log2_val = 0;
 	dat[idx(0, 0)] = 0, dat[idx(0, 1)] = 0, dat[idx(0, 2)] = 1;
-	for (int i = 1; i < (1 << 22); i++)
+	for (int i = 1; i < (1 << BOARDY); i++)
 	{
 		// height, 0
 		dat[idx(i, 0)] = (log2_cmp == i ? (log2_cmp <<= 1, ++log2_val) : log2_val);
@@ -697,14 +719,14 @@ char* initHash()
 			if (!(i&(1 << j))) // if empty
 			{
 				hct++;
-				ctr += ((int)(j - 1 < 0 || (i&(1 << (j - 1)))) + (int)(j + 1 <= 21 && (i&(1 << (j + 1)))));
+				ctr += ((int)(j - 1 < 0 || (i&(1 << (j - 1)))) + (int)(j + 1 <= BOARDY - 1 && (i&(1 << (j + 1)))));
 			}
 		}
 
 		// hole, 1
 		dat[idx(i, 1)] = hct;
 
-		// ctrans, 2 (use this for rtrans as rtrans[n] = ctrans[n+(1<<10)] for row hash n)
+		// ctrans, 2 (use this for rtrans as rtrans[n] = ctrans[n+(1<<BOARDX)] for row hash n)
 		dat[idx(i, 2)] = ctr;
 	}
 
@@ -715,24 +737,24 @@ inline int hashLineRemove(int hv, int lo, int rc) // lo = n when lowest is n-th 
 {
 	switch (rc) // bit-twiddling
 	{
-		case 0:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << lo))) >> 1);
-		case 1:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 1)))) >> 2);
-		case 2:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << 22) - (1 << (lo + 2)))) >> 2);
-		case 3:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 2)))) >> 3);
-		case 4:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << lo) + (1 << (lo + 1)))) >> 1) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 2);
-		case 5:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << (lo + 1))) >> 2) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 3);
-		case 6:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 3);
-		case 7:
-			return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << 22) - (1 << (lo + 3)))) >> 4);
-		default:
-			return -1; // error case
+	case 0:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << lo))) >> 1);
+	case 1:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << (lo + 1)))) >> 2);
+	case 2:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << BOARDY) - (1 << (lo + 2)))) >> 2);
+	case 3:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << (lo + 2)))) >> 3);
+	case 4:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << lo) + (1 << (lo + 1)))) >> 1) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 2);
+	case 5:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << (lo + 1))) >> 2) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 3);
+	case 6:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&(1 << lo)) >> 1) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 3);
+	case 7:
+		return (hv&((1 << (lo - 1)) - 1)) + ((hv&((1 << BOARDY) - (1 << (lo + 3)))) >> 4);
+	default:
+		return -1; // error case
 	}
 }
 
