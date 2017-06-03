@@ -1,0 +1,267 @@
+Generation 1
+    Run Status: 0, Elapsed Time: 0.37, ObjFunc Evals: 101
+    Best Candidate: -0.877, 0.743, -0.570, -0.650, 0.802, 0.285, 0.254, -0.738, 0.388, 1.090, -1.313, -0.775 (1026.77)
+Generation 2
+    Run Status: 0, Elapsed Time: 1.12, ObjFunc Evals: 201
+    Best Candidate: -2.867, 0.992, 0.403, -0.832, -1.073, 1.563, -0.324, 2.284, 3.040, 0.032, 0.072, -2.155 (8198.77)
+Generation 3
+    Run Status: 0, Elapsed Time: 1.59, ObjFunc Evals: 301
+    Best Candidate: -2.867, 0.992, 0.403, -0.832, -1.073, 1.563, -0.324, 2.284, 3.040, 0.032, 0.072, -2.155 (8198.77)
+Generation 4
+    Run Status: 0, Elapsed Time: 2.62, ObjFunc Evals: 401
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 5
+    Run Status: 0, Elapsed Time: 4.87, ObjFunc Evals: 501
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 6
+    Run Status: 0, Elapsed Time: 3.94, ObjFunc Evals: 601
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 7
+    Run Status: 0, Elapsed Time: 3.75, ObjFunc Evals: 701
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 8
+    Run Status: 0, Elapsed Time: 4.78, ObjFunc Evals: 801
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 9
+    Run Status: 0, Elapsed Time: 6.16, ObjFunc Evals: 901
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 10
+    Run Status: 0, Elapsed Time: 7.74, ObjFunc Evals: 1001
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 11
+    Run Status: 0, Elapsed Time: 7.71, ObjFunc Evals: 1101
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 12
+    Run Status: 0, Elapsed Time: 8.90, ObjFunc Evals: 1201
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 13
+    Run Status: 0, Elapsed Time: 8.03, ObjFunc Evals: 1301
+    Best Candidate: -3.515, -1.113, -2.061, 0.295, -0.582, 2.993, -0.634, 3.681, -1.097, 0.498, -0.695, -4.974 (8231.60)
+Generation 14
+    Run Status: 0, Elapsed Time: 10.38, ObjFunc Evals: 1401
+    Best Candidate: -2.601, -3.959, -0.727, -3.462, 0.403, 3.753, 1.036, 1.818, 4.276, -0.060, -0.447, -2.215 (8245.25)
+Generation 15
+    Run Status: 0, Elapsed Time: 9.86, ObjFunc Evals: 1501
+    Best Candidate: -4.908, -2.464, -2.115, -4.726, -1.559, 0.715, 1.901, 2.950, 3.570, -0.024, -0.803, -2.742 (8345.07)
+Generation 16
+    Run Status: 0, Elapsed Time: 8.43, ObjFunc Evals: 1601
+    Best Candidate: -4.152, 0.692, -3.158, -1.107, -2.783, 1.831, 2.523, 2.309, 4.769, 0.210, -0.741, -4.652 (8404.20)
+Generation 17
+    Run Status: 0, Elapsed Time: 9.74, ObjFunc Evals: 1701
+    Best Candidate: -4.152, 0.692, -3.158, -1.107, -2.783, 1.831, 2.523, 2.309, 4.769, 0.210, -0.741, -4.652 (8404.20)
+Generation 18
+    Run Status: 0, Elapsed Time: 8.51, ObjFunc Evals: 1801
+    Best Candidate: -4.152, 0.692, -3.158, -1.107, -2.783, 1.831, 2.523, 2.309, 4.769, 0.210, -0.741, -4.652 (8404.20)
+Generation 19
+    Run Status: 0, Elapsed Time: 11.03, ObjFunc Evals: 1901
+    Best Candidate: -4.152, 0.692, -3.158, -1.107, -2.783, 1.831, 2.523, 2.309, 4.769, 0.210, -0.741, -4.652 (8404.20)
+Generation 20
+    Run Status: 0, Elapsed Time: 10.51, ObjFunc Evals: 2001
+    Best Candidate: -3.879, -3.265, -3.785, -3.036, -0.222, 4.919, 2.135, 5.000, 4.993, -0.078, -1.197, -4.075 (8425.10)
+Generation 21
+    Run Status: 0, Elapsed Time: 9.67, ObjFunc Evals: 2101
+    Best Candidate: -3.879, -3.265, -3.785, -3.036, -0.222, 4.919, 2.135, 5.000, 4.993, -0.078, -1.197, -4.075 (8425.10)
+Generation 22
+    Run Status: 0, Elapsed Time: 10.37, ObjFunc Evals: 2201
+    Best Candidate: -3.879, -3.265, -3.785, -3.036, -0.222, 4.919, 2.135, 5.000, 4.993, -0.078, -1.197, -4.075 (8425.10)
+Generation 23
+    Run Status: 0, Elapsed Time: 12.28, ObjFunc Evals: 2301
+    Best Candidate: -3.879, -3.265, -3.785, -3.036, -0.222, 4.919, 2.135, 5.000, 4.993, -0.078, -1.197, -4.075 (8425.10)
+Generation 24
+    Run Status: 0, Elapsed Time: 11.98, ObjFunc Evals: 2401
+    Best Candidate: -3.879, -3.265, -3.785, -3.036, -0.222, 4.919, 2.135, 5.000, 4.993, -0.078, -1.197, -4.075 (8425.10)
+Generation 25
+    Run Status: 0, Elapsed Time: 12.02, ObjFunc Evals: 2501
+    Best Candidate: -3.879, -3.265, -3.785, -3.036, -0.222, 4.919, 2.135, 5.000, 4.993, -0.078, -1.197, -4.075 (8425.10)
+Generation 26
+    Run Status: 0, Elapsed Time: 9.57, ObjFunc Evals: 2601
+    Best Candidate: -4.660, 1.151, -4.326, -1.990, -2.119, 4.984, 4.361, 4.995, 4.548, 0.332, 0.193, -2.289 (8461.22)
+Generation 27
+    Run Status: 0, Elapsed Time: 12.41, ObjFunc Evals: 2701
+    Best Candidate: -4.823, -0.865, -3.323, -2.376, -0.174, 3.711, 3.512, 4.975, 3.616, 0.003, -0.528, -2.254 (8503.90)
+Generation 28
+    Run Status: 0, Elapsed Time: 10.62, ObjFunc Evals: 2801
+    Best Candidate: -4.823, -0.865, -3.323, -2.376, -0.174, 3.711, 3.512, 4.975, 3.616, 0.003, -0.528, -2.254 (8503.90)
+Generation 29
+    Run Status: 0, Elapsed Time: 12.01, ObjFunc Evals: 2901
+    Best Candidate: -4.246, -0.566, -3.928, -0.493, -1.110, 4.929, 0.874, 3.992, 4.748, 0.290, 0.749, -2.860 (8554.25)
+Generation 30
+    Run Status: 0, Elapsed Time: 11.68, ObjFunc Evals: 3001
+    Best Candidate: -4.175, -3.359, -4.805, -0.623, -0.266, 4.757, 0.903, 4.843, 4.169, 0.008, -0.384, -4.044 (8639.57)
+Generation 31
+    Run Status: 0, Elapsed Time: 11.95, ObjFunc Evals: 3101
+    Best Candidate: -4.175, -3.359, -4.805, -0.623, -0.266, 4.757, 0.903, 4.843, 4.169, 0.008, -0.384, -4.044 (8639.57)
+Generation 32
+    Run Status: 0, Elapsed Time: 9.71, ObjFunc Evals: 3201
+    Best Candidate: -4.945, 0.573, -5.000, -0.646, -2.311, 1.602, 2.276, 4.870, 4.884, 0.236, 0.220, -3.651 (8650.80)
+Generation 33
+    Run Status: 0, Elapsed Time: 8.58, ObjFunc Evals: 3301
+    Best Candidate: -4.945, 0.573, -5.000, -0.646, -2.311, 1.602, 2.276, 4.870, 4.884, 0.236, 0.220, -3.651 (8650.80)
+Generation 34
+    Run Status: 0, Elapsed Time: 10.36, ObjFunc Evals: 3401
+    Best Candidate: -4.999, 1.401, -5.000, -1.865, -1.797, 1.407, 0.786, 4.787, 4.992, 0.309, 0.259, -2.355 (8655.71)
+Generation 35
+    Run Status: 0, Elapsed Time: 11.62, ObjFunc Evals: 3501
+    Best Candidate: -4.999, 1.401, -5.000, -1.865, -1.797, 1.407, 0.786, 4.787, 4.992, 0.309, 0.259, -2.355 (8655.71)
+Generation 36
+    Run Status: 0, Elapsed Time: 11.01, ObjFunc Evals: 3601
+    Best Candidate: -2.196, 1.364, -4.269, -4.720, -1.651, 3.379, 3.318, 4.804, 4.587, 0.271, 1.171, -0.706 (8794.25)
+Generation 37
+    Run Status: 0, Elapsed Time: 10.95, ObjFunc Evals: 3701
+    Best Candidate: -2.196, 1.364, -4.269, -4.720, -1.651, 3.379, 3.318, 4.804, 4.587, 0.271, 1.171, -0.706 (8794.25)
+Generation 38
+    Run Status: 0, Elapsed Time: 12.27, ObjFunc Evals: 3801
+    Best Candidate: -2.196, 1.364, -4.269, -4.720, -1.651, 3.379, 3.318, 4.804, 4.587, 0.271, 1.171, -0.706 (8794.25)
+Generation 39
+    Run Status: 0, Elapsed Time: 11.27, ObjFunc Evals: 3901
+    Best Candidate: -4.661, -0.080, -3.957, -4.996, -0.830, 3.024, 0.783, 4.735, 3.592, 0.124, 0.355, 0.637 (8891.49)
+Generation 40
+    Run Status: 0, Elapsed Time: 11.26, ObjFunc Evals: 4001
+    Best Candidate: -2.416, 0.744, -4.973, -4.372, -0.773, 2.068, 3.205, 4.465, 4.998, 0.245, -0.244, 0.444 (8932.35)
+Generation 41
+    Run Status: 0, Elapsed Time: 10.47, ObjFunc Evals: 4101
+    Best Candidate: -2.416, 0.744, -4.973, -4.372, -0.773, 2.068, 3.205, 4.465, 4.998, 0.245, -0.244, 0.444 (8932.35)
+Generation 42
+    Run Status: 0, Elapsed Time: 10.35, ObjFunc Evals: 4201
+    Best Candidate: -2.456, -0.566, -3.696, -4.975, -0.660, 4.570, 2.333, 4.961, 3.332, 0.132, 1.276, 0.637 (8971.50)
+Generation 43
+    Run Status: 0, Elapsed Time: 8.61, ObjFunc Evals: 4301
+    Best Candidate: -2.456, -0.566, -3.696, -4.975, -0.660, 4.570, 2.333, 4.961, 3.332, 0.132, 1.276, 0.637 (8971.50)
+Generation 44
+    Run Status: 0, Elapsed Time: 10.49, ObjFunc Evals: 4401
+    Best Candidate: -2.456, -0.566, -3.696, -4.975, -0.660, 4.570, 2.333, 4.961, 3.332, 0.132, 1.276, 0.637 (8971.50)
+Generation 45
+    Run Status: 0, Elapsed Time: 11.99, ObjFunc Evals: 4501
+    Best Candidate: -3.556, -1.618, -3.810, -3.278, 0.108, 4.848, 2.761, 4.728, 3.936, 0.182, 1.076, 1.463 (9026.43)
+Generation 46
+    Run Status: 0, Elapsed Time: 12.07, ObjFunc Evals: 4601
+    Best Candidate: -3.556, -1.618, -3.810, -3.278, 0.108, 4.848, 2.761, 4.728, 3.936, 0.182, 1.076, 1.463 (9026.43)
+Generation 47
+    Run Status: 0, Elapsed Time: 11.99, ObjFunc Evals: 4701
+    Best Candidate: -3.577, -1.076, -4.963, -2.815, -0.470, 4.312, 4.364, 3.672, 3.750, 0.234, 1.288, 1.304 (9206.05)
+Generation 48
+    Run Status: 0, Elapsed Time: 11.08, ObjFunc Evals: 4801
+    Best Candidate: -3.577, -1.076, -4.963, -2.815, -0.470, 4.312, 4.364, 3.672, 3.750, 0.234, 1.288, 1.304 (9206.05)
+Generation 49
+    Run Status: 0, Elapsed Time: 11.13, ObjFunc Evals: 4901
+    Best Candidate: -3.577, -1.076, -4.963, -2.815, -0.470, 4.312, 4.364, 3.672, 3.750, 0.234, 1.288, 1.304 (9206.05)
+Generation 50
+    Run Status: 0, Elapsed Time: 12.30, ObjFunc Evals: 5001
+    Best Candidate: -3.577, -1.076, -4.963, -2.815, -0.470, 4.312, 4.364, 3.672, 3.750, 0.234, 1.288, 1.304 (9206.05)
+Generation 51
+    Run Status: 0, Elapsed Time: 12.46, ObjFunc Evals: 5101
+    Best Candidate: -2.611, -0.053, -4.983, -4.540, -0.890, 4.176, 4.877, 4.588, 4.110, 0.301, 1.300, 1.749 (9218.45)
+Generation 52
+    Run Status: 0, Elapsed Time: 12.89, ObjFunc Evals: 5201
+    Best Candidate: -2.611, -0.053, -4.983, -4.540, -0.890, 4.176, 4.877, 4.588, 4.110, 0.301, 1.300, 1.749 (9218.45)
+Generation 53
+    Run Status: 0, Elapsed Time: 12.77, ObjFunc Evals: 5301
+    Best Candidate: -2.611, -0.053, -4.983, -4.540, -0.890, 4.176, 4.877, 4.588, 4.110, 0.301, 1.300, 1.749 (9218.45)
+Generation 54
+    Run Status: 0, Elapsed Time: 12.96, ObjFunc Evals: 5401
+    Best Candidate: -4.997, -0.512, -4.755, -4.296, -0.363, 2.534, 3.911, 4.974, 4.956, 0.295, 0.458, 1.802 (9245.28)
+Generation 55
+    Run Status: 0, Elapsed Time: 12.64, ObjFunc Evals: 5501
+    Best Candidate: -4.997, -0.512, -4.755, -4.296, -0.363, 2.534, 3.911, 4.974, 4.956, 0.295, 0.458, 1.802 (9245.28)
+Generation 56
+    Run Status: 0, Elapsed Time: 13.71, ObjFunc Evals: 5601
+    Best Candidate: -4.997, -0.512, -4.755, -4.296, -0.363, 2.534, 3.911, 4.974, 4.956, 0.295, 0.458, 1.802 (9245.28)
+Generation 57
+    Run Status: 0, Elapsed Time: 13.96, ObjFunc Evals: 5701
+    Best Candidate: -4.997, -0.512, -4.755, -4.296, -0.363, 2.534, 3.911, 4.974, 4.956, 0.295, 0.458, 1.802 (9245.28)
+Generation 58
+    Run Status: 0, Elapsed Time: 13.85, ObjFunc Evals: 5801
+    Best Candidate: -4.997, -0.512, -4.755, -4.296, -0.363, 2.534, 3.911, 4.974, 4.956, 0.295, 0.458, 1.802 (9245.28)
+Generation 59
+    Run Status: 0, Elapsed Time: 14.23, ObjFunc Evals: 5901
+    Best Candidate: -4.789, -0.173, -4.830, -4.629, -0.612, 2.749, 1.453, 4.806, 4.513, 0.246, 0.755, 1.127 (9280.59)
+Generation 60
+    Run Status: 0, Elapsed Time: 13.82, ObjFunc Evals: 6001
+    Best Candidate: -4.789, -0.173, -4.830, -4.629, -0.612, 2.749, 1.453, 4.806, 4.513, 0.246, 0.755, 1.127 (9280.59)
+Generation 61
+    Run Status: 0, Elapsed Time: 13.70, ObjFunc Evals: 6101
+    Best Candidate: -4.789, -0.173, -4.830, -4.629, -0.612, 2.749, 1.453, 4.806, 4.513, 0.246, 0.755, 1.127 (9280.59)
+Generation 62
+    Run Status: 0, Elapsed Time: 13.85, ObjFunc Evals: 6201
+    Best Candidate: -4.789, -0.173, -4.830, -4.629, -0.612, 2.749, 1.453, 4.806, 4.513, 0.246, 0.755, 1.127 (9280.59)
+Generation 63
+    Run Status: 0, Elapsed Time: 14.58, ObjFunc Evals: 6301
+    Best Candidate: -4.595, -0.349, -5.000, -4.980, -0.557, 1.860, 1.064, 4.939, 4.964, 0.232, 0.076, 1.474 (9311.46)
+Generation 64
+    Run Status: 0, Elapsed Time: 15.07, ObjFunc Evals: 6401
+    Best Candidate: -4.595, -0.349, -5.000, -4.980, -0.557, 1.860, 1.064, 4.939, 4.964, 0.232, 0.076, 1.474 (9311.46)
+Generation 65
+    Run Status: 0, Elapsed Time: 15.02, ObjFunc Evals: 6501
+    Best Candidate: -4.595, -0.349, -5.000, -4.980, -0.557, 1.860, 1.064, 4.939, 4.964, 0.232, 0.076, 1.474 (9311.46)
+Generation 66
+    Run Status: 0, Elapsed Time: 15.22, ObjFunc Evals: 6601
+    Best Candidate: -4.476, -0.751, -4.985, -4.211, -0.507, 2.487, 2.787, 4.813, 4.897, 0.253, 0.432, 1.552 (9328.31)
+Generation 67
+    Run Status: 0, Elapsed Time: 14.57, ObjFunc Evals: 6701
+    Best Candidate: -4.991, -0.958, -4.696, -4.927, -0.391, 3.092, 3.528, 4.858, 4.677, 0.256, 0.631, 1.994 (9332.68)
+Generation 68
+    Run Status: 0, Elapsed Time: 14.72, ObjFunc Evals: 6801
+    Best Candidate: -4.991, -0.958, -4.696, -4.927, -0.391, 3.092, 3.528, 4.858, 4.677, 0.256, 0.631, 1.994 (9332.68)
+Generation 69
+    Run Status: 0, Elapsed Time: 15.09, ObjFunc Evals: 6901
+    Best Candidate: -4.991, -0.958, -4.696, -4.927, -0.391, 3.092, 3.528, 4.858, 4.677, 0.256, 0.631, 1.994 (9332.68)
+Generation 70
+    Run Status: 0, Elapsed Time: 14.50, ObjFunc Evals: 7001
+    Best Candidate: -4.805, -0.764, -4.963, -3.719, -0.612, 2.666, 3.073, 4.989, 4.778, 0.227, 0.472, 1.682 (9340.35)
+Generation 71
+    Run Status: 0, Elapsed Time: 14.73, ObjFunc Evals: 7101
+    Best Candidate: -4.805, -0.764, -4.963, -3.719, -0.612, 2.666, 3.073, 4.989, 4.778, 0.227, 0.472, 1.682 (9340.35)
+Generation 72
+    Run Status: 0, Elapsed Time: 14.31, ObjFunc Evals: 7201
+    Best Candidate: -4.805, -0.764, -4.963, -3.719, -0.612, 2.666, 3.073, 4.989, 4.778, 0.227, 0.472, 1.682 (9340.35)
+Generation 73
+    Run Status: 0, Elapsed Time: 14.60, ObjFunc Evals: 7301
+    Best Candidate: -4.992, -0.985, -4.988, -4.690, -0.344, 2.258, 2.550, 4.908, 4.961, 0.222, 0.079, 1.953 (9362.50)
+Generation 74
+    Run Status: 0, Elapsed Time: 14.68, ObjFunc Evals: 7401
+    Best Candidate: -4.992, -0.985, -4.988, -4.690, -0.344, 2.258, 2.550, 4.908, 4.961, 0.222, 0.079, 1.953 (9362.50)
+Generation 75
+    Run Status: 0, Elapsed Time: 14.76, ObjFunc Evals: 7501
+    Best Candidate: -4.992, -0.985, -4.988, -4.690, -0.344, 2.258, 2.550, 4.908, 4.961, 0.222, 0.079, 1.953 (9362.50)
+Generation 76
+    Run Status: 0, Elapsed Time: 14.54, ObjFunc Evals: 7601
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 77
+    Run Status: 0, Elapsed Time: 14.76, ObjFunc Evals: 7701
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 78
+    Run Status: 0, Elapsed Time: 14.86, ObjFunc Evals: 7801
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 79
+    Run Status: 0, Elapsed Time: 14.71, ObjFunc Evals: 7901
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 80
+    Run Status: 0, Elapsed Time: 14.68, ObjFunc Evals: 8001
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 81
+    Run Status: 0, Elapsed Time: 14.46, ObjFunc Evals: 8101
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 82
+    Run Status: 0, Elapsed Time: 14.54, ObjFunc Evals: 8201
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 83
+    Run Status: 0, Elapsed Time: 14.62, ObjFunc Evals: 8301
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 84
+    Run Status: 0, Elapsed Time: 10.85, ObjFunc Evals: 8401
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 85
+    Run Status: 0, Elapsed Time: 14.60, ObjFunc Evals: 8501
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 86
+    Run Status: 0, Elapsed Time: 10.40, ObjFunc Evals: 8601
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 87
+    Run Status: 0, Elapsed Time: 14.66, ObjFunc Evals: 8701
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+Generation 88
+    Run Status: 0, Elapsed Time: 14.46, ObjFunc Evals: 8801
+    Best Candidate: -4.979, -0.835, -4.975, -4.506, -0.576, 2.676, 2.440, 4.875, 4.931, 0.220, 0.439, 1.672 (9374.45)
+
+Total Time Consumption: 996.944000 seconds
+Return Code: 1

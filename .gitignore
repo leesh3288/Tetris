@@ -253,6 +253,8 @@ paket-files/
 
 Tetris/Tetris/log.txt
 Tetris/Tetris/optimal.txt
+Tetris/Tetris/testing.txt
+Tetris/Tetris/testing.csv
 Tetris/Tetris/Solutions
 cmaes_tetris/log.dat
 cmaes_tetris/progress.txt

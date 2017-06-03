@@ -1,0 +1,1 @@
+The simulation is equivalent to: (8, 17), (11, 500, 100, 1000000000, 1000, 1.0), aCMAES, non-ELITIST

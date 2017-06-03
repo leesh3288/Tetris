@@ -40,30 +40,13 @@ double calcMoveVal(int[BOARDX], int[BOARDY + 5], int, int, int, st_tetro, st_fun
 long long procMove(int[BOARDX], int[BOARDY + 5], int &, int &, int &, st_tetro);
 char* initHash();
 inline int hashLineRemove(int, int, int);
-/*
-void tPlayerAIMain();
-void tPlayerMain();
-void tPlayerActionWatch(const bool &, std::atomic<bool> &, std::atomic<int> &);
-void clearScreen();
-void drawScreen();
-*/
 
 int main(void)
 {
-	/*
-	printf("t to trigger automatic timer\n");
-	printf("r to reset timer\n");
-	printf("c to reset timer counts\n");
-	printf("q to trigger quit command (tPAW -> tPM -> tPAW)\n");
-
-	std::thread tP1_PM(tPlayerMain); // thread parent->child relationship: tP1_PM -> tP1_PAW
-	
-	tP1_PM.join();
-	*/
 
 	printf("initHash() started.\n");
 	hashdat = initHash();
-	printf("initHash() completed. char* = %d\n", (int)hashdat);
+	printf("initHash() completed.\n", (int)hashdat);
 
 #ifndef DBG
 	st_func optimal = gaSolver(50, 50, 20, 1'000'000'000, 0.1, 1.5);
@@ -73,17 +56,39 @@ int main(void)
 #ifdef DBG_MBM
 	rlutil::saveDefaultColor();
 #endif
+
 	/// DEBUG
 	st_func *t = new st_func[1];
-	// double dat[CFFCT] = { -4.782176804055032, -1.551392399433952, 2.632340992666880, -3.851991421090977, -0.642271680470106, 0.006517314809009, -0.277559278159567, 0.000000000000000, 0.000000000000000, 0.000000000000000, -3.359153266105504, -4.946575489267508 };
 	double dat[CFFCT] = { -1.227216147591351, -0.181782005756474, 3.243910450182081, -3.744504339902469, -0.879149441484679, -0.519702872040023, 0.090352749470464, 0.000000000000000, 0.000000000000000, 0.000000000000000, -2.238796977210718, -4.666693888260132 };
 	for (int i = 0; i < CFFCT; i++)
 		t[0].cff[i] = dat[i];
-	gaNormalize(t, 0);
+	// gaNormalize(t, 0);
 	std::random_device rd;
 	std::mt19937 mt(rd());
 	
-	/// TESTING
+	FILE *fs = fopen("testing.txt", "at");
+	fprintf(fs, "Parameters: (");
+	for(int i=0; i<CFFCT - 1; i++)
+		fprintf(fs, "%.15lf, ", t[0].cff[i]);
+	fprintf(fs, "%.15lf)\n", t[0].cff[CFFCT - 1]);
+	fprintf(fs, "Map Size: (%d, %d)\n", BOARDX, BOARDY);
+	fprintf(fs, "Test Mode:");
+
+#ifdef SCORELINE
+	fprintf(fs, " SCORELINE");
+#endif
+#ifdef TSLINE
+	fprintf(fs, " TSLINE");
+#endif
+#ifdef SCORECFF
+	fprintf(fs, " SCORECFF");
+#endif
+	fprintf(fs, "\n\n");
+	fclose(fs);
+	fs = fopen("testing.csv", "at");
+	fprintf(fs, "Test#,Score,AvgScore\n");
+	fclose(fs);
+
 	long long int totline = 0;
 	int counts = 0;
 	#pragma omp parallel for schedule(dynamic)
@@ -99,6 +104,9 @@ int main(void)
 			printf("Test %d / %d: Average Score %lld\n", counts, 100, totline / counts);
 			FILE *fp = fopen("testing.txt", "at");
 			fprintf(fp, "Test %d / %d: Average Score %lld\n", counts, 100, totline / counts);
+			fclose(fp);
+			fp = fopen("testing.csv", "at");
+			fprintf(fp, "%d,%lld,%lld\n", counts, curline, totline / counts);
 			fclose(fp);
 		}
 	}
@@ -229,7 +237,7 @@ void gaFitnessCalc(st_func *entity, int genpop, int simct, int simmove, std::mt1
 		long long fit = 0;
 		#pragma omp parallel for schedule(dynamic) reduction(+:fit)
 		for (int j = 0; j < simct; j++)
-			fit += gaSimulate(entity, i, simmove, mt); // random engine "seems" to work fine multithreaded
+			fit += gaSimulate(entity, i, simmove, mt); // random engine works fine multithreaded
 		entity[i].fitness = fit / simct;
 
 		if (fct >= simct * 4 / 5)
@@ -757,174 +765,3 @@ inline int hashLineRemove(int hv, int lo, int rc) // lo = n when lowest is n-th 
 		return -1; // error case
 	}
 }
-
-/*
-void tPlayerAIMain()
-{
-}
-
-void tPlayerMain() // busy-waiting for block drop / action update from tPlayerActionWatch()
-{
-	bool killPAW = false;
-	std::atomic<bool> actflag = false;
-	std::atomic<int> actdat;
-
-	bool autotimer = false;
-	int timercount = 0;
-
-	std::thread tP1_PAW(tPlayerActionWatch, std::ref(killPAW), std::ref(actflag), std::ref(actdat));
-
-	auto timebase = std::chrono::high_resolution_clock::now();
-
-	while (!killPAW)
-	{
-		if (autotimer && (std::chrono::high_resolution_clock::now() - timebase).count() > 1000000000LL * 1)
-		{
-			printf("automatic 1s timer triggered from tPM\n");
-			timebase = std::chrono::high_resolution_clock::now();
-			printf("timebase reset\n");
-
-			timercount++;
-			printf("timercount incremented to %d\n", timercount);
-			
-			if (timercount == 10)
-			{
-				printf("automatic timer count reached max limit (10)\n");
-				printf("killPAW set to true\n");
-				killPAW = true;
-			}
-		}
-
-		if (actflag) // input received, need processing
-		{
-			switch (actdat)
-			{
-				case 'q':
-				{
-					killPAW = true;
-					printf("killPAW set to true\n");
-					break;
-				}
-				case 'r':
-				{
-					timebase = std::chrono::high_resolution_clock::now();
-					printf("timer reset\n");
-					break;
-				}
-				case 't':
-				{
-					if (autotimer)
-					{
-						autotimer = false;
-						printf("autotimer turned off\n");
-					}
-					else
-					{
-						autotimer = true;
-						printf("autotimer turned on\n");
-						timebase = std::chrono::high_resolution_clock::now();
-						printf("timebase reset\n");
-					}
-					break;
-				}
-				case 'c':
-				{
-					timercount = 0;
-					printf("timercount reset to 0\n");
-					break;
-				}
-				default:
-				{
-					printf("command '%c'(%d) not defined, input ignored from tPM\n", (char)actdat, (int)actdat);
-					break;
-				}
-			}
-
-			actflag = false; // time delay can possibly lead to spammed keys being ignored
-		}
-	}
-
-	printf("waiting for PAW thread to return\n");
-
-	if(tP1_PAW.joinable())
-		tP1_PAW.join();
-
-	printf("tPAW joined, tPM now returning\n");
-
-	return;
-}
-
-void tPlayerActionWatch(const bool &killsw, std::atomic<bool> &actionflag, std::atomic<int> &actiondat) // busy-waiting for input
-{
-	while (!killsw)
-	{
-		actiondat = getch();
-		actionflag = true;
-	}
-
-	printf("tPAW now returning\n");
-
-	return;
-}
-*/
-/*
-void clearScreen()
-{
-	rlutil::cls();
-}
-
-void drawScreen() // needs to be completely mutually exclusive(mutex) - input ignorance/queueing, atomic<bool> for function run check (redundant?)
-{
-	
-}
-*/
-
-
-/*
-Controls: 
-LArr/RArr for movement
-DArr for soft drop
-SpaceBar for hard drop
-X for right rotation
-Z for left rotation
-Shift for hold
-P for pause
-*/
-
-/*
-Offset Data / Tetromino Shape viewing code
-
-	for (int i = 0; i < 3; i++)
-	{
-		for (int j = 0; j < 4; j++)
-		{
-			for (int k = 0; k < 5; k++)
-				printf("(%d, %d) ", offset[i][j][k].x, offset[i][j][k].y);
-			printf("\n");
-		}
-		printf("\n");
-	}
-
-	for (int i = 0; i < 7; i++)
-	{
-		for (int j = 0; j < 5; j++)
-		{
-			for (int k = 0; k < 4; k++)
-			{
-				for (int l = 0; l < 5; l++)
-				{
-					if (j == 2 && l == 2)
-						printf("в├");
-					else if (tetroshape[i][k].tetrogrid[j][l])
-						printf("бс");
-					else
-						printf("  ");
-				}
-
-				printf("    ");
-			}
-			printf("\n");
-		}
-		printf("\n");
-	}
-*/

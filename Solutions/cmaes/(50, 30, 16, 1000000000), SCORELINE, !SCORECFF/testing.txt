@@ -1,0 +1,304 @@
+Parameters: (-4.572000000000000, -3.168000000000000, 3.169000000000000, -4.301000000000000, -1.604000000000000, 4.389000000000000, 4.687000000000000, 0.000000000000000, 0.000000000000000, 0.000000000000000, -1.062000000000000, -4.980000000000000)
+Map Size: (10, 20)
+Test Mode: TSLINE
+
+Total Score: 8224012
+Total Moves: 20560073
+Test 1 / 100: Average Score 8224011
+Total Score: 8894243
+Total Moves: 22235651
+Test 2 / 100: Average Score 8559126
+Total Score: 4493739
+Total Moves: 11234391
+Test 3 / 100: Average Score 7203997
+Total Score: 12790817
+Total Moves: 31977086
+Test 4 / 100: Average Score 8600701
+Total Score: 13053243
+Total Moves: 32633150
+Test 5 / 100: Average Score 9491209
+Total Score: 14090893
+Total Moves: 35227276
+Test 6 / 100: Average Score 10257823
+Total Score: 16157839
+Total Moves: 40394640
+Test 7 / 100: Average Score 11100682
+Total Score: 8561172
+Total Moves: 21402973
+Test 8 / 100: Average Score 10783243
+Total Score: 16055407
+Total Moves: 40138561
+Test 9 / 100: Average Score 11369039
+Total Score: 3378098
+Total Moves: 8445289
+Test 10 / 100: Average Score 10569945
+Total Score: 10072346
+Total Moves: 25180909
+Test 11 / 100: Average Score 10524708
+Total Score: 7064393
+Total Moves: 17661027
+Test 12 / 100: Average Score 10236349
+Total Score: 10537065
+Total Moves: 26342705
+Test 13 / 100: Average Score 10259481
+Total Score: 1289772
+Total Moves: 3224472
+Test 14 / 100: Average Score 9618787
+Total Score: 31802732
+Total Moves: 79506874
+Test 15 / 100: Average Score 11097717
+Total Score: 32302540
+Total Moves: 80756392
+Test 16 / 100: Average Score 12423018
+Total Score: 48856111
+Total Moves: 122140320
+Test 17 / 100: Average Score 14566141
+Total Score: 22763115
+Total Moves: 56907831
+Test 18 / 100: Average Score 15021528
+Total Score: 684170
+Total Moves: 1710466
+Test 19 / 100: Average Score 14266930
+Total Score: 4728406
+Total Moves: 11821058
+Test 20 / 100: Average Score 13790004
+Total Score: 27619228
+Total Moves: 69048113
+Test 21 / 100: Average Score 14448539
+Total Score: 18198526
+Total Moves: 45496357
+Test 22 / 100: Average Score 14618992
+Total Score: 14816388
+Total Moves: 37041013
+Test 23 / 100: Average Score 14627575
+Total Score: 23495261
+Total Moves: 58738196
+Test 24 / 100: Average Score 14997062
+Total Score: 19269171
+Total Moves: 48172971
+Test 25 / 100: Average Score 15167946
+Total Score: 57761628
+Total Moves: 144404111
+Test 26 / 100: Average Score 16806164
+Total Score: 1616910
+Total Moves: 4042318
+Test 27 / 100: Average Score 16243599
+Total Score: 8812449
+Total Moves: 22031165
+Test 28 / 100: Average Score 15978201
+Total Score: 224733
+Total Moves: 561876
+Test 29 / 100: Average Score 15434978
+Total Score: 38241568
+Total Moves: 95603964
+Test 30 / 100: Average Score 16195198
+Total Score: 29469323
+Total Moves: 73673351
+Test 31 / 100: Average Score 16623395
+Total Score: 95804074
+Total Moves: 239510228
+Test 32 / 100: Average Score 19097791
+Total Score: 25736850
+Total Moves: 64342168
+Test 33 / 100: Average Score 19298975
+Total Score: 5079426
+Total Moves: 12698607
+Test 34 / 100: Average Score 18880753
+Total Score: 18675452
+Total Moves: 46688674
+Test 35 / 100: Average Score 18874887
+Total Score: 850435
+Total Moves: 2126131
+Test 36 / 100: Average Score 18374208
+Total Score: 53482891
+Total Moves: 133707271
+Test 37 / 100: Average Score 19323091
+Total Score: 10732601
+Total Moves: 26831546
+Test 38 / 100: Average Score 19097026
+Total Score: 17371756
+Total Moves: 43429433
+Test 39 / 100: Average Score 19052788
+Total Score: 54448733
+Total Moves: 136121876
+Test 40 / 100: Average Score 19937686
+Total Score: 8531753
+Total Moves: 21329426
+Test 41 / 100: Average Score 19659493
+Total Score: 23352664
+Total Moves: 58381704
+Test 42 / 100: Average Score 19747425
+Total Score: 2620313
+Total Moves: 6550826
+Test 43 / 100: Average Score 19349121
+Total Score: 62821306
+Total Moves: 157053309
+Test 44 / 100: Average Score 20337125
+Total Score: 31854278
+Total Moves: 79635738
+Test 45 / 100: Average Score 20593061
+Total Score: 34078247
+Total Moves: 85195661
+Test 46 / 100: Average Score 20886218
+Total Score: 44588507
+Total Moves: 111471310
+Test 47 / 100: Average Score 21390522
+Total Score: 9251397
+Total Moves: 23128536
+Test 48 / 100: Average Score 21137623
+Total Score: 4553823
+Total Moves: 11384599
+Test 49 / 100: Average Score 20799178
+Total Score: 23020347
+Total Moves: 57550909
+Test 50 / 100: Average Score 20843602
+Total Score: 35829606
+Total Moves: 89574058
+Test 51 / 100: Average Score 21137445
+Total Score: 8344749
+Total Moves: 20861916
+Test 52 / 100: Average Score 20891431
+Total Score: 12473395
+Total Moves: 31183531
+Test 53 / 100: Average Score 20732600
+Total Score: 10055667
+Total Moves: 25139210
+Test 54 / 100: Average Score 20534879
+Total Score: 32164142
+Total Moves: 80410397
+Test 55 / 100: Average Score 20746321
+Total Score: 2670285
+Total Moves: 6675756
+Test 56 / 100: Average Score 20423534
+Total Score: 33705438
+Total Moves: 84263638
+Test 57 / 100: Average Score 20656550
+Total Score: 1877696
+Total Moves: 4694284
+Test 58 / 100: Average Score 20332777
+Total Score: 39811317
+Total Moves: 99528337
+Test 59 / 100: Average Score 20662921
+Total Score: 20526334
+Total Moves: 51315878
+Test 60 / 100: Average Score 20660645
+Total Score: 10130513
+Total Moves: 25326326
+Test 61 / 100: Average Score 20488020
+Total Score: 6708252
+Total Moves: 16770674
+Test 62 / 100: Average Score 20265765
+Total Score: 25316474
+Total Moves: 63291228
+Test 63 / 100: Average Score 20345935
+Total Score: 33524803
+Total Moves: 83812050
+Test 64 / 100: Average Score 20551855
+Total Score: 40923603
+Total Moves: 102309050
+Test 65 / 100: Average Score 20865267
+Total Score: 8584340
+Total Moves: 21460892
+Test 66 / 100: Average Score 20679192
+Total Score: 48789132
+Total Moves: 121972873
+Test 67 / 100: Average Score 21098743
+Total Score: 156523
+Total Moves: 391351
+Test 68 / 100: Average Score 20790769
+Total Score: 1114992
+Total Moves: 2787523
+Test 69 / 100: Average Score 20505613
+Total Score: 24551617
+Total Moves: 61379087
+Test 70 / 100: Average Score 20563413
+Total Score: 4891674
+Total Moves: 12229228
+Test 71 / 100: Average Score 20342684
+Total Score: 11773027
+Total Moves: 29432612
+Test 72 / 100: Average Score 20223661
+Total Score: 10880987
+Total Moves: 27202511
+Test 73 / 100: Average Score 20095680
+Total Score: 7950252
+Total Moves: 19875673
+Test 74 / 100: Average Score 19931552
+Total Score: 2032645
+Total Moves: 5081656
+Test 75 / 100: Average Score 19692900
+Total Score: 718616
+Total Moves: 1796583
+Test 76 / 100: Average Score 19443238
+Total Score: 3747173
+Total Moves: 9367976
+Test 77 / 100: Average Score 19239393
+Total Score: 44759867
+Total Moves: 111899711
+Test 78 / 100: Average Score 19566579
+Total Score: 44836187
+Total Moves: 112090511
+Test 79 / 100: Average Score 19886447
+Total Score: 25479295
+Total Moves: 63698280
+Test 80 / 100: Average Score 19956358
+Total Score: 15523488
+Total Moves: 38808763
+Test 81 / 100: Average Score 19901631
+Total Score: 5205179
+Total Moves: 13012991
+Test 82 / 100: Average Score 19722406
+Total Score: 9216134
+Total Moves: 23040378
+Test 83 / 100: Average Score 19595824
+Total Score: 5593413
+Total Moves: 13983576
+Test 84 / 100: Average Score 19429129
+Total Score: 25979071
+Total Moves: 64947720
+Test 85 / 100: Average Score 19506187
+Total Score: 6520878
+Total Moves: 16302237
+Test 86 / 100: Average Score 19355195
+Total Score: 21632193
+Total Moves: 54080527
+Test 87 / 100: Average Score 19381368
+Total Score: 21548691
+Total Moves: 53871772
+Test 88 / 100: Average Score 19405996
+Total Score: 79119373
+Total Moves: 197798476
+Test 89 / 100: Average Score 20076933
+Total Score: 17417944
+Total Moves: 43544902
+Test 90 / 100: Average Score 20047389
+Total Score: 3868047
+Total Moves: 9670160
+Test 91 / 100: Average Score 19869594
+Total Score: 8706778
+Total Moves: 21766986
+Test 92 / 100: Average Score 19748259
+Total Score: 1552484
+Total Moves: 3881253
+Test 93 / 100: Average Score 19552605
+Total Score: 25173564
+Total Moves: 62933954
+Test 94 / 100: Average Score 19612403
+Total Score: 29340607
+Total Moves: 73351561
+Test 95 / 100: Average Score 19714805
+Total Score: 55668150
+Total Moves: 139170419
+Test 96 / 100: Average Score 20089319
+Total Score: 55851130
+Total Moves: 139627867
+Test 97 / 100: Average Score 20457997
+Total Score: 61725160
+Total Moves: 154312943
+Test 98 / 100: Average Score 20879091
+Total Score: 63875035
+Total Moves: 159687632
+Test 99 / 100: Average Score 21313393
+Total Score: 82575705
+Total Moves: 206439305
+Test 100 / 100: Average Score 21926016

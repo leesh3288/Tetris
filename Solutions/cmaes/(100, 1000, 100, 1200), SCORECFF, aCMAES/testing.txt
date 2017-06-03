@@ -1,0 +1,3004 @@
+Parameters: (-4.979000000000000, -0.835000000000000, -4.975000000000000, -4.506000000000000, -0.576000000000000, 2.676000000000000, 2.440000000000000, 4.875000000000000, 4.931000000000000, 0.220000000000000, 0.439000000000000, 1.672000000000000)
+Map Size: (10, 20)
+Test Mode: SCORECFF
+
+Total Score: 9255
+Total Moves: 1200
+Test 1 / 1000: Average Score 9255
+Total Score: 9710
+Total Moves: 1200
+Test 2 / 1000: Average Score 9482
+Total Score: 9230
+Total Moves: 1200
+Test 3 / 1000: Average Score 9398
+Total Score: 9080
+Total Moves: 1200
+Test 4 / 1000: Average Score 9318
+Total Score: 9080
+Total Moves: 1200
+Test 5 / 1000: Average Score 9271
+Total Score: 9150
+Total Moves: 1200
+Test 6 / 1000: Average Score 9250
+Total Score: 9305
+Total Moves: 1200
+Test 7 / 1000: Average Score 9258
+Total Score: 9345
+Total Moves: 1200
+Test 8 / 1000: Average Score 9269
+Total Score: 7088
+Total Moves: 943
+Test 9 / 1000: Average Score 9026
+Total Score: 9730
+Total Moves: 1200
+Test 10 / 1000: Average Score 9097
+Total Score: 8965
+Total Moves: 1200
+Test 11 / 1000: Average Score 9085
+Total Score: 9015
+Total Moves: 1200
+Test 12 / 1000: Average Score 9079
+Total Score: 9375
+Total Moves: 1200
+Test 13 / 1000: Average Score 9102
+Total Score: 9325
+Total Moves: 1200
+Test 14 / 1000: Average Score 9118
+Total Score: 5840
+Total Moves: 820
+Test 15 / 1000: Average Score 8899
+Total Score: 9565
+Total Moves: 1200
+Test 16 / 1000: Average Score 8941
+Total Score: 9370
+Total Moves: 1200
+Test 17 / 1000: Average Score 8966
+Total Score: 9075
+Total Moves: 1200
+Test 18 / 1000: Average Score 8972
+Total Score: 5779
+Total Moves: 804
+Test 19 / 1000: Average Score 8804
+Total Score: 9115
+Total Moves: 1200
+Test 20 / 1000: Average Score 8819
+Total Score: 9190
+Total Moves: 1200
+Test 21 / 1000: Average Score 8837
+Total Score: 9395
+Total Moves: 1200
+Test 22 / 1000: Average Score 8862
+Total Score: 9365
+Total Moves: 1200
+Test 23 / 1000: Average Score 8884
+Total Score: 9305
+Total Moves: 1200
+Test 24 / 1000: Average Score 8902
+Total Score: 9305
+Total Moves: 1200
+Test 25 / 1000: Average Score 8918
+Total Score: 9510
+Total Moves: 1200
+Test 26 / 1000: Average Score 8940
+Total Score: 9535
+Total Moves: 1200
+Test 27 / 1000: Average Score 8962
+Total Score: 9180
+Total Moves: 1200
+Test 28 / 1000: Average Score 8970
+Total Score: 9610
+Total Moves: 1200
+Test 29 / 1000: Average Score 8992
+Total Score: 9570
+Total Moves: 1200
+Test 30 / 1000: Average Score 9011
+Total Score: 9695
+Total Moves: 1200
+Test 31 / 1000: Average Score 9034
+Total Score: 9330
+Total Moves: 1200
+Test 32 / 1000: Average Score 9043
+Total Score: 9410
+Total Moves: 1200
+Test 33 / 1000: Average Score 9054
+Total Score: 9365
+Total Moves: 1200
+Test 34 / 1000: Average Score 9063
+Total Score: 9580
+Total Moves: 1200
+Test 35 / 1000: Average Score 9078
+Total Score: 8995
+Total Moves: 1200
+Test 36 / 1000: Average Score 9075
+Total Score: 9420
+Total Moves: 1200
+Test 37 / 1000: Average Score 9085
+Total Score: 9475
+Total Moves: 1200
+Test 38 / 1000: Average Score 9095
+Total Score: 9265
+Total Moves: 1200
+Test 39 / 1000: Average Score 9099
+Total Score: 9435
+Total Moves: 1200
+Test 40 / 1000: Average Score 9108
+Total Score: 9185
+Total Moves: 1200
+Test 41 / 1000: Average Score 9110
+Total Score: 9265
+Total Moves: 1200
+Test 42 / 1000: Average Score 9113
+Total Score: 9390
+Total Moves: 1200
+Test 43 / 1000: Average Score 9120
+Total Score: 9155
+Total Moves: 1200
+Test 44 / 1000: Average Score 9121
+Total Score: 9425
+Total Moves: 1200
+Test 45 / 1000: Average Score 9127
+Total Score: 9395
+Total Moves: 1200
+Test 46 / 1000: Average Score 9133
+Total Score: 9075
+Total Moves: 1200
+Test 47 / 1000: Average Score 9132
+Total Score: 9235
+Total Moves: 1200
+Test 48 / 1000: Average Score 9134
+Total Score: 9275
+Total Moves: 1200
+Test 49 / 1000: Average Score 9137
+Total Score: 9555
+Total Moves: 1200
+Test 50 / 1000: Average Score 9145
+Total Score: 9235
+Total Moves: 1200
+Test 51 / 1000: Average Score 9147
+Total Score: 9325
+Total Moves: 1200
+Test 52 / 1000: Average Score 9150
+Total Score: 9460
+Total Moves: 1200
+Test 53 / 1000: Average Score 9156
+Total Score: 9270
+Total Moves: 1200
+Test 54 / 1000: Average Score 9158
+Total Score: 9305
+Total Moves: 1200
+Test 55 / 1000: Average Score 9161
+Total Score: 9480
+Total Moves: 1200
+Test 56 / 1000: Average Score 9167
+Total Score: 9410
+Total Moves: 1200
+Test 57 / 1000: Average Score 9171
+Total Score: 9370
+Total Moves: 1200
+Test 58 / 1000: Average Score 9174
+Total Score: 9160
+Total Moves: 1200
+Test 59 / 1000: Average Score 9174
+Total Score: 9435
+Total Moves: 1200
+Test 60 / 1000: Average Score 9178
+Total Score: 8920
+Total Moves: 1200
+Test 61 / 1000: Average Score 9174
+Total Score: 9375
+Total Moves: 1200
+Test 62 / 1000: Average Score 9177
+Total Score: 9205
+Total Moves: 1200
+Test 63 / 1000: Average Score 9178
+Total Score: 9285
+Total Moves: 1200
+Test 64 / 1000: Average Score 9179
+Total Score: 9585
+Total Moves: 1200
+Test 65 / 1000: Average Score 9186
+Total Score: 9240
+Total Moves: 1200
+Test 66 / 1000: Average Score 9187
+Total Score: 9215
+Total Moves: 1200
+Test 67 / 1000: Average Score 9187
+Total Score: 9450
+Total Moves: 1200
+Test 68 / 1000: Average Score 9191
+Total Score: 9080
+Total Moves: 1200
+Test 69 / 1000: Average Score 9189
+Total Score: 9550
+Total Moves: 1200
+Test 70 / 1000: Average Score 9194
+Total Score: 9465
+Total Moves: 1200
+Test 71 / 1000: Average Score 9198
+Total Score: 9365
+Total Moves: 1200
+Test 72 / 1000: Average Score 9200
+Total Score: 9090
+Total Moves: 1200
+Test 73 / 1000: Average Score 9199
+Total Score: 9580
+Total Moves: 1200
+Test 74 / 1000: Average Score 9204
+Total Score: 9315
+Total Moves: 1200
+Test 75 / 1000: Average Score 9206
+Total Score: 9555
+Total Moves: 1200
+Test 76 / 1000: Average Score 9210
+Total Score: 8372
+Total Moves: 1097
+Test 77 / 1000: Average Score 9199
+Total Score: 9510
+Total Moves: 1200
+Test 78 / 1000: Average Score 9203
+Total Score: 1806
+Total Moves: 276
+Test 79 / 1000: Average Score 9110
+Total Score: 9150
+Total Moves: 1200
+Test 80 / 1000: Average Score 9110
+Total Score: 9370
+Total Moves: 1200
+Test 81 / 1000: Average Score 9113
+Total Score: 9490
+Total Moves: 1200
+Test 82 / 1000: Average Score 9118
+Total Score: 9375
+Total Moves: 1200
+Test 83 / 1000: Average Score 9121
+Total Score: 8960
+Total Moves: 1200
+Test 84 / 1000: Average Score 9119
+Total Score: 9520
+Total Moves: 1200
+Test 85 / 1000: Average Score 9124
+Total Score: 9205
+Total Moves: 1200
+Test 86 / 1000: Average Score 9125
+Total Score: 9215
+Total Moves: 1200
+Test 87 / 1000: Average Score 9126
+Total Score: 9400
+Total Moves: 1200
+Test 88 / 1000: Average Score 9129
+Total Score: 9235
+Total Moves: 1200
+Test 89 / 1000: Average Score 9130
+Total Score: 9180
+Total Moves: 1200
+Test 90 / 1000: Average Score 9131
+Total Score: 9085
+Total Moves: 1200
+Test 91 / 1000: Average Score 9130
+Total Score: 9280
+Total Moves: 1200
+Test 92 / 1000: Average Score 9132
+Total Score: 9440
+Total Moves: 1200
+Test 93 / 1000: Average Score 9135
+Total Score: 9635
+Total Moves: 1200
+Test 94 / 1000: Average Score 9140
+Total Score: 9435
+Total Moves: 1200
+Test 95 / 1000: Average Score 9143
+Total Score: 9495
+Total Moves: 1200
+Test 96 / 1000: Average Score 9147
+Total Score: 9335
+Total Moves: 1200
+Test 97 / 1000: Average Score 9149
+Total Score: 9675
+Total Moves: 1200
+Test 98 / 1000: Average Score 9154
+Total Score: 9360
+Total Moves: 1200
+Test 99 / 1000: Average Score 9156
+Total Score: 8995
+Total Moves: 1200
+Test 100 / 1000: Average Score 9155
+Total Score: 9280
+Total Moves: 1200
+Test 101 / 1000: Average Score 9156
+Total Score: 9530
+Total Moves: 1200
+Test 102 / 1000: Average Score 9160
+Total Score: 9065
+Total Moves: 1200
+Test 103 / 1000: Average Score 9159
+Total Score: 9495
+Total Moves: 1200
+Test 104 / 1000: Average Score 9162
+Total Score: 9175
+Total Moves: 1200
+Test 105 / 1000: Average Score 9162
+Total Score: 9385
+Total Moves: 1200
+Test 106 / 1000: Average Score 9164
+Total Score: 9485
+Total Moves: 1200
+Test 107 / 1000: Average Score 9167
+Total Score: 9115
+Total Moves: 1200
+Test 108 / 1000: Average Score 9167
+Total Score: 9080
+Total Moves: 1200
+Test 109 / 1000: Average Score 9166
+Total Score: 9275
+Total Moves: 1200
+Test 110 / 1000: Average Score 9167
+Total Score: 9410
+Total Moves: 1200
+Test 111 / 1000: Average Score 9169
+Total Score: 9285
+Total Moves: 1200
+Test 112 / 1000: Average Score 9170
+Total Score: 5901
+Total Moves: 821
+Test 113 / 1000: Average Score 9141
+Total Score: 9340
+Total Moves: 1200
+Test 114 / 1000: Average Score 9143
+Total Score: 9095
+Total Moves: 1200
+Test 115 / 1000: Average Score 9143
+Total Score: 9480
+Total Moves: 1200
+Test 116 / 1000: Average Score 9145
+Total Score: 9290
+Total Moves: 1200
+Test 117 / 1000: Average Score 9147
+Total Score: 9185
+Total Moves: 1200
+Test 118 / 1000: Average Score 9147
+Total Score: 9115
+Total Moves: 1200
+Test 119 / 1000: Average Score 9147
+Total Score: 9485
+Total Moves: 1200
+Test 120 / 1000: Average Score 9150
+Total Score: 9090
+Total Moves: 1200
+Test 121 / 1000: Average Score 9149
+Total Score: 9575
+Total Moves: 1200
+Test 122 / 1000: Average Score 9152
+Total Score: 9450
+Total Moves: 1200
+Test 123 / 1000: Average Score 9155
+Total Score: 9515
+Total Moves: 1200
+Test 124 / 1000: Average Score 9158
+Total Score: 9235
+Total Moves: 1200
+Test 125 / 1000: Average Score 9158
+Total Score: 9270
+Total Moves: 1200
+Test 126 / 1000: Average Score 9159
+Total Score: 9345
+Total Moves: 1200
+Test 127 / 1000: Average Score 9161
+Total Score: 9575
+Total Moves: 1200
+Test 128 / 1000: Average Score 9164
+Total Score: 9495
+Total Moves: 1200
+Test 129 / 1000: Average Score 9167
+Total Score: 9120
+Total Moves: 1200
+Test 130 / 1000: Average Score 9166
+Total Score: 9660
+Total Moves: 1200
+Test 131 / 1000: Average Score 9170
+Total Score: 9390
+Total Moves: 1200
+Test 132 / 1000: Average Score 9172
+Total Score: 9265
+Total Moves: 1200
+Test 133 / 1000: Average Score 9172
+Total Score: 7722
+Total Moves: 1002
+Test 134 / 1000: Average Score 9161
+Total Score: 9630
+Total Moves: 1200
+Test 135 / 1000: Average Score 9165
+Total Score: 9465
+Total Moves: 1200
+Test 136 / 1000: Average Score 9167
+Total Score: 9205
+Total Moves: 1200
+Test 137 / 1000: Average Score 9167
+Total Score: 9415
+Total Moves: 1200
+Test 138 / 1000: Average Score 9169
+Total Score: 9420
+Total Moves: 1200
+Test 139 / 1000: Average Score 9171
+Total Score: 9530
+Total Moves: 1200
+Test 140 / 1000: Average Score 9174
+Total Score: 9475
+Total Moves: 1200
+Test 141 / 1000: Average Score 9176
+Total Score: 8950
+Total Moves: 1200
+Test 142 / 1000: Average Score 9174
+Total Score: 3427
+Total Moves: 457
+Test 143 / 1000: Average Score 9134
+Total Score: 9300
+Total Moves: 1200
+Test 144 / 1000: Average Score 9135
+Total Score: 9365
+Total Moves: 1200
+Test 145 / 1000: Average Score 9137
+Total Score: 9225
+Total Moves: 1200
+Test 146 / 1000: Average Score 9137
+Total Score: 9535
+Total Moves: 1200
+Test 147 / 1000: Average Score 9140
+Total Score: 9350
+Total Moves: 1200
+Test 148 / 1000: Average Score 9141
+Total Score: 8925
+Total Moves: 1200
+Test 149 / 1000: Average Score 9140
+Total Score: 9240
+Total Moves: 1200
+Test 150 / 1000: Average Score 9141
+Total Score: 9245
+Total Moves: 1200
+Test 151 / 1000: Average Score 9141
+Total Score: 9095
+Total Moves: 1200
+Test 152 / 1000: Average Score 9141
+Total Score: 9005
+Total Moves: 1200
+Test 153 / 1000: Average Score 9140
+Total Score: 9155
+Total Moves: 1200
+Test 154 / 1000: Average Score 9140
+Total Score: 9465
+Total Moves: 1200
+Test 155 / 1000: Average Score 9142
+Total Score: 9245
+Total Moves: 1200
+Test 156 / 1000: Average Score 9143
+Total Score: 9120
+Total Moves: 1200
+Test 157 / 1000: Average Score 9143
+Total Score: 9635
+Total Moves: 1200
+Test 158 / 1000: Average Score 9146
+Total Score: 9480
+Total Moves: 1200
+Test 159 / 1000: Average Score 9148
+Total Score: 9250
+Total Moves: 1200
+Test 160 / 1000: Average Score 9149
+Total Score: 6804
+Total Moves: 889
+Test 161 / 1000: Average Score 9134
+Total Score: 9195
+Total Moves: 1200
+Test 162 / 1000: Average Score 9134
+Total Score: 9610
+Total Moves: 1200
+Test 163 / 1000: Average Score 9137
+Total Score: 9735
+Total Moves: 1200
+Test 164 / 1000: Average Score 9141
+Total Score: 9380
+Total Moves: 1200
+Test 165 / 1000: Average Score 9142
+Total Score: 9115
+Total Moves: 1200
+Test 166 / 1000: Average Score 9142
+Total Score: 8975
+Total Moves: 1200
+Test 167 / 1000: Average Score 9141
+Total Score: 3310
+Total Moves: 455
+Test 168 / 1000: Average Score 9107
+Total Score: 9300
+Total Moves: 1200
+Test 169 / 1000: Average Score 9108
+Total Score: 2914
+Total Moves: 399
+Test 170 / 1000: Average Score 9071
+Total Score: 9470
+Total Moves: 1200
+Test 171 / 1000: Average Score 9074
+Total Score: 9350
+Total Moves: 1200
+Test 172 / 1000: Average Score 9075
+Total Score: 9500
+Total Moves: 1200
+Test 173 / 1000: Average Score 9078
+Total Score: 8980
+Total Moves: 1200
+Test 174 / 1000: Average Score 9077
+Total Score: 9275
+Total Moves: 1200
+Test 175 / 1000: Average Score 9078
+Total Score: 9265
+Total Moves: 1200
+Test 176 / 1000: Average Score 9079
+Total Score: 9330
+Total Moves: 1200
+Test 177 / 1000: Average Score 9081
+Total Score: 9535
+Total Moves: 1200
+Test 178 / 1000: Average Score 9083
+Total Score: 9150
+Total Moves: 1200
+Test 179 / 1000: Average Score 9084
+Total Score: 9110
+Total Moves: 1200
+Test 180 / 1000: Average Score 9084
+Total Score: 9605
+Total Moves: 1200
+Test 181 / 1000: Average Score 9087
+Total Score: 9505
+Total Moves: 1200
+Test 182 / 1000: Average Score 9089
+Total Score: 9070
+Total Moves: 1200
+Test 183 / 1000: Average Score 9089
+Total Score: 9170
+Total Moves: 1200
+Test 184 / 1000: Average Score 9089
+Total Score: 9440
+Total Moves: 1200
+Test 185 / 1000: Average Score 9091
+Total Score: 9290
+Total Moves: 1200
+Test 186 / 1000: Average Score 9092
+Total Score: 9485
+Total Moves: 1200
+Test 187 / 1000: Average Score 9094
+Total Score: 9440
+Total Moves: 1200
+Test 188 / 1000: Average Score 9096
+Total Score: 9085
+Total Moves: 1200
+Test 189 / 1000: Average Score 9096
+Total Score: 9320
+Total Moves: 1200
+Test 190 / 1000: Average Score 9097
+Total Score: 8747
+Total Moves: 1152
+Test 191 / 1000: Average Score 9095
+Total Score: 9770
+Total Moves: 1200
+Test 192 / 1000: Average Score 9099
+Total Score: 9195
+Total Moves: 1200
+Test 193 / 1000: Average Score 9099
+Total Score: 9570
+Total Moves: 1200
+Test 194 / 1000: Average Score 9102
+Total Score: 9545
+Total Moves: 1200
+Test 195 / 1000: Average Score 9104
+Total Score: 9020
+Total Moves: 1200
+Test 196 / 1000: Average Score 9104
+Total Score: 9080
+Total Moves: 1200
+Test 197 / 1000: Average Score 9104
+Total Score: 9300
+Total Moves: 1200
+Test 198 / 1000: Average Score 9105
+Total Score: 9080
+Total Moves: 1200
+Test 199 / 1000: Average Score 9104
+Total Score: 9220
+Total Moves: 1200
+Test 200 / 1000: Average Score 9105
+Total Score: 9225
+Total Moves: 1200
+Test 201 / 1000: Average Score 9106
+Total Score: 9400
+Total Moves: 1200
+Test 202 / 1000: Average Score 9107
+Total Score: 9400
+Total Moves: 1200
+Test 203 / 1000: Average Score 9108
+Total Score: 9295
+Total Moves: 1200
+Test 204 / 1000: Average Score 9109
+Total Score: 9245
+Total Moves: 1200
+Test 205 / 1000: Average Score 9110
+Total Score: 9735
+Total Moves: 1200
+Test 206 / 1000: Average Score 9113
+Total Score: 9640
+Total Moves: 1200
+Test 207 / 1000: Average Score 9116
+Total Score: 9460
+Total Moves: 1200
+Test 208 / 1000: Average Score 9117
+Total Score: 9375
+Total Moves: 1200
+Test 209 / 1000: Average Score 9118
+Total Score: 9355
+Total Moves: 1200
+Test 210 / 1000: Average Score 9120
+Total Score: 9760
+Total Moves: 1200
+Test 211 / 1000: Average Score 9123
+Total Score: 9275
+Total Moves: 1200
+Test 212 / 1000: Average Score 9123
+Total Score: 9780
+Total Moves: 1200
+Test 213 / 1000: Average Score 9126
+Total Score: 9060
+Total Moves: 1200
+Test 214 / 1000: Average Score 9126
+Total Score: 9735
+Total Moves: 1200
+Test 215 / 1000: Average Score 9129
+Total Score: 9190
+Total Moves: 1200
+Test 216 / 1000: Average Score 9129
+Total Score: 9510
+Total Moves: 1200
+Test 217 / 1000: Average Score 9131
+Total Score: 9295
+Total Moves: 1200
+Test 218 / 1000: Average Score 9132
+Total Score: 9150
+Total Moves: 1200
+Test 219 / 1000: Average Score 9132
+Total Score: 9060
+Total Moves: 1200
+Test 220 / 1000: Average Score 9131
+Total Score: 9650
+Total Moves: 1200
+Test 221 / 1000: Average Score 9134
+Total Score: 8940
+Total Moves: 1200
+Test 222 / 1000: Average Score 9133
+Total Score: 9500
+Total Moves: 1200
+Test 223 / 1000: Average Score 9135
+Total Score: 9475
+Total Moves: 1200
+Test 224 / 1000: Average Score 9136
+Total Score: 9760
+Total Moves: 1200
+Test 225 / 1000: Average Score 9139
+Total Score: 9470
+Total Moves: 1200
+Test 226 / 1000: Average Score 9140
+Total Score: 9345
+Total Moves: 1200
+Test 227 / 1000: Average Score 9141
+Total Score: 9360
+Total Moves: 1200
+Test 228 / 1000: Average Score 9142
+Total Score: 9300
+Total Moves: 1200
+Test 229 / 1000: Average Score 9143
+Total Score: 9505
+Total Moves: 1200
+Test 230 / 1000: Average Score 9144
+Total Score: 9390
+Total Moves: 1200
+Test 231 / 1000: Average Score 9146
+Total Score: 9395
+Total Moves: 1200
+Test 232 / 1000: Average Score 9147
+Total Score: 9385
+Total Moves: 1200
+Test 233 / 1000: Average Score 9148
+Total Score: 9305
+Total Moves: 1200
+Test 234 / 1000: Average Score 9148
+Total Score: 9180
+Total Moves: 1200
+Test 235 / 1000: Average Score 9148
+Total Score: 8696
+Total Moves: 1146
+Test 236 / 1000: Average Score 9147
+Total Score: 9440
+Total Moves: 1200
+Test 237 / 1000: Average Score 9148
+Total Score: 9530
+Total Moves: 1200
+Test 238 / 1000: Average Score 9149
+Total Score: 9240
+Total Moves: 1200
+Test 239 / 1000: Average Score 9150
+Total Score: 9385
+Total Moves: 1200
+Test 240 / 1000: Average Score 9151
+Total Score: 9610
+Total Moves: 1200
+Test 241 / 1000: Average Score 9153
+Total Score: 8950
+Total Moves: 1200
+Test 242 / 1000: Average Score 9152
+Total Score: 9055
+Total Moves: 1200
+Test 243 / 1000: Average Score 9151
+Total Score: 9315
+Total Moves: 1200
+Test 244 / 1000: Average Score 9152
+Total Score: 9210
+Total Moves: 1200
+Test 245 / 1000: Average Score 9152
+Total Score: 9420
+Total Moves: 1200
+Test 246 / 1000: Average Score 9153
+Total Score: 9530
+Total Moves: 1200
+Test 247 / 1000: Average Score 9155
+Total Score: 9235
+Total Moves: 1200
+Test 248 / 1000: Average Score 9155
+Total Score: 9405
+Total Moves: 1200
+Test 249 / 1000: Average Score 9156
+Total Score: 9575
+Total Moves: 1200
+Test 250 / 1000: Average Score 9158
+Total Score: 9120
+Total Moves: 1200
+Test 251 / 1000: Average Score 9158
+Total Score: 9430
+Total Moves: 1200
+Test 252 / 1000: Average Score 9159
+Total Score: 8980
+Total Moves: 1200
+Test 253 / 1000: Average Score 9158
+Total Score: 9470
+Total Moves: 1200
+Test 254 / 1000: Average Score 9159
+Total Score: 9260
+Total Moves: 1200
+Test 255 / 1000: Average Score 9160
+Total Score: 9355
+Total Moves: 1200
+Test 256 / 1000: Average Score 9160
+Total Score: 9110
+Total Moves: 1200
+Test 257 / 1000: Average Score 9160
+Total Score: 9270
+Total Moves: 1200
+Test 258 / 1000: Average Score 9161
+Total Score: 9015
+Total Moves: 1200
+Test 259 / 1000: Average Score 9160
+Total Score: 9330
+Total Moves: 1200
+Test 260 / 1000: Average Score 9161
+Total Score: 9265
+Total Moves: 1200
+Test 261 / 1000: Average Score 9161
+Total Score: 8970
+Total Moves: 1200
+Test 262 / 1000: Average Score 9160
+Total Score: 9445
+Total Moves: 1200
+Test 263 / 1000: Average Score 9162
+Total Score: 9390
+Total Moves: 1200
+Test 264 / 1000: Average Score 9162
+Total Score: 9125
+Total Moves: 1200
+Test 265 / 1000: Average Score 9162
+Total Score: 9390
+Total Moves: 1200
+Test 266 / 1000: Average Score 9163
+Total Score: 9350
+Total Moves: 1200
+Test 267 / 1000: Average Score 9164
+Total Score: 6643
+Total Moves: 868
+Test 268 / 1000: Average Score 9154
+Total Score: 9585
+Total Moves: 1200
+Test 269 / 1000: Average Score 9156
+Total Score: 9430
+Total Moves: 1200
+Test 270 / 1000: Average Score 9157
+Total Score: 9275
+Total Moves: 1200
+Test 271 / 1000: Average Score 9157
+Total Score: 9360
+Total Moves: 1200
+Test 272 / 1000: Average Score 9158
+Total Score: 9525
+Total Moves: 1200
+Test 273 / 1000: Average Score 9160
+Total Score: 9185
+Total Moves: 1200
+Test 274 / 1000: Average Score 9160
+Total Score: 9575
+Total Moves: 1200
+Test 275 / 1000: Average Score 9161
+Total Score: 8930
+Total Moves: 1200
+Test 276 / 1000: Average Score 9160
+Total Score: 8915
+Total Moves: 1200
+Test 277 / 1000: Average Score 9159
+Total Score: 9190
+Total Moves: 1200
+Test 278 / 1000: Average Score 9160
+Total Score: 9610
+Total Moves: 1200
+Test 279 / 1000: Average Score 9161
+Total Score: 9410
+Total Moves: 1200
+Test 280 / 1000: Average Score 9162
+Total Score: 3793
+Total Moves: 533
+Test 281 / 1000: Average Score 9143
+Total Score: 9190
+Total Moves: 1200
+Test 282 / 1000: Average Score 9143
+Total Score: 9120
+Total Moves: 1200
+Test 283 / 1000: Average Score 9143
+Total Score: 9490
+Total Moves: 1200
+Test 284 / 1000: Average Score 9144
+Total Score: 9245
+Total Moves: 1200
+Test 285 / 1000: Average Score 9145
+Total Score: 9750
+Total Moves: 1200
+Test 286 / 1000: Average Score 9147
+Total Score: 9585
+Total Moves: 1200
+Test 287 / 1000: Average Score 9148
+Total Score: 5235
+Total Moves: 720
+Test 288 / 1000: Average Score 9135
+Total Score: 9290
+Total Moves: 1200
+Test 289 / 1000: Average Score 9135
+Total Score: 9135
+Total Moves: 1200
+Test 290 / 1000: Average Score 9135
+Total Score: 1035
+Total Moves: 165
+Test 291 / 1000: Average Score 9107
+Total Score: 7337
+Total Moves: 992
+Test 292 / 1000: Average Score 9101
+Total Score: 1411
+Total Moves: 221
+Test 293 / 1000: Average Score 9075
+Total Score: 9340
+Total Moves: 1200
+Test 294 / 1000: Average Score 9076
+Total Score: 9245
+Total Moves: 1200
+Test 295 / 1000: Average Score 9076
+Total Score: 9525
+Total Moves: 1200
+Test 296 / 1000: Average Score 9078
+Total Score: 9220
+Total Moves: 1200
+Test 297 / 1000: Average Score 9078
+Total Score: 9285
+Total Moves: 1200
+Test 298 / 1000: Average Score 9079
+Total Score: 9185
+Total Moves: 1200
+Test 299 / 1000: Average Score 9079
+Total Score: 9450
+Total Moves: 1200
+Test 300 / 1000: Average Score 9081
+Total Score: 9490
+Total Moves: 1200
+Test 301 / 1000: Average Score 9082
+Total Score: 9155
+Total Moves: 1200
+Test 302 / 1000: Average Score 9082
+Total Score: 9065
+Total Moves: 1200
+Test 303 / 1000: Average Score 9082
+Total Score: 9565
+Total Moves: 1200
+Test 304 / 1000: Average Score 9084
+Total Score: 9490
+Total Moves: 1200
+Test 305 / 1000: Average Score 9085
+Total Score: 9335
+Total Moves: 1200
+Test 306 / 1000: Average Score 9086
+Total Score: 9420
+Total Moves: 1200
+Test 307 / 1000: Average Score 9087
+Total Score: 9355
+Total Moves: 1200
+Test 308 / 1000: Average Score 9088
+Total Score: 9060
+Total Moves: 1200
+Test 309 / 1000: Average Score 9088
+Total Score: 9110
+Total Moves: 1200
+Test 310 / 1000: Average Score 9088
+Total Score: 9240
+Total Moves: 1200
+Test 311 / 1000: Average Score 9088
+Total Score: 9585
+Total Moves: 1200
+Test 312 / 1000: Average Score 9090
+Total Score: 9185
+Total Moves: 1200
+Test 313 / 1000: Average Score 9090
+Total Score: 8940
+Total Moves: 1200
+Test 314 / 1000: Average Score 9090
+Total Score: 9290
+Total Moves: 1200
+Test 315 / 1000: Average Score 9090
+Total Score: 9220
+Total Moves: 1200
+Test 316 / 1000: Average Score 9091
+Total Score: 9355
+Total Moves: 1200
+Test 317 / 1000: Average Score 9092
+Total Score: 9165
+Total Moves: 1200
+Test 318 / 1000: Average Score 9092
+Total Score: 9185
+Total Moves: 1200
+Test 319 / 1000: Average Score 9092
+Total Score: 9710
+Total Moves: 1200
+Test 320 / 1000: Average Score 9094
+Total Score: 9745
+Total Moves: 1200
+Test 321 / 1000: Average Score 9096
+Total Score: 9330
+Total Moves: 1200
+Test 322 / 1000: Average Score 9097
+Total Score: 9300
+Total Moves: 1200
+Test 323 / 1000: Average Score 9098
+Total Score: 9335
+Total Moves: 1200
+Test 324 / 1000: Average Score 9098
+Total Score: 9370
+Total Moves: 1200
+Test 325 / 1000: Average Score 9099
+Total Score: 9645
+Total Moves: 1200
+Test 326 / 1000: Average Score 9101
+Total Score: 9200
+Total Moves: 1200
+Test 327 / 1000: Average Score 9101
+Total Score: 8965
+Total Moves: 1200
+Test 328 / 1000: Average Score 9101
+Total Score: 9435
+Total Moves: 1200
+Test 329 / 1000: Average Score 9102
+Total Score: 9160
+Total Moves: 1200
+Test 330 / 1000: Average Score 9102
+Total Score: 9300
+Total Moves: 1200
+Test 331 / 1000: Average Score 9102
+Total Score: 9350
+Total Moves: 1200
+Test 332 / 1000: Average Score 9103
+Total Score: 8985
+Total Moves: 1200
+Test 333 / 1000: Average Score 9103
+Total Score: 9660
+Total Moves: 1200
+Test 334 / 1000: Average Score 9104
+Total Score: 9255
+Total Moves: 1200
+Test 335 / 1000: Average Score 9105
+Total Score: 9140
+Total Moves: 1200
+Test 336 / 1000: Average Score 9105
+Total Score: 9040
+Total Moves: 1200
+Test 337 / 1000: Average Score 9105
+Total Score: 9160
+Total Moves: 1200
+Test 338 / 1000: Average Score 9105
+Total Score: 9595
+Total Moves: 1200
+Test 339 / 1000: Average Score 9106
+Total Score: 9200
+Total Moves: 1200
+Test 340 / 1000: Average Score 9107
+Total Score: 9075
+Total Moves: 1200
+Test 341 / 1000: Average Score 9107
+Total Score: 6345
+Total Moves: 860
+Test 342 / 1000: Average Score 9099
+Total Score: 9420
+Total Moves: 1200
+Test 343 / 1000: Average Score 9099
+Total Score: 9230
+Total Moves: 1200
+Test 344 / 1000: Average Score 9100
+Total Score: 9295
+Total Moves: 1200
+Test 345 / 1000: Average Score 9100
+Total Score: 8975
+Total Moves: 1200
+Test 346 / 1000: Average Score 9100
+Total Score: 9405
+Total Moves: 1200
+Test 347 / 1000: Average Score 9101
+Total Score: 9230
+Total Moves: 1200
+Test 348 / 1000: Average Score 9101
+Total Score: 9950
+Total Moves: 1200
+Test 349 / 1000: Average Score 9104
+Total Score: 9320
+Total Moves: 1200
+Test 350 / 1000: Average Score 9104
+Total Score: 9895
+Total Moves: 1200
+Test 351 / 1000: Average Score 9107
+Total Score: 9720
+Total Moves: 1200
+Test 352 / 1000: Average Score 9108
+Total Score: 9525
+Total Moves: 1200
+Test 353 / 1000: Average Score 9110
+Total Score: 9210
+Total Moves: 1200
+Test 354 / 1000: Average Score 9110
+Total Score: 9165
+Total Moves: 1200
+Test 355 / 1000: Average Score 9110
+Total Score: 9715
+Total Moves: 1200
+Test 356 / 1000: Average Score 9112
+Total Score: 9215
+Total Moves: 1200
+Test 357 / 1000: Average Score 9112
+Total Score: 9585
+Total Moves: 1200
+Test 358 / 1000: Average Score 9113
+Total Score: 9440
+Total Moves: 1200
+Test 359 / 1000: Average Score 9114
+Total Score: 9405
+Total Moves: 1200
+Test 360 / 1000: Average Score 9115
+Total Score: 9010
+Total Moves: 1200
+Test 361 / 1000: Average Score 9115
+Total Score: 9835
+Total Moves: 1200
+Test 362 / 1000: Average Score 9117
+Total Score: 9625
+Total Moves: 1200
+Test 363 / 1000: Average Score 9118
+Total Score: 9545
+Total Moves: 1200
+Test 364 / 1000: Average Score 9119
+Total Score: 9095
+Total Moves: 1200
+Test 365 / 1000: Average Score 9119
+Total Score: 9260
+Total Moves: 1200
+Test 366 / 1000: Average Score 9120
+Total Score: 9410
+Total Moves: 1200
+Test 367 / 1000: Average Score 9120
+Total Score: 4689
+Total Moves: 614
+Test 368 / 1000: Average Score 9108
+Total Score: 9195
+Total Moves: 1200
+Test 369 / 1000: Average Score 9109
+Total Score: 8925
+Total Moves: 1200
+Test 370 / 1000: Average Score 9108
+Total Score: 9220
+Total Moves: 1200
+Test 371 / 1000: Average Score 9108
+Total Score: 9340
+Total Moves: 1200
+Test 372 / 1000: Average Score 9109
+Total Score: 9505
+Total Moves: 1200
+Test 373 / 1000: Average Score 9110
+Total Score: 9170
+Total Moves: 1200
+Test 374 / 1000: Average Score 9110
+Total Score: 9500
+Total Moves: 1200
+Test 375 / 1000: Average Score 9111
+Total Score: 9400
+Total Moves: 1200
+Test 376 / 1000: Average Score 9112
+Total Score: 3155
+Total Moves: 460
+Test 377 / 1000: Average Score 9096
+Total Score: 9060
+Total Moves: 1200
+Test 378 / 1000: Average Score 9096
+Total Score: 9740
+Total Moves: 1200
+Test 379 / 1000: Average Score 9098
+Total Score: 8995
+Total Moves: 1200
+Test 380 / 1000: Average Score 9098
+Total Score: 8325
+Total Moves: 1040
+Test 381 / 1000: Average Score 9095
+Total Score: 9050
+Total Moves: 1200
+Test 382 / 1000: Average Score 9095
+Total Score: 9220
+Total Moves: 1200
+Test 383 / 1000: Average Score 9096
+Total Score: 9130
+Total Moves: 1200
+Test 384 / 1000: Average Score 9096
+Total Score: 9255
+Total Moves: 1200
+Test 385 / 1000: Average Score 9096
+Total Score: 9540
+Total Moves: 1200
+Test 386 / 1000: Average Score 9097
+Total Score: 9130
+Total Moves: 1200
+Test 387 / 1000: Average Score 9097
+Total Score: 8920
+Total Moves: 1200
+Test 388 / 1000: Average Score 9097
+Total Score: 9295
+Total Moves: 1200
+Test 389 / 1000: Average Score 9097
+Total Score: 9380
+Total Moves: 1200
+Test 390 / 1000: Average Score 9098
+Total Score: 8915
+Total Moves: 1200
+Test 391 / 1000: Average Score 9098
+Total Score: 5342
+Total Moves: 717
+Test 392 / 1000: Average Score 9088
+Total Score: 9250
+Total Moves: 1200
+Test 393 / 1000: Average Score 9089
+Total Score: 9340
+Total Moves: 1200
+Test 394 / 1000: Average Score 9089
+Total Score: 9315
+Total Moves: 1200
+Test 395 / 1000: Average Score 9090
+Total Score: 9125
+Total Moves: 1200
+Test 396 / 1000: Average Score 9090
+Total Score: 9255
+Total Moves: 1200
+Test 397 / 1000: Average Score 9090
+Total Score: 9745
+Total Moves: 1200
+Test 398 / 1000: Average Score 9092
+Total Score: 8980
+Total Moves: 1200
+Test 399 / 1000: Average Score 9092
+Total Score: 9025
+Total Moves: 1200
+Test 400 / 1000: Average Score 9091
+Total Score: 9205
+Total Moves: 1200
+Test 401 / 1000: Average Score 9092
+Total Score: 9185
+Total Moves: 1200
+Test 402 / 1000: Average Score 9092
+Total Score: 9265
+Total Moves: 1200
+Test 403 / 1000: Average Score 9092
+Total Score: 9410
+Total Moves: 1200
+Test 404 / 1000: Average Score 9093
+Total Score: 9675
+Total Moves: 1200
+Test 405 / 1000: Average Score 9095
+Total Score: 9180
+Total Moves: 1200
+Test 406 / 1000: Average Score 9095
+Total Score: 9445
+Total Moves: 1200
+Test 407 / 1000: Average Score 9096
+Total Score: 6030
+Total Moves: 795
+Test 408 / 1000: Average Score 9088
+Total Score: 4861
+Total Moves: 686
+Test 409 / 1000: Average Score 9078
+Total Score: 9635
+Total Moves: 1200
+Test 410 / 1000: Average Score 9079
+Total Score: 9475
+Total Moves: 1200
+Test 411 / 1000: Average Score 9080
+Total Score: 9305
+Total Moves: 1200
+Test 412 / 1000: Average Score 9081
+Total Score: 9345
+Total Moves: 1200
+Test 413 / 1000: Average Score 9081
+Total Score: 9605
+Total Moves: 1200
+Test 414 / 1000: Average Score 9083
+Total Score: 9835
+Total Moves: 1200
+Test 415 / 1000: Average Score 9084
+Total Score: 9360
+Total Moves: 1200
+Test 416 / 1000: Average Score 9085
+Total Score: 946
+Total Moves: 141
+Test 417 / 1000: Average Score 9066
+Total Score: 9190
+Total Moves: 1200
+Test 418 / 1000: Average Score 9066
+Total Score: 9210
+Total Moves: 1200
+Test 419 / 1000: Average Score 9066
+Total Score: 9175
+Total Moves: 1200
+Test 420 / 1000: Average Score 9066
+Total Score: 9550
+Total Moves: 1200
+Test 421 / 1000: Average Score 9068
+Total Score: 9215
+Total Moves: 1200
+Test 422 / 1000: Average Score 9068
+Total Score: 9570
+Total Moves: 1200
+Test 423 / 1000: Average Score 9069
+Total Score: 9755
+Total Moves: 1200
+Test 424 / 1000: Average Score 9071
+Total Score: 3701
+Total Moves: 526
+Test 425 / 1000: Average Score 9058
+Total Score: 8888
+Total Moves: 1168
+Test 426 / 1000: Average Score 9058
+Total Score: 9330
+Total Moves: 1200
+Test 427 / 1000: Average Score 9058
+Total Score: 9940
+Total Moves: 1200
+Test 428 / 1000: Average Score 9060
+Total Score: 9005
+Total Moves: 1200
+Test 429 / 1000: Average Score 9060
+Total Score: 9180
+Total Moves: 1200
+Test 430 / 1000: Average Score 9061
+Total Score: 9310
+Total Moves: 1200
+Test 431 / 1000: Average Score 9061
+Total Score: 9330
+Total Moves: 1200
+Test 432 / 1000: Average Score 9062
+Total Score: 9425
+Total Moves: 1200
+Test 433 / 1000: Average Score 9063
+Total Score: 9415
+Total Moves: 1200
+Test 434 / 1000: Average Score 9063
+Total Score: 9475
+Total Moves: 1200
+Test 435 / 1000: Average Score 9064
+Total Score: 9270
+Total Moves: 1200
+Test 436 / 1000: Average Score 9065
+Total Score: 8860
+Total Moves: 1200
+Test 437 / 1000: Average Score 9064
+Total Score: 9130
+Total Moves: 1200
+Test 438 / 1000: Average Score 9064
+Total Score: 9095
+Total Moves: 1200
+Test 439 / 1000: Average Score 9065
+Total Score: 9670
+Total Moves: 1200
+Test 440 / 1000: Average Score 9066
+Total Score: 9135
+Total Moves: 1200
+Test 441 / 1000: Average Score 9066
+Total Score: 9625
+Total Moves: 1200
+Test 442 / 1000: Average Score 9067
+Total Score: 9400
+Total Moves: 1200
+Test 443 / 1000: Average Score 9068
+Total Score: 3273
+Total Moves: 453
+Test 444 / 1000: Average Score 9055
+Total Score: 9445
+Total Moves: 1200
+Test 445 / 1000: Average Score 9056
+Total Score: 9125
+Total Moves: 1200
+Test 446 / 1000: Average Score 9056
+Total Score: 9370
+Total Moves: 1200
+Test 447 / 1000: Average Score 9057
+Total Score: 9340
+Total Moves: 1200
+Test 448 / 1000: Average Score 9057
+Total Score: 9215
+Total Moves: 1200
+Test 449 / 1000: Average Score 9058
+Total Score: 9585
+Total Moves: 1200
+Test 450 / 1000: Average Score 9059
+Total Score: 9370
+Total Moves: 1200
+Test 451 / 1000: Average Score 9060
+Total Score: 5740
+Total Moves: 790
+Test 452 / 1000: Average Score 9052
+Total Score: 9075
+Total Moves: 1200
+Test 453 / 1000: Average Score 9052
+Total Score: 9265
+Total Moves: 1200
+Test 454 / 1000: Average Score 9053
+Total Score: 9485
+Total Moves: 1200
+Test 455 / 1000: Average Score 9054
+Total Score: 9180
+Total Moves: 1200
+Test 456 / 1000: Average Score 9054
+Total Score: 9550
+Total Moves: 1200
+Test 457 / 1000: Average Score 9055
+Total Score: 9345
+Total Moves: 1200
+Test 458 / 1000: Average Score 9056
+Total Score: 9200
+Total Moves: 1200
+Test 459 / 1000: Average Score 9056
+Total Score: 9285
+Total Moves: 1200
+Test 460 / 1000: Average Score 9057
+Total Score: 9585
+Total Moves: 1200
+Test 461 / 1000: Average Score 9058
+Total Score: 1748
+Total Moves: 263
+Test 462 / 1000: Average Score 9042
+Total Score: 9320
+Total Moves: 1200
+Test 463 / 1000: Average Score 9042
+Total Score: 9495
+Total Moves: 1200
+Test 464 / 1000: Average Score 9043
+Total Score: 9550
+Total Moves: 1200
+Test 465 / 1000: Average Score 9045
+Total Score: 9235
+Total Moves: 1200
+Test 466 / 1000: Average Score 9045
+Total Score: 9245
+Total Moves: 1200
+Test 467 / 1000: Average Score 9045
+Total Score: 9360
+Total Moves: 1200
+Test 468 / 1000: Average Score 9046
+Total Score: 9310
+Total Moves: 1200
+Test 469 / 1000: Average Score 9047
+Total Score: 9420
+Total Moves: 1200
+Test 470 / 1000: Average Score 9047
+Total Score: 282
+Total Moves: 72
+Test 471 / 1000: Average Score 9029
+Total Score: 9545
+Total Moves: 1200
+Test 472 / 1000: Average Score 9030
+Total Score: 9345
+Total Moves: 1200
+Test 473 / 1000: Average Score 9031
+Total Score: 9620
+Total Moves: 1200
+Test 474 / 1000: Average Score 9032
+Total Score: 9470
+Total Moves: 1200
+Test 475 / 1000: Average Score 9033
+Total Score: 9235
+Total Moves: 1200
+Test 476 / 1000: Average Score 9033
+Total Score: 9190
+Total Moves: 1200
+Test 477 / 1000: Average Score 9033
+Total Score: 9555
+Total Moves: 1200
+Test 478 / 1000: Average Score 9035
+Total Score: 9595
+Total Moves: 1200
+Test 479 / 1000: Average Score 9036
+Total Score: 9510
+Total Moves: 1200
+Test 480 / 1000: Average Score 9037
+Total Score: 9480
+Total Moves: 1200
+Test 481 / 1000: Average Score 9038
+Total Score: 9065
+Total Moves: 1200
+Test 482 / 1000: Average Score 9038
+Total Score: 9680
+Total Moves: 1200
+Test 483 / 1000: Average Score 9039
+Total Score: 9110
+Total Moves: 1200
+Test 484 / 1000: Average Score 9039
+Total Score: 9310
+Total Moves: 1200
+Test 485 / 1000: Average Score 9040
+Total Score: 9445
+Total Moves: 1200
+Test 486 / 1000: Average Score 9041
+Total Score: 9465
+Total Moves: 1200
+Test 487 / 1000: Average Score 9041
+Total Score: 9200
+Total Moves: 1200
+Test 488 / 1000: Average Score 9042
+Total Score: 9525
+Total Moves: 1200
+Test 489 / 1000: Average Score 9043
+Total Score: 9425
+Total Moves: 1200
+Test 490 / 1000: Average Score 9043
+Total Score: 9200
+Total Moves: 1200
+Test 491 / 1000: Average Score 9044
+Total Score: 9030
+Total Moves: 1200
+Test 492 / 1000: Average Score 9044
+Total Score: 8920
+Total Moves: 1200
+Test 493 / 1000: Average Score 9044
+Total Score: 9250
+Total Moves: 1200
+Test 494 / 1000: Average Score 9044
+Total Score: 9830
+Total Moves: 1200
+Test 495 / 1000: Average Score 9046
+Total Score: 9445
+Total Moves: 1200
+Test 496 / 1000: Average Score 9046
+Total Score: 8970
+Total Moves: 1200
+Test 497 / 1000: Average Score 9046
+Total Score: 9550
+Total Moves: 1200
+Test 498 / 1000: Average Score 9047
+Total Score: 9100
+Total Moves: 1200
+Test 499 / 1000: Average Score 9047
+Total Score: 9530
+Total Moves: 1200
+Test 500 / 1000: Average Score 9048
+Total Score: 9260
+Total Moves: 1200
+Test 501 / 1000: Average Score 9049
+Total Score: 9325
+Total Moves: 1200
+Test 502 / 1000: Average Score 9049
+Total Score: 9390
+Total Moves: 1200
+Test 503 / 1000: Average Score 9050
+Total Score: 6045
+Total Moves: 810
+Test 504 / 1000: Average Score 9044
+Total Score: 9145
+Total Moves: 1200
+Test 505 / 1000: Average Score 9044
+Total Score: 9150
+Total Moves: 1200
+Test 506 / 1000: Average Score 9044
+Total Score: 9550
+Total Moves: 1200
+Test 507 / 1000: Average Score 9045
+Total Score: 9070
+Total Moves: 1200
+Test 508 / 1000: Average Score 9045
+Total Score: 9230
+Total Moves: 1200
+Test 509 / 1000: Average Score 9046
+Total Score: 9180
+Total Moves: 1200
+Test 510 / 1000: Average Score 9046
+Total Score: 9575
+Total Moves: 1200
+Test 511 / 1000: Average Score 9047
+Total Score: 9145
+Total Moves: 1200
+Test 512 / 1000: Average Score 9047
+Total Score: 9280
+Total Moves: 1200
+Test 513 / 1000: Average Score 9048
+Total Score: 9125
+Total Moves: 1200
+Test 514 / 1000: Average Score 9048
+Total Score: 9570
+Total Moves: 1200
+Test 515 / 1000: Average Score 9049
+Total Score: 9820
+Total Moves: 1200
+Test 516 / 1000: Average Score 9050
+Total Score: 9290
+Total Moves: 1200
+Test 517 / 1000: Average Score 9051
+Total Score: 9235
+Total Moves: 1200
+Test 518 / 1000: Average Score 9051
+Total Score: 9395
+Total Moves: 1200
+Test 519 / 1000: Average Score 9052
+Total Score: 9180
+Total Moves: 1200
+Test 520 / 1000: Average Score 9052
+Total Score: 9125
+Total Moves: 1200
+Test 521 / 1000: Average Score 9052
+Total Score: 9565
+Total Moves: 1200
+Test 522 / 1000: Average Score 9053
+Total Score: 9740
+Total Moves: 1200
+Test 523 / 1000: Average Score 9054
+Total Score: 9075
+Total Moves: 1200
+Test 524 / 1000: Average Score 9055
+Total Score: 9085
+Total Moves: 1200
+Test 525 / 1000: Average Score 9055
+Total Score: 9390
+Total Moves: 1200
+Test 526 / 1000: Average Score 9055
+Total Score: 9365
+Total Moves: 1200
+Test 527 / 1000: Average Score 9056
+Total Score: 9445
+Total Moves: 1200
+Test 528 / 1000: Average Score 9057
+Total Score: 9090
+Total Moves: 1200
+Test 529 / 1000: Average Score 9057
+Total Score: 9720
+Total Moves: 1200
+Test 530 / 1000: Average Score 9058
+Total Score: 9085
+Total Moves: 1200
+Test 531 / 1000: Average Score 9058
+Total Score: 9300
+Total Moves: 1200
+Test 532 / 1000: Average Score 9058
+Total Score: 9225
+Total Moves: 1200
+Test 533 / 1000: Average Score 9059
+Total Score: 9025
+Total Moves: 1200
+Test 534 / 1000: Average Score 9059
+Total Score: 9535
+Total Moves: 1200
+Test 535 / 1000: Average Score 9060
+Total Score: 9585
+Total Moves: 1200
+Test 536 / 1000: Average Score 9060
+Total Score: 9265
+Total Moves: 1200
+Test 537 / 1000: Average Score 9061
+Total Score: 9360
+Total Moves: 1200
+Test 538 / 1000: Average Score 9061
+Total Score: 9030
+Total Moves: 1200
+Test 539 / 1000: Average Score 9061
+Total Score: 9380
+Total Moves: 1200
+Test 540 / 1000: Average Score 9062
+Total Score: 9020
+Total Moves: 1200
+Test 541 / 1000: Average Score 9062
+Total Score: 9660
+Total Moves: 1200
+Test 542 / 1000: Average Score 9063
+Total Score: 9490
+Total Moves: 1200
+Test 543 / 1000: Average Score 9064
+Total Score: 9410
+Total Moves: 1200
+Test 544 / 1000: Average Score 9064
+Total Score: 2869
+Total Moves: 404
+Test 545 / 1000: Average Score 9053
+Total Score: 9640
+Total Moves: 1200
+Test 546 / 1000: Average Score 9054
+Total Score: 9330
+Total Moves: 1200
+Test 547 / 1000: Average Score 9055
+Total Score: 9305
+Total Moves: 1200
+Test 548 / 1000: Average Score 9055
+Total Score: 9195
+Total Moves: 1200
+Test 549 / 1000: Average Score 9055
+Total Score: 9175
+Total Moves: 1200
+Test 550 / 1000: Average Score 9056
+Total Score: 9410
+Total Moves: 1200
+Test 551 / 1000: Average Score 9056
+Total Score: 9330
+Total Moves: 1200
+Test 552 / 1000: Average Score 9057
+Total Score: 9335
+Total Moves: 1200
+Test 553 / 1000: Average Score 9057
+Total Score: 9090
+Total Moves: 1200
+Test 554 / 1000: Average Score 9057
+Total Score: 9430
+Total Moves: 1200
+Test 555 / 1000: Average Score 9058
+Total Score: 9220
+Total Moves: 1200
+Test 556 / 1000: Average Score 9058
+Total Score: 9350
+Total Moves: 1200
+Test 557 / 1000: Average Score 9059
+Total Score: 9285
+Total Moves: 1200
+Test 558 / 1000: Average Score 9059
+Total Score: 9315
+Total Moves: 1200
+Test 559 / 1000: Average Score 9060
+Total Score: 9240
+Total Moves: 1200
+Test 560 / 1000: Average Score 9060
+Total Score: 9295
+Total Moves: 1200
+Test 561 / 1000: Average Score 9060
+Total Score: 9470
+Total Moves: 1200
+Test 562 / 1000: Average Score 9061
+Total Score: 9240
+Total Moves: 1200
+Test 563 / 1000: Average Score 9061
+Total Score: 9415
+Total Moves: 1200
+Test 564 / 1000: Average Score 9062
+Total Score: 6715
+Total Moves: 900
+Test 565 / 1000: Average Score 9058
+Total Score: 9300
+Total Moves: 1200
+Test 566 / 1000: Average Score 9058
+Total Score: 9440
+Total Moves: 1200
+Test 567 / 1000: Average Score 9059
+Total Score: 9205
+Total Moves: 1200
+Test 568 / 1000: Average Score 9059
+Total Score: 9700
+Total Moves: 1200
+Test 569 / 1000: Average Score 9060
+Total Score: 9205
+Total Moves: 1200
+Test 570 / 1000: Average Score 9061
+Total Score: 9705
+Total Moves: 1200
+Test 571 / 1000: Average Score 9062
+Total Score: 9170
+Total Moves: 1200
+Test 572 / 1000: Average Score 9062
+Total Score: 9450
+Total Moves: 1200
+Test 573 / 1000: Average Score 9063
+Total Score: 9515
+Total Moves: 1200
+Test 574 / 1000: Average Score 9063
+Total Score: 9470
+Total Moves: 1200
+Test 575 / 1000: Average Score 9064
+Total Score: 322
+Total Moves: 77
+Test 576 / 1000: Average Score 9049
+Total Score: 9395
+Total Moves: 1200
+Test 577 / 1000: Average Score 9049
+Total Score: 9170
+Total Moves: 1200
+Test 578 / 1000: Average Score 9050
+Total Score: 9285
+Total Moves: 1200
+Test 579 / 1000: Average Score 9050
+Total Score: 9320
+Total Moves: 1200
+Test 580 / 1000: Average Score 9051
+Total Score: 9475
+Total Moves: 1200
+Test 581 / 1000: Average Score 9051
+Total Score: 9460
+Total Moves: 1200
+Test 582 / 1000: Average Score 9052
+Total Score: 8865
+Total Moves: 1200
+Test 583 / 1000: Average Score 9052
+Total Score: 9380
+Total Moves: 1200
+Test 584 / 1000: Average Score 9052
+Total Score: 9500
+Total Moves: 1200
+Test 585 / 1000: Average Score 9053
+Total Score: 9285
+Total Moves: 1200
+Test 586 / 1000: Average Score 9053
+Total Score: 9440
+Total Moves: 1200
+Test 587 / 1000: Average Score 9054
+Total Score: 9190
+Total Moves: 1200
+Test 588 / 1000: Average Score 9054
+Total Score: 9540
+Total Moves: 1200
+Test 589 / 1000: Average Score 9055
+Total Score: 9550
+Total Moves: 1200
+Test 590 / 1000: Average Score 9056
+Total Score: 9450
+Total Moves: 1200
+Test 591 / 1000: Average Score 9057
+Total Score: 9120
+Total Moves: 1200
+Test 592 / 1000: Average Score 9057
+Total Score: 9705
+Total Moves: 1200
+Test 593 / 1000: Average Score 9058
+Total Score: 9410
+Total Moves: 1200
+Test 594 / 1000: Average Score 9058
+Total Score: 9940
+Total Moves: 1200
+Test 595 / 1000: Average Score 9060
+Total Score: 9105
+Total Moves: 1200
+Test 596 / 1000: Average Score 9060
+Total Score: 8990
+Total Moves: 1200
+Test 597 / 1000: Average Score 9060
+Total Score: 9935
+Total Moves: 1200
+Test 598 / 1000: Average Score 9061
+Total Score: 9420
+Total Moves: 1200
+Test 599 / 1000: Average Score 9062
+Total Score: 9405
+Total Moves: 1200
+Test 600 / 1000: Average Score 9062
+Total Score: 9190
+Total Moves: 1200
+Test 601 / 1000: Average Score 9063
+Total Score: 9550
+Total Moves: 1200
+Test 602 / 1000: Average Score 9063
+Total Score: 7601
+Total Moves: 1011
+Test 603 / 1000: Average Score 9061
+Total Score: 9465
+Total Moves: 1200
+Test 604 / 1000: Average Score 9062
+Total Score: 9345
+Total Moves: 1200
+Test 605 / 1000: Average Score 9062
+Total Score: 9875
+Total Moves: 1200
+Test 606 / 1000: Average Score 9064
+Total Score: 9185
+Total Moves: 1200
+Test 607 / 1000: Average Score 9064
+Total Score: 9140
+Total Moves: 1200
+Test 608 / 1000: Average Score 9064
+Total Score: 9450
+Total Moves: 1200
+Test 609 / 1000: Average Score 9064
+Total Score: 9185
+Total Moves: 1200
+Test 610 / 1000: Average Score 9065
+Total Score: 9465
+Total Moves: 1200
+Test 611 / 1000: Average Score 9065
+Total Score: 9310
+Total Moves: 1200
+Test 612 / 1000: Average Score 9066
+Total Score: 9355
+Total Moves: 1200
+Test 613 / 1000: Average Score 9066
+Total Score: 9315
+Total Moves: 1200
+Test 614 / 1000: Average Score 9067
+Total Score: 9190
+Total Moves: 1200
+Test 615 / 1000: Average Score 9067
+Total Score: 9760
+Total Moves: 1200
+Test 616 / 1000: Average Score 9068
+Total Score: 9240
+Total Moves: 1200
+Test 617 / 1000: Average Score 9068
+Total Score: 9040
+Total Moves: 1200
+Test 618 / 1000: Average Score 9068
+Total Score: 2883
+Total Moves: 398
+Test 619 / 1000: Average Score 9058
+Total Score: 9195
+Total Moves: 1200
+Test 620 / 1000: Average Score 9058
+Total Score: 9210
+Total Moves: 1200
+Test 621 / 1000: Average Score 9059
+Total Score: 5326
+Total Moves: 721
+Test 622 / 1000: Average Score 9053
+Total Score: 8995
+Total Moves: 1200
+Test 623 / 1000: Average Score 9053
+Total Score: 9495
+Total Moves: 1200
+Test 624 / 1000: Average Score 9053
+Total Score: 9580
+Total Moves: 1200
+Test 625 / 1000: Average Score 9054
+Total Score: 9145
+Total Moves: 1200
+Test 626 / 1000: Average Score 9054
+Total Score: 9205
+Total Moves: 1200
+Test 627 / 1000: Average Score 9054
+Total Score: 9295
+Total Moves: 1200
+Test 628 / 1000: Average Score 9055
+Total Score: 9690
+Total Moves: 1200
+Test 629 / 1000: Average Score 9056
+Total Score: 9390
+Total Moves: 1200
+Test 630 / 1000: Average Score 9056
+Total Score: 9270
+Total Moves: 1200
+Test 631 / 1000: Average Score 9057
+Total Score: 9360
+Total Moves: 1200
+Test 632 / 1000: Average Score 9057
+Total Score: 9190
+Total Moves: 1200
+Test 633 / 1000: Average Score 9057
+Total Score: 9165
+Total Moves: 1200
+Test 634 / 1000: Average Score 9058
+Total Score: 9590
+Total Moves: 1200
+Test 635 / 1000: Average Score 9058
+Total Score: 9150
+Total Moves: 1200
+Test 636 / 1000: Average Score 9059
+Total Score: 9495
+Total Moves: 1200
+Test 637 / 1000: Average Score 9059
+Total Score: 9325
+Total Moves: 1200
+Test 638 / 1000: Average Score 9060
+Total Score: 9035
+Total Moves: 1200
+Test 639 / 1000: Average Score 9060
+Total Score: 9340
+Total Moves: 1200
+Test 640 / 1000: Average Score 9060
+Total Score: 8995
+Total Moves: 1200
+Test 641 / 1000: Average Score 9060
+Total Score: 9450
+Total Moves: 1200
+Test 642 / 1000: Average Score 9061
+Total Score: 6150
+Total Moves: 850
+Test 643 / 1000: Average Score 9056
+Total Score: 9245
+Total Moves: 1200
+Test 644 / 1000: Average Score 9056
+Total Score: 9020
+Total Moves: 1200
+Test 645 / 1000: Average Score 9056
+Total Score: 9425
+Total Moves: 1200
+Test 646 / 1000: Average Score 9057
+Total Score: 6963
+Total Moves: 883
+Test 647 / 1000: Average Score 9054
+Total Score: 9375
+Total Moves: 1200
+Test 648 / 1000: Average Score 9054
+Total Score: 9380
+Total Moves: 1200
+Test 649 / 1000: Average Score 9055
+Total Score: 9250
+Total Moves: 1200
+Test 650 / 1000: Average Score 9055
+Total Score: 9320
+Total Moves: 1200
+Test 651 / 1000: Average Score 9055
+Total Score: 9130
+Total Moves: 1200
+Test 652 / 1000: Average Score 9055
+Total Score: 9100
+Total Moves: 1200
+Test 653 / 1000: Average Score 9055
+Total Score: 9380
+Total Moves: 1200
+Test 654 / 1000: Average Score 9056
+Total Score: 9185
+Total Moves: 1200
+Test 655 / 1000: Average Score 9056
+Total Score: 9075
+Total Moves: 1200
+Test 656 / 1000: Average Score 9056
+Total Score: 9040
+Total Moves: 1200
+Test 657 / 1000: Average Score 9056
+Total Score: 9340
+Total Moves: 1200
+Test 658 / 1000: Average Score 9057
+Total Score: 9295
+Total Moves: 1200
+Test 659 / 1000: Average Score 9057
+Total Score: 5194
+Total Moves: 704
+Test 660 / 1000: Average Score 9051
+Total Score: 9500
+Total Moves: 1200
+Test 661 / 1000: Average Score 9052
+Total Score: 9495
+Total Moves: 1200
+Test 662 / 1000: Average Score 9052
+Total Score: 9000
+Total Moves: 1200
+Test 663 / 1000: Average Score 9052
+Total Score: 9385
+Total Moves: 1200
+Test 664 / 1000: Average Score 9053
+Total Score: 9070
+Total Moves: 1200
+Test 665 / 1000: Average Score 9053
+Total Score: 9110
+Total Moves: 1200
+Test 666 / 1000: Average Score 9053
+Total Score: 9260
+Total Moves: 1200
+Test 667 / 1000: Average Score 9053
+Total Score: 9500
+Total Moves: 1200
+Test 668 / 1000: Average Score 9054
+Total Score: 8673
+Total Moves: 1143
+Test 669 / 1000: Average Score 9053
+Total Score: 9035
+Total Moves: 1200
+Test 670 / 1000: Average Score 9053
+Total Score: 9325
+Total Moves: 1200
+Test 671 / 1000: Average Score 9054
+Total Score: 9125
+Total Moves: 1200
+Test 672 / 1000: Average Score 9054
+Total Score: 9035
+Total Moves: 1200
+Test 673 / 1000: Average Score 9054
+Total Score: 9690
+Total Moves: 1200
+Test 674 / 1000: Average Score 9055
+Total Score: 9160
+Total Moves: 1200
+Test 675 / 1000: Average Score 9055
+Total Score: 9040
+Total Moves: 1200
+Test 676 / 1000: Average Score 9055
+Total Score: 8925
+Total Moves: 1200
+Test 677 / 1000: Average Score 9055
+Total Score: 9125
+Total Moves: 1200
+Test 678 / 1000: Average Score 9055
+Total Score: 9200
+Total Moves: 1200
+Test 679 / 1000: Average Score 9055
+Total Score: 9380
+Total Moves: 1200
+Test 680 / 1000: Average Score 9056
+Total Score: 9185
+Total Moves: 1200
+Test 681 / 1000: Average Score 9056
+Total Score: 9670
+Total Moves: 1200
+Test 682 / 1000: Average Score 9057
+Total Score: 9110
+Total Moves: 1200
+Test 683 / 1000: Average Score 9057
+Total Score: 9605
+Total Moves: 1200
+Test 684 / 1000: Average Score 9057
+Total Score: 9255
+Total Moves: 1200
+Test 685 / 1000: Average Score 9058
+Total Score: 9215
+Total Moves: 1200
+Test 686 / 1000: Average Score 9058
+Total Score: 9305
+Total Moves: 1200
+Test 687 / 1000: Average Score 9058
+Total Score: 9350
+Total Moves: 1200
+Test 688 / 1000: Average Score 9059
+Total Score: 5604
+Total Moves: 769
+Test 689 / 1000: Average Score 9054
+Total Score: 8805
+Total Moves: 1180
+Test 690 / 1000: Average Score 9053
+Total Score: 3045
+Total Moves: 425
+Test 691 / 1000: Average Score 9045
+Total Score: 8810
+Total Moves: 1200
+Test 692 / 1000: Average Score 9044
+Total Score: 9755
+Total Moves: 1200
+Test 693 / 1000: Average Score 9045
+Total Score: 9300
+Total Moves: 1200
+Test 694 / 1000: Average Score 9046
+Total Score: 9480
+Total Moves: 1200
+Test 695 / 1000: Average Score 9046
+Total Score: 9590
+Total Moves: 1200
+Test 696 / 1000: Average Score 9047
+Total Score: 9235
+Total Moves: 1200
+Test 697 / 1000: Average Score 9047
+Total Score: 9330
+Total Moves: 1200
+Test 698 / 1000: Average Score 9048
+Total Score: 9180
+Total Moves: 1200
+Test 699 / 1000: Average Score 9048
+Total Score: 9470
+Total Moves: 1200
+Test 700 / 1000: Average Score 9049
+Total Score: 9100
+Total Moves: 1200
+Test 701 / 1000: Average Score 9049
+Total Score: 9710
+Total Moves: 1200
+Test 702 / 1000: Average Score 9050
+Total Score: 7761
+Total Moves: 1026
+Test 703 / 1000: Average Score 9048
+Total Score: 9315
+Total Moves: 1200
+Test 704 / 1000: Average Score 9048
+Total Score: 9340
+Total Moves: 1200
+Test 705 / 1000: Average Score 9049
+Total Score: 9120
+Total Moves: 1200
+Test 706 / 1000: Average Score 9049
+Total Score: 9230
+Total Moves: 1200
+Test 707 / 1000: Average Score 9049
+Total Score: 9535
+Total Moves: 1200
+Test 708 / 1000: Average Score 9050
+Total Score: 9635
+Total Moves: 1200
+Test 709 / 1000: Average Score 9050
+Total Score: 9390
+Total Moves: 1200
+Test 710 / 1000: Average Score 9051
+Total Score: 9385
+Total Moves: 1200
+Test 711 / 1000: Average Score 9051
+Total Score: 9285
+Total Moves: 1200
+Test 712 / 1000: Average Score 9052
+Total Score: 9350
+Total Moves: 1200
+Test 713 / 1000: Average Score 9052
+Total Score: 9550
+Total Moves: 1200
+Test 714 / 1000: Average Score 9053
+Total Score: 9465
+Total Moves: 1200
+Test 715 / 1000: Average Score 9053
+Total Score: 9310
+Total Moves: 1200
+Test 716 / 1000: Average Score 9054
+Total Score: 9205
+Total Moves: 1200
+Test 717 / 1000: Average Score 9054
+Total Score: 9225
+Total Moves: 1200
+Test 718 / 1000: Average Score 9054
+Total Score: 9480
+Total Moves: 1200
+Test 719 / 1000: Average Score 9055
+Total Score: 9430
+Total Moves: 1200
+Test 720 / 1000: Average Score 9055
+Total Score: 9050
+Total Moves: 1200
+Test 721 / 1000: Average Score 9055
+Total Score: 9225
+Total Moves: 1200
+Test 722 / 1000: Average Score 9056
+Total Score: 9235
+Total Moves: 1200
+Test 723 / 1000: Average Score 9056
+Total Score: 9475
+Total Moves: 1200
+Test 724 / 1000: Average Score 9056
+Total Score: 9590
+Total Moves: 1200
+Test 725 / 1000: Average Score 9057
+Total Score: 9025
+Total Moves: 1200
+Test 726 / 1000: Average Score 9057
+Total Score: 9370
+Total Moves: 1200
+Test 727 / 1000: Average Score 9058
+Total Score: 8985
+Total Moves: 1200
+Test 728 / 1000: Average Score 9057
+Total Score: 9285
+Total Moves: 1200
+Test 729 / 1000: Average Score 9058
+Total Score: 2068
+Total Moves: 313
+Test 730 / 1000: Average Score 9048
+Total Score: 9065
+Total Moves: 1200
+Test 731 / 1000: Average Score 9048
+Total Score: 9090
+Total Moves: 1200
+Test 732 / 1000: Average Score 9048
+Total Score: 9230
+Total Moves: 1200
+Test 733 / 1000: Average Score 9048
+Total Score: 9190
+Total Moves: 1200
+Test 734 / 1000: Average Score 9049
+Total Score: 9495
+Total Moves: 1200
+Test 735 / 1000: Average Score 9049
+Total Score: 9275
+Total Moves: 1200
+Test 736 / 1000: Average Score 9050
+Total Score: 9190
+Total Moves: 1200
+Test 737 / 1000: Average Score 9050
+Total Score: 9260
+Total Moves: 1200
+Test 738 / 1000: Average Score 9050
+Total Score: 9315
+Total Moves: 1200
+Test 739 / 1000: Average Score 9050
+Total Score: 9410
+Total Moves: 1200
+Test 740 / 1000: Average Score 9051
+Total Score: 9395
+Total Moves: 1200
+Test 741 / 1000: Average Score 9051
+Total Score: 9450
+Total Moves: 1200
+Test 742 / 1000: Average Score 9052
+Total Score: 9330
+Total Moves: 1200
+Test 743 / 1000: Average Score 9052
+Total Score: 9450
+Total Moves: 1200
+Test 744 / 1000: Average Score 9053
+Total Score: 9250
+Total Moves: 1200
+Test 745 / 1000: Average Score 9053
+Total Score: 9065
+Total Moves: 1200
+Test 746 / 1000: Average Score 9053
+Total Score: 9165
+Total Moves: 1200
+Test 747 / 1000: Average Score 9053
+Total Score: 9030
+Total Moves: 1200
+Test 748 / 1000: Average Score 9053
+Total Score: 9470
+Total Moves: 1200
+Test 749 / 1000: Average Score 9054
+Total Score: 9580
+Total Moves: 1200
+Test 750 / 1000: Average Score 9054
+Total Score: 9225
+Total Moves: 1200
+Test 751 / 1000: Average Score 9055
+Total Score: 9960
+Total Moves: 1200
+Test 752 / 1000: Average Score 9056
+Total Score: 9620
+Total Moves: 1200
+Test 753 / 1000: Average Score 9057
+Total Score: 9240
+Total Moves: 1200
+Test 754 / 1000: Average Score 9057
+Total Score: 8855
+Total Moves: 1200
+Test 755 / 1000: Average Score 9057
+Total Score: 9240
+Total Moves: 1200
+Test 756 / 1000: Average Score 9057
+Total Score: 9335
+Total Moves: 1200
+Test 757 / 1000: Average Score 9057
+Total Score: 9075
+Total Moves: 1200
+Test 758 / 1000: Average Score 9057
+Total Score: 9270
+Total Moves: 1200
+Test 759 / 1000: Average Score 9058
+Total Score: 9225
+Total Moves: 1200
+Test 760 / 1000: Average Score 9058
+Total Score: 9385
+Total Moves: 1200
+Test 761 / 1000: Average Score 9058
+Total Score: 9425
+Total Moves: 1200
+Test 762 / 1000: Average Score 9059
+Total Score: 9290
+Total Moves: 1200
+Test 763 / 1000: Average Score 9059
+Total Score: 9325
+Total Moves: 1200
+Test 764 / 1000: Average Score 9059
+Total Score: 9235
+Total Moves: 1200
+Test 765 / 1000: Average Score 9060
+Total Score: 9265
+Total Moves: 1200
+Test 766 / 1000: Average Score 9060
+Total Score: 9190
+Total Moves: 1200
+Test 767 / 1000: Average Score 9060
+Total Score: 9270
+Total Moves: 1200
+Test 768 / 1000: Average Score 9060
+Total Score: 9460
+Total Moves: 1200
+Test 769 / 1000: Average Score 9061
+Total Score: 9630
+Total Moves: 1200
+Test 770 / 1000: Average Score 9062
+Total Score: 9240
+Total Moves: 1200
+Test 771 / 1000: Average Score 9062
+Total Score: 9195
+Total Moves: 1200
+Test 772 / 1000: Average Score 9062
+Total Score: 9155
+Total Moves: 1200
+Test 773 / 1000: Average Score 9062
+Total Score: 3947
+Total Moves: 537
+Test 774 / 1000: Average Score 9055
+Total Score: 9420
+Total Moves: 1200
+Test 775 / 1000: Average Score 9056
+Total Score: 9540
+Total Moves: 1200
+Test 776 / 1000: Average Score 9057
+Total Score: 9150
+Total Moves: 1200
+Test 777 / 1000: Average Score 9057
+Total Score: 9190
+Total Moves: 1200
+Test 778 / 1000: Average Score 9057
+Total Score: 9445
+Total Moves: 1200
+Test 779 / 1000: Average Score 9057
+Total Score: 9410
+Total Moves: 1200
+Test 780 / 1000: Average Score 9058
+Total Score: 9415
+Total Moves: 1200
+Test 781 / 1000: Average Score 9058
+Total Score: 9390
+Total Moves: 1200
+Test 782 / 1000: Average Score 9059
+Total Score: 9280
+Total Moves: 1200
+Test 783 / 1000: Average Score 9059
+Total Score: 9290
+Total Moves: 1200
+Test 784 / 1000: Average Score 9059
+Total Score: 8975
+Total Moves: 1200
+Test 785 / 1000: Average Score 9059
+Total Score: 9370
+Total Moves: 1200
+Test 786 / 1000: Average Score 9059
+Total Score: 9080
+Total Moves: 1200
+Test 787 / 1000: Average Score 9060
+Total Score: 9455
+Total Moves: 1200
+Test 788 / 1000: Average Score 9060
+Total Score: 9185
+Total Moves: 1200
+Test 789 / 1000: Average Score 9060
+Total Score: 9155
+Total Moves: 1200
+Test 790 / 1000: Average Score 9060
+Total Score: 9230
+Total Moves: 1200
+Test 791 / 1000: Average Score 9061
+Total Score: 7098
+Total Moves: 968
+Test 792 / 1000: Average Score 9058
+Total Score: 9130
+Total Moves: 1200
+Test 793 / 1000: Average Score 9058
+Total Score: 555
+Total Moves: 105
+Test 794 / 1000: Average Score 9047
+Total Score: 9355
+Total Moves: 1200
+Test 795 / 1000: Average Score 9048
+Total Score: 9225
+Total Moves: 1200
+Test 796 / 1000: Average Score 9048
+Total Score: 2433
+Total Moves: 348
+Test 797 / 1000: Average Score 9040
+Total Score: 9370
+Total Moves: 1200
+Test 798 / 1000: Average Score 9040
+Total Score: 9150
+Total Moves: 1200
+Test 799 / 1000: Average Score 9040
+Total Score: 9195
+Total Moves: 1200
+Test 800 / 1000: Average Score 9040
+Total Score: 9365
+Total Moves: 1200
+Test 801 / 1000: Average Score 9041
+Total Score: 9050
+Total Moves: 1200
+Test 802 / 1000: Average Score 9041
+Total Score: 9095
+Total Moves: 1200
+Test 803 / 1000: Average Score 9041
+Total Score: 9020
+Total Moves: 1200
+Test 804 / 1000: Average Score 9041
+Total Score: 9350
+Total Moves: 1200
+Test 805 / 1000: Average Score 9041
+Total Score: 9375
+Total Moves: 1200
+Test 806 / 1000: Average Score 9042
+Total Score: 2742
+Total Moves: 417
+Test 807 / 1000: Average Score 9034
+Total Score: 9460
+Total Moves: 1200
+Test 808 / 1000: Average Score 9034
+Total Score: 9350
+Total Moves: 1200
+Test 809 / 1000: Average Score 9035
+Total Score: 9440
+Total Moves: 1200
+Test 810 / 1000: Average Score 9035
+Total Score: 9385
+Total Moves: 1200
+Test 811 / 1000: Average Score 9036
+Total Score: 9115
+Total Moves: 1200
+Test 812 / 1000: Average Score 9036
+Total Score: 9350
+Total Moves: 1200
+Test 813 / 1000: Average Score 9036
+Total Score: 9320
+Total Moves: 1200
+Test 814 / 1000: Average Score 9037
+Total Score: 9700
+Total Moves: 1200
+Test 815 / 1000: Average Score 9037
+Total Score: 9165
+Total Moves: 1200
+Test 816 / 1000: Average Score 9038
+Total Score: 9035
+Total Moves: 1200
+Test 817 / 1000: Average Score 9038
+Total Score: 8850
+Total Moves: 1200
+Test 818 / 1000: Average Score 9037
+Total Score: 9110
+Total Moves: 1200
+Test 819 / 1000: Average Score 9037
+Total Score: 9155
+Total Moves: 1200
+Test 820 / 1000: Average Score 9038
+Total Score: 4667
+Total Moves: 647
+Test 821 / 1000: Average Score 9032
+Total Score: 9200
+Total Moves: 1200
+Test 822 / 1000: Average Score 9032
+Total Score: 9540
+Total Moves: 1200
+Test 823 / 1000: Average Score 9033
+Total Score: 9685
+Total Moves: 1200
+Test 824 / 1000: Average Score 9034
+Total Score: 9510
+Total Moves: 1200
+Test 825 / 1000: Average Score 9034
+Total Score: 9090
+Total Moves: 1200
+Test 826 / 1000: Average Score 9034
+Total Score: 9210
+Total Moves: 1200
+Test 827 / 1000: Average Score 9035
+Total Score: 9190
+Total Moves: 1200
+Test 828 / 1000: Average Score 9035
+Total Score: 9375
+Total Moves: 1200
+Test 829 / 1000: Average Score 9035
+Total Score: 9120
+Total Moves: 1200
+Test 830 / 1000: Average Score 9035
+Total Score: 9370
+Total Moves: 1200
+Test 831 / 1000: Average Score 9036
+Total Score: 9275
+Total Moves: 1200
+Test 832 / 1000: Average Score 9036
+Total Score: 9475
+Total Moves: 1200
+Test 833 / 1000: Average Score 9037
+Total Score: 9175
+Total Moves: 1200
+Test 834 / 1000: Average Score 9037
+Total Score: 9315
+Total Moves: 1200
+Test 835 / 1000: Average Score 9037
+Total Score: 9150
+Total Moves: 1200
+Test 836 / 1000: Average Score 9037
+Total Score: 9160
+Total Moves: 1200
+Test 837 / 1000: Average Score 9037
+Total Score: 9120
+Total Moves: 1200
+Test 838 / 1000: Average Score 9037
+Total Score: 9150
+Total Moves: 1200
+Test 839 / 1000: Average Score 9038
+Total Score: 9105
+Total Moves: 1200
+Test 840 / 1000: Average Score 9038
+Total Score: 9230
+Total Moves: 1200
+Test 841 / 1000: Average Score 9038
+Total Score: 9555
+Total Moves: 1200
+Test 842 / 1000: Average Score 9039
+Total Score: 9275
+Total Moves: 1200
+Test 843 / 1000: Average Score 9039
+Total Score: 9120
+Total Moves: 1200
+Test 844 / 1000: Average Score 9039
+Total Score: 9285
+Total Moves: 1200
+Test 845 / 1000: Average Score 9039
+Total Score: 9660
+Total Moves: 1200
+Test 846 / 1000: Average Score 9040
+Total Score: 9660
+Total Moves: 1200
+Test 847 / 1000: Average Score 9041
+Total Score: 9445
+Total Moves: 1200
+Test 848 / 1000: Average Score 9041
+Total Score: 9280
+Total Moves: 1200
+Test 849 / 1000: Average Score 9041
+Total Score: 9135
+Total Moves: 1200
+Test 850 / 1000: Average Score 9042
+Total Score: 9295
+Total Moves: 1200
+Test 851 / 1000: Average Score 9042
+Total Score: 9500
+Total Moves: 1200
+Test 852 / 1000: Average Score 9042
+Total Score: 9455
+Total Moves: 1200
+Test 853 / 1000: Average Score 9043
+Total Score: 9485
+Total Moves: 1200
+Test 854 / 1000: Average Score 9043
+Total Score: 9540
+Total Moves: 1200
+Test 855 / 1000: Average Score 9044
+Total Score: 4007
+Total Moves: 557
+Test 856 / 1000: Average Score 9038
+Total Score: 9115
+Total Moves: 1200
+Test 857 / 1000: Average Score 9038
+Total Score: 9195
+Total Moves: 1200
+Test 858 / 1000: Average Score 9038
+Total Score: 9580
+Total Moves: 1200
+Test 859 / 1000: Average Score 9039
+Total Score: 9145
+Total Moves: 1200
+Test 860 / 1000: Average Score 9039
+Total Score: 9200
+Total Moves: 1200
+Test 861 / 1000: Average Score 9039
+Total Score: 9440
+Total Moves: 1200
+Test 862 / 1000: Average Score 9040
+Total Score: 9175
+Total Moves: 1200
+Test 863 / 1000: Average Score 9040
+Total Score: 9505
+Total Moves: 1200
+Test 864 / 1000: Average Score 9040
+Total Score: 4811
+Total Moves: 661
+Test 865 / 1000: Average Score 9036
+Total Score: 9380
+Total Moves: 1200
+Test 866 / 1000: Average Score 9036
+Total Score: 9110
+Total Moves: 1200
+Test 867 / 1000: Average Score 9036
+Total Score: 9275
+Total Moves: 1200
+Test 868 / 1000: Average Score 9036
+Total Score: 9260
+Total Moves: 1200
+Test 869 / 1000: Average Score 9037
+Total Score: 4135
+Total Moves: 575
+Test 870 / 1000: Average Score 9031
+Total Score: 9505
+Total Moves: 1200
+Test 871 / 1000: Average Score 9031
+Total Score: 9315
+Total Moves: 1200
+Test 872 / 1000: Average Score 9032
+Total Score: 9145
+Total Moves: 1200
+Test 873 / 1000: Average Score 9032
+Total Score: 9360
+Total Moves: 1200
+Test 874 / 1000: Average Score 9032
+Total Score: 8915
+Total Moves: 1200
+Test 875 / 1000: Average Score 9032
+Total Score: 9340
+Total Moves: 1200
+Test 876 / 1000: Average Score 9033
+Total Score: 9255
+Total Moves: 1200
+Test 877 / 1000: Average Score 9033
+Total Score: 9325
+Total Moves: 1200
+Test 878 / 1000: Average Score 9033
+Total Score: 9390
+Total Moves: 1200
+Test 879 / 1000: Average Score 9033
+Total Score: 9285
+Total Moves: 1200
+Test 880 / 1000: Average Score 9034
+Total Score: 9245
+Total Moves: 1200
+Test 881 / 1000: Average Score 9034
+Total Score: 9575
+Total Moves: 1200
+Test 882 / 1000: Average Score 9035
+Total Score: 9430
+Total Moves: 1200
+Test 883 / 1000: Average Score 9035
+Total Score: 9280
+Total Moves: 1200
+Test 884 / 1000: Average Score 9035
+Total Score: 9270
+Total Moves: 1200
+Test 885 / 1000: Average Score 9036
+Total Score: 9450
+Total Moves: 1200
+Test 886 / 1000: Average Score 9036
+Total Score: 9260
+Total Moves: 1200
+Test 887 / 1000: Average Score 9036
+Total Score: 908
+Total Moves: 153
+Test 888 / 1000: Average Score 9027
+Total Score: 9450
+Total Moves: 1200
+Test 889 / 1000: Average Score 9028
+Total Score: 9325
+Total Moves: 1200
+Test 890 / 1000: Average Score 9028
+Total Score: 9345
+Total Moves: 1200
+Test 891 / 1000: Average Score 9028
+Total Score: 9885
+Total Moves: 1200
+Test 892 / 1000: Average Score 9029
+Total Score: 9805
+Total Moves: 1200
+Test 893 / 1000: Average Score 9030
+Total Score: 9415
+Total Moves: 1200
+Test 894 / 1000: Average Score 9031
+Total Score: 5551
+Total Moves: 741
+Test 895 / 1000: Average Score 9027
+Total Score: 9480
+Total Moves: 1200
+Test 896 / 1000: Average Score 9027
+Total Score: 9395
+Total Moves: 1200
+Test 897 / 1000: Average Score 9028
+Total Score: 9330
+Total Moves: 1200
+Test 898 / 1000: Average Score 9028
+Total Score: 9370
+Total Moves: 1200
+Test 899 / 1000: Average Score 9028
+Total Score: 9520
+Total Moves: 1200
+Test 900 / 1000: Average Score 9029
+Total Score: 9275
+Total Moves: 1200
+Test 901 / 1000: Average Score 9029
+Total Score: 8980
+Total Moves: 1200
+Test 902 / 1000: Average Score 9029
+Total Score: 9135
+Total Moves: 1200
+Test 903 / 1000: Average Score 9029
+Total Score: 9315
+Total Moves: 1200
+Test 904 / 1000: Average Score 9030
+Total Score: 8885
+Total Moves: 1200
+Test 905 / 1000: Average Score 9029
+Total Score: 9145
+Total Moves: 1200
+Test 906 / 1000: Average Score 9030
+Total Score: 9185
+Total Moves: 1200
+Test 907 / 1000: Average Score 9030
+Total Score: 9200
+Total Moves: 1200
+Test 908 / 1000: Average Score 9030
+Total Score: 8855
+Total Moves: 1200
+Test 909 / 1000: Average Score 9030
+Total Score: 9255
+Total Moves: 1200
+Test 910 / 1000: Average Score 9030
+Total Score: 9275
+Total Moves: 1200
+Test 911 / 1000: Average Score 9030
+Total Score: 9590
+Total Moves: 1200
+Test 912 / 1000: Average Score 9031
+Total Score: 9505
+Total Moves: 1200
+Test 913 / 1000: Average Score 9031
+Total Score: 9195
+Total Moves: 1200
+Test 914 / 1000: Average Score 9032
+Total Score: 9300
+Total Moves: 1200
+Test 915 / 1000: Average Score 9032
+Total Score: 9160
+Total Moves: 1200
+Test 916 / 1000: Average Score 9032
+Total Score: 9050
+Total Moves: 1200
+Test 917 / 1000: Average Score 9032
+Total Score: 9405
+Total Moves: 1200
+Test 918 / 1000: Average Score 9032
+Total Score: 3535
+Total Moves: 480
+Test 919 / 1000: Average Score 9026
+Total Score: 9105
+Total Moves: 1200
+Test 920 / 1000: Average Score 9026
+Total Score: 9155
+Total Moves: 1200
+Test 921 / 1000: Average Score 9027
+Total Score: 9110
+Total Moves: 1200
+Test 922 / 1000: Average Score 9027
+Total Score: 4254
+Total Moves: 574
+Test 923 / 1000: Average Score 9022
+Total Score: 9340
+Total Moves: 1200
+Test 924 / 1000: Average Score 9022
+Total Score: 9435
+Total Moves: 1200
+Test 925 / 1000: Average Score 9022
+Total Score: 9325
+Total Moves: 1200
+Test 926 / 1000: Average Score 9023
+Total Score: 9560
+Total Moves: 1200
+Test 927 / 1000: Average Score 9023
+Total Score: 9270
+Total Moves: 1200
+Test 928 / 1000: Average Score 9023
+Total Score: 9330
+Total Moves: 1200
+Test 929 / 1000: Average Score 9024
+Total Score: 9335
+Total Moves: 1200
+Test 930 / 1000: Average Score 9024
+Total Score: 9405
+Total Moves: 1200
+Test 931 / 1000: Average Score 9025
+Total Score: 9080
+Total Moves: 1200
+Test 932 / 1000: Average Score 9025
+Total Score: 9445
+Total Moves: 1200
+Test 933 / 1000: Average Score 9025
+Total Score: 9430
+Total Moves: 1200
+Test 934 / 1000: Average Score 9025
+Total Score: 9275
+Total Moves: 1200
+Test 935 / 1000: Average Score 9026
+Total Score: 9480
+Total Moves: 1200
+Test 936 / 1000: Average Score 9026
+Total Score: 9605
+Total Moves: 1200
+Test 937 / 1000: Average Score 9027
+Total Score: 9200
+Total Moves: 1200
+Test 938 / 1000: Average Score 9027
+Total Score: 9375
+Total Moves: 1200
+Test 939 / 1000: Average Score 9027
+Total Score: 9130
+Total Moves: 1200
+Test 940 / 1000: Average Score 9028
+Total Score: 9230
+Total Moves: 1200
+Test 941 / 1000: Average Score 9028
+Total Score: 9460
+Total Moves: 1200
+Test 942 / 1000: Average Score 9028
+Total Score: 9390
+Total Moves: 1200
+Test 943 / 1000: Average Score 9029
+Total Score: 9170
+Total Moves: 1200
+Test 944 / 1000: Average Score 9029
+Total Score: 9415
+Total Moves: 1200
+Test 945 / 1000: Average Score 9029
+Total Score: 9215
+Total Moves: 1200
+Test 946 / 1000: Average Score 9029
+Total Score: 9655
+Total Moves: 1200
+Test 947 / 1000: Average Score 9030
+Total Score: 9405
+Total Moves: 1200
+Test 948 / 1000: Average Score 9030
+Total Score: 9255
+Total Moves: 1200
+Test 949 / 1000: Average Score 9031
+Total Score: 6989
+Total Moves: 949
+Test 950 / 1000: Average Score 9028
+Total Score: 9655
+Total Moves: 1200
+Test 951 / 1000: Average Score 9029
+Total Score: 9430
+Total Moves: 1200
+Test 952 / 1000: Average Score 9030
+Total Score: 9235
+Total Moves: 1200
+Test 953 / 1000: Average Score 9030
+Total Score: 9245
+Total Moves: 1200
+Test 954 / 1000: Average Score 9030
+Total Score: 9640
+Total Moves: 1200
+Test 955 / 1000: Average Score 9031
+Total Score: 9120
+Total Moves: 1200
+Test 956 / 1000: Average Score 9031
+Total Score: 9115
+Total Moves: 1200
+Test 957 / 1000: Average Score 9031
+Total Score: 9360
+Total Moves: 1200
+Test 958 / 1000: Average Score 9031
+Total Score: 9130
+Total Moves: 1200
+Test 959 / 1000: Average Score 9031
+Total Score: 9155
+Total Moves: 1200
+Test 960 / 1000: Average Score 9031
+Total Score: 9400
+Total Moves: 1200
+Test 961 / 1000: Average Score 9032
+Total Score: 9430
+Total Moves: 1200
+Test 962 / 1000: Average Score 9032
+Total Score: 9570
+Total Moves: 1200
+Test 963 / 1000: Average Score 9033
+Total Score: 8885
+Total Moves: 1170
+Test 964 / 1000: Average Score 9033
+Total Score: 9450
+Total Moves: 1200
+Test 965 / 1000: Average Score 9033
+Total Score: 9485
+Total Moves: 1200
+Test 966 / 1000: Average Score 9033
+Total Score: 9495
+Total Moves: 1200
+Test 967 / 1000: Average Score 9034
+Total Score: 9460
+Total Moves: 1200
+Test 968 / 1000: Average Score 9034
+Total Score: 9205
+Total Moves: 1200
+Test 969 / 1000: Average Score 9035
+Total Score: 9300
+Total Moves: 1200
+Test 970 / 1000: Average Score 9035
+Total Score: 9660
+Total Moves: 1200
+Test 971 / 1000: Average Score 9035
+Total Score: 9405
+Total Moves: 1200
+Test 972 / 1000: Average Score 9036
+Total Score: 9575
+Total Moves: 1200
+Test 973 / 1000: Average Score 9036
+Total Score: 9275
+Total Moves: 1200
+Test 974 / 1000: Average Score 9037
+Total Score: 9375
+Total Moves: 1200
+Test 975 / 1000: Average Score 9037
+Total Score: 9280
+Total Moves: 1200
+Test 976 / 1000: Average Score 9037
+Total Score: 8030
+Total Moves: 1075
+Test 977 / 1000: Average Score 9036
+Total Score: 9485
+Total Moves: 1200
+Test 978 / 1000: Average Score 9037
+Total Score: 9485
+Total Moves: 1200
+Test 979 / 1000: Average Score 9037
+Total Score: 9610
+Total Moves: 1200
+Test 980 / 1000: Average Score 9038
+Total Score: 9655
+Total Moves: 1200
+Test 981 / 1000: Average Score 9038
+Total Score: 9125
+Total Moves: 1200
+Test 982 / 1000: Average Score 9038
+Total Score: 9335
+Total Moves: 1200
+Test 983 / 1000: Average Score 9039
+Total Score: 8730
+Total Moves: 1200
+Test 984 / 1000: Average Score 9038
+Total Score: 9335
+Total Moves: 1200
+Test 985 / 1000: Average Score 9039
+Total Score: 9150
+Total Moves: 1200
+Test 986 / 1000: Average Score 9039
+Total Score: 3552
+Total Moves: 462
+Test 987 / 1000: Average Score 9033
+Total Score: 9420
+Total Moves: 1200
+Test 988 / 1000: Average Score 9034
+Total Score: 9185
+Total Moves: 1200
+Test 989 / 1000: Average Score 9034
+Total Score: 9330
+Total Moves: 1200
+Test 990 / 1000: Average Score 9034
+Total Score: 9125
+Total Moves: 1200
+Test 991 / 1000: Average Score 9034
+Total Score: 9390
+Total Moves: 1200
+Test 992 / 1000: Average Score 9035
+Total Score: 9265
+Total Moves: 1200
+Test 993 / 1000: Average Score 9035
+Total Score: 9250
+Total Moves: 1200
+Test 994 / 1000: Average Score 9035
+Total Score: 9150
+Total Moves: 1200
+Test 995 / 1000: Average Score 9035
+Total Score: 9590
+Total Moves: 1200
+Test 996 / 1000: Average Score 9036
+Total Score: 9000
+Total Moves: 1200
+Test 997 / 1000: Average Score 9036
+Total Score: 9035
+Total Moves: 1200
+Test 998 / 1000: Average Score 9036
+Total Score: 8710
+Total Moves: 1200
+Test 999 / 1000: Average Score 9035
+Total Score: 9200
+Total Moves: 1200
+Test 1000 / 1000: Average Score 9035
